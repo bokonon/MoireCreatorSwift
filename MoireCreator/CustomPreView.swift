@@ -1,0 +1,33 @@
+//
+//  CustomPreView.swift
+//  MoireCreator
+//
+//  Created by yuji shimada on 2015/12/05.
+//  Copyright © 2015年 yuji shimada. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+@IBDesignable class CustomPreView: UIView {
+    
+    // courner radius
+    @IBInspectable var cornerRadius: CGFloat = 0.0
+    
+    // border
+    @IBInspectable var borderColor: UIColor = UIColor.clearColor()
+    @IBInspectable var borderWidth: CGFloat = 0.0
+    
+    override func drawRect(rect: CGRect) {
+        
+        // courner radius
+        self.layer.cornerRadius = cornerRadius
+        self.clipsToBounds = (cornerRadius > 0)
+        
+        // border line
+        self.layer.borderColor = borderColor.CGColor
+        self.layer.borderWidth = borderWidth
+        
+        super.drawRect(rect)
+    }
+}
