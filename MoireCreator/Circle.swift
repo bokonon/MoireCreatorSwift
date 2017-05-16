@@ -19,7 +19,7 @@ class Circle: BaseType {
     var path: UIBezierPath!
     
     let start:CGFloat = 0.0
-    let end :CGFloat = CGFloat(M_PI)*2
+    let end :CGFloat = CGFloat(Double.pi)*2
     
     override init(){
         super.init()

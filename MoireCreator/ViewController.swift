@@ -86,9 +86,6 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
         
         moveCount = 0
         
-//        let touch = touches.first!
-//        let firstPoint = touch.locationInView(moireView)
-        
         let touchEvent = touches.first!
         let firstPoint: CGPoint = touchEvent.previousLocation(in: moireView)
         
@@ -102,9 +99,6 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
         print("moveCount", moveCount)
         
         if(moireView.moireType == typeOriginal) {
-//            let touch = touches.first!
-//            let movePoint = touch.locationInView(moireView)
-            
             let touchEvent = touches.first!
             let movePoint: CGPoint = touchEvent.previousLocation(in: moireView)
             
@@ -134,9 +128,6 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
         
         let touch = touches.first!
         let endPoint = touch.location(in: moireView)
-        
-//        let touchEvent = touches.first!
-//        let endPoint: CGPoint = touchEvent.previousLocationInView(self.view)
         
         moireView.setTouchingMode(currentLine, isTouching: false, firstPoint: endPoint)
     }

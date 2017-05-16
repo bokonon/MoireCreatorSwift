@@ -201,16 +201,16 @@ class UIMoireView: UIView {
         }
         
         // set number
-        let lineANumber: Int = userDefault.integer(forKey: "lineANumber") ?? maxLines
-        let lineBNumber: Int = userDefault.integer(forKey: "lineBNumber") ?? maxLines
+        let lineANumber: Int = userDefault.integer(forKey: "lineANumber")
+        let lineBNumber: Int = userDefault.integer(forKey: "lineBNumber")
         
         // set thick
-        let lineAThick: Int = userDefault.integer(forKey: "lineAThick") ?? 1
-        let lineBThick: Int = userDefault.integer(forKey: "lineBThick") ?? 1
+        let lineAThick: Int = userDefault.integer(forKey: "lineAThick")
+        let lineBThick: Int = userDefault.integer(forKey: "lineBThick")
         
         // set slope
-        let lineASlope: Int = userDefault.integer(forKey: "lineASlope") ?? 10
-        let lineBSlope: Int = userDefault.integer(forKey: "lineBSlope") ?? 10
+        let lineASlope: Int = userDefault.integer(forKey: "lineASlope")
+        let lineBSlope: Int = userDefault.integer(forKey: "lineBSlope")
         
         switch moireType {
         case typeLine:

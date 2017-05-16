@@ -106,7 +106,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     // when go to color picker screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         
-        print(segue.identifier ?? <#default value#>)
+        print(segue.identifier as Any)
         
         if (segue.identifier == "lineASegue") {
             colorCategory = lineA
@@ -159,7 +159,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         let userDefault = UserDefaults.standard
         
         // set Type
-        let type: Int = userDefault.integer(forKey: "type") ?? 0
+        let type: Int = userDefault.integer(forKey: "type")
         switch type {
         case typeLine:
             self.typeTextField.text = "Line"
@@ -181,36 +181,36 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         // set number
         lineANumberSlider.minimumValue = 10
         lineANumberSlider.maximumValue = Float(maxLines)
-        let lineANumberValue: Int = userDefault.integer(forKey: "lineANumber") ?? maxLines
+        let lineANumberValue: Int = userDefault.integer(forKey: "lineANumber")
         lineANumberSlider.setValue(Float(lineANumberValue), animated: true)
         lineANumberLabel.text = String(lineANumberValue)
         lineBNumberSlider.minimumValue = 10
         lineBNumberSlider.maximumValue = Float(maxLines)
-        let lineBNumberValue: Int = userDefault.integer(forKey: "lineBNumber") ?? maxLines
+        let lineBNumberValue: Int = userDefault.integer(forKey: "lineBNumber")
         lineBNumberSlider.setValue(Float(lineBNumberValue), animated: true)
         lineBNumberLabel.text = String(lineBNumberValue)
         
         // set thick
         lineAThickSlider.minimumValue = 1
         lineAThickSlider.maximumValue = Float(maxThick)
-        let lineAThickValue: Int = userDefault.integer(forKey: "lineAThick") ?? 1
+        let lineAThickValue: Int = userDefault.integer(forKey: "lineAThick")
         lineAThickSlider.setValue(Float(lineAThickValue), animated: true)
         lineAThickLabel.text = String(lineAThickValue)
         lineBThickSlider.minimumValue = 1
         lineBThickSlider.maximumValue = Float(maxThick)
-        let lineBThickValue: Int = userDefault.integer(forKey: "lineBThick") ?? 1
+        let lineBThickValue: Int = userDefault.integer(forKey: "lineBThick")
         lineBThickSlider.setValue(Float(lineBThickValue), animated: true)
         lineBThickLabel.text = String(lineBThickValue)
         
         // set slope
         lineASlopeSlider.minimumValue = 0
         lineASlopeSlider.maximumValue = Float(maxSlope)
-        let lineASlopeValue: Int = userDefault.integer(forKey: "lineASlope") ?? 10
+        let lineASlopeValue: Int = userDefault.integer(forKey: "lineASlope")
         lineASlopeSlider.setValue(Float(lineASlopeValue), animated: true)
         lineASlopeLabel.text = String(lineASlopeValue)
         lineBSlopeSlider.minimumValue = 0
         lineBSlopeSlider.maximumValue = Float(maxSlope)
-        let lineBSlopeValue: Int = userDefault.integer(forKey: "lineBSlope") ?? 10
+        let lineBSlopeValue: Int = userDefault.integer(forKey: "lineBSlope")
         lineBSlopeSlider.setValue(Float(lineBSlopeValue), animated: true)
         lineBSlopeLabel.text = String(lineBSlopeValue)
     }
