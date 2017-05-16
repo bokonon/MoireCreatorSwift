@@ -349,19 +349,25 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "yuji shimada";
 				TargetAttributes = {
 					BA0DC0E71BE6063A00670C67 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = YVYVV5ZB3C;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Manual;
 					};
 					BA0DC0FB1BE6063A00670C67 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 26YNG8G4WG;
+						LastSwiftMigration = 0830;
 						TestTargetID = BA0DC0E71BE6063A00670C67;
 					};
 					BA0DC1061BE6063A00670C67 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
 						TestTargetID = BA0DC0E71BE6063A00670C67;
 					};
 				};
@@ -629,8 +635,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: yuji.shimada@gmail.com (Q5QNK2V4EK)";
@@ -675,8 +683,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: yuji shimada (YVYVV5ZB3C)";
@@ -697,6 +707,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "20294a45-6d85-4d86-a3f0-ff3722e1672b";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -708,6 +719,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YVYVV5ZB3C;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -717,8 +729,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ys.moire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2c7182ad-0f2b-49ac-84d4-f89862ada661";
+				PROVISIONING_PROFILE_SPECIFIER = develop;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -728,7 +742,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = YVYVV5ZB3C;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -738,42 +753,58 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ys.moire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "58b09502-a659-4f14-a64d-6a51f31d0109";
+				PROVISIONING_PROFILE_SPECIFIER = distribution;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		BA0DC1141BE6063A00670C67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3623330218946750E7B02485 /* Pods-MoireCreator.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 26YNG8G4WG;
 				INFOPLIST_FILE = MoireCreatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ys.MoireCreatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoireCreator.app/MoireCreator";
 			};
 			name = Debug;
 		};
 		BA0DC1151BE6063A00670C67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E0D1519FCA74E6A9D4B9D4E /* Pods-MoireCreator.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 26YNG8G4WG;
 				INFOPLIST_FILE = MoireCreatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ys.MoireCreatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoireCreator.app/MoireCreator";
 			};
 			name = Release;
 		};
 		BA0DC1171BE6063A00670C67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3623330218946750E7B02485 /* Pods-MoireCreator.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MoireCreatorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ys.MoireCreatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MoireCreator;
 				USES_XCTRUNNER = YES;
 			};
@@ -781,11 +812,17 @@
 		};
 		BA0DC1181BE6063A00670C67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E0D1519FCA74E6A9D4B9D4E /* Pods-MoireCreator.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MoireCreatorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ys.MoireCreatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MoireCreator;
 				USES_XCTRUNNER = YES;
 			};
