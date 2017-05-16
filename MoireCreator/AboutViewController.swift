@@ -27,12 +27,12 @@ class AboutViewController: UIViewController {
         motionManager.deviceMotionUpdateInterval = 0.1 // 20Hz
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("AboutViewController viewWillAppear")
         
         // Start motion data acquisition
-        motionManager.startDeviceMotionUpdatesToQueue( NSOperationQueue.currentQueue()!, withHandler:{
+        motionManager.startDeviceMotionUpdates( to: OperationQueue.current!, withHandler:{
             deviceManager, error in
             
             // accelerate
@@ -60,21 +60,21 @@ class AboutViewController: UIViewController {
         })
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("AboutViewController viewDidAppear")
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("AboutViewController viewWillDisappear")
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("AboutViewController viewDidDisappear")
         
-        if motionManager.deviceMotionActive {
+        if motionManager.isDeviceMotionActive {
             motionManager.stopDeviceMotionUpdates()
         }
     }
@@ -84,7 +84,7 @@ class AboutViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func update(rx: Double, ry: Double) {
+    func update(_ rx: Double, ry: Double) {
         aboutView.move(rx, ry: ry)
         aboutView.checkInFrame()
 //        aboutView.setNeedsDisplay()

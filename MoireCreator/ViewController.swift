@@ -29,7 +29,7 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     
     var moveCount: Int = 0
     
-    var timer: NSTimer!
+    var timer: Timer!
     
     var isFirstFlg: Bool = true
 
@@ -41,16 +41,16 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("ViewController viewWillAppear")
         
         // automaticaly update view
         timer = nil
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("ViewController viewDidAppear")
         
@@ -61,16 +61,16 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("ViewController viewWillDisappear")
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("ViewController viewDidDisappear")
         
-        if timer.valid == true {
+        if timer.isValid == true {
             timer.invalidate()
             timer = nil
         }
@@ -81,43 +81,37 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("ViewController touchesBegan")
         
         moveCount = 0
         
-//        let touch = touches.first!
-//        let firstPoint = touch.locationInView(moireView)
-        
         let touchEvent = touches.first!
-        let firstPoint: CGPoint = touchEvent.previousLocationInView(moireView)
+        let firstPoint: CGPoint = touchEvent.previousLocation(in: moireView)
         
         moireView.setTouchingMode(currentLine, isTouching: true, firstPoint: firstPoint)
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("ViewController touchesMoved")
         
-        moveCount++
+        moveCount += 1
         print("moveCount", moveCount)
         
         if(moireView.moireType == typeOriginal) {
-//            let touch = touches.first!
-//            let movePoint = touch.locationInView(moireView)
-            
             let touchEvent = touches.first!
-            let movePoint: CGPoint = touchEvent.previousLocationInView(moireView)
+            let movePoint: CGPoint = touchEvent.previousLocation(in: moireView)
             
             moireView.touchOriginalMove(currentLine, movePoint: movePoint)
         }
         else {
             let touchEvent = touches.first!
             
-            let preDx = touchEvent.previousLocationInView(moireView).x
-            let preDy = touchEvent.previousLocationInView(moireView).y
+            let preDx = touchEvent.previousLocation(in: moireView).x
+            let preDy = touchEvent.previousLocation(in: moireView).y
             
-            let newDx = touchEvent.locationInView(moireView).x
-            let newDy = touchEvent.locationInView(moireView).y
+            let newDx = touchEvent.location(in: moireView).x
+            let newDy = touchEvent.location(in: moireView).y
             
             let dx = newDx - preDx
             print("x:\(dx)")
@@ -129,22 +123,19 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("ViewController touchesEnded")
         
         let touch = touches.first!
-        let endPoint = touch.locationInView(moireView)
-        
-//        let touchEvent = touches.first!
-//        let endPoint: CGPoint = touchEvent.previousLocationInView(self.view)
+        let endPoint = touch.location(in: moireView)
         
         moireView.setTouchingMode(currentLine, isTouching: false, firstPoint: endPoint)
     }
     
     // when go to color picker screen
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "segue_for_setting") {
-            let settingView : SettingViewController = segue.destinationViewController as! SettingViewController
+            let settingView : SettingViewController = segue.destination as! SettingViewController
             settingView.delegate = self
         }
     }
@@ -161,42 +152,42 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     }
     
     // line a button click
-    @IBAction func aButtonClicked(sender: AnyObject) {
+    @IBAction func aButtonClicked(_ sender: AnyObject) {
         if(currentLine == lineB) {
             currentLine = lineA
             if let image = UIImage(named: "lineA_on.png") {
-                lineAButton.setBackgroundImage(image, forState: .Normal)
+                lineAButton.setBackgroundImage(image, for: UIControlState())
             }
             if let image = UIImage(named: "lineB_off.png") {
-                lineBButton.setBackgroundImage(image, forState: .Normal)
+                lineBButton.setBackgroundImage(image, for: UIControlState())
             }
         }
     }
     
     // line b button click
-    @IBAction func bButtonClicked(sender: AnyObject) {
+    @IBAction func bButtonClicked(_ sender: AnyObject) {
         if(currentLine == lineA) {
             currentLine = lineB
             if let image = UIImage(named: "lineB_on.png") {
-                lineBButton.setBackgroundImage(image, forState: .Normal)
+                lineBButton.setBackgroundImage(image, for: UIControlState())
             }
             if let image = UIImage(named: "lineA_off.png") {
-                lineAButton.setBackgroundImage(image, forState: .Normal)
+                lineAButton.setBackgroundImage(image, for: UIControlState())
             }
         }
     }
     
     // play button click
-    @IBAction func playButtonClicked(sender: AnyObject) {
+    @IBAction func playButtonClicked(_ sender: AnyObject) {
         if(moireView.getOnPause()) {
             if let image = UIImage(named: "stop.png") {
-                playButton.setBackgroundImage(image, forState: .Normal)
+                playButton.setBackgroundImage(image, for: UIControlState())
                 moireView.setOnpause(false)
             }
         }
         else {
             if let image = UIImage(named: "play.png") {
-                playButton.setBackgroundImage(image, forState: .Normal)
+                playButton.setBackgroundImage(image, for: UIControlState())
                 moireView.setOnpause(true)
             }
         }
@@ -204,28 +195,28 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     }
     
     // capture button click
-    @IBAction func captureButtonClicked(sender: AnyObject) {
+    @IBAction func captureButtonClicked(_ sender: AnyObject) {
         if(moireView != nil) {
             let image = moireView.getCapture()
             
-            UIImageWriteToSavedPhotosAlbum(image, self, "image:didFinishSavingWithError:contextInfo:", nil)
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(ViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
         }
     }
     
-    func image(image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutablePointer<Void>) {
+    func image(_ image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
         if error != nil {
             print(error.code)
         }
     }
     
     func initUserDefault() {
-        let userDefault = NSUserDefaults.standardUserDefaults()
-        userDefault.registerDefaults(["lineANumber": 50])
-        userDefault.registerDefaults(["lineBNumber": 50])
-        userDefault.registerDefaults(["lineAThick": 1])
-        userDefault.registerDefaults(["lineBThick": 1])
-        userDefault.registerDefaults(["lineASlope": 10])
-        userDefault.registerDefaults(["lineBSlope": 10])
+        let userDefault = UserDefaults.standard
+        userDefault.register(defaults: ["lineANumber": 50])
+        userDefault.register(defaults: ["lineBNumber": 50])
+        userDefault.register(defaults: ["lineAThick": 1])
+        userDefault.register(defaults: ["lineBThick": 1])
+        userDefault.register(defaults: ["lineASlope": 10])
+        userDefault.register(defaults: ["lineBSlope": 10])
     }
 }
 

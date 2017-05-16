@@ -11,22 +11,22 @@ import UIKit
 
 class CustomLabel: UILabel {
     
-    override func drawTextInRect(rect: CGRect) {
+    override func drawText(in rect: CGRect) {
         let shadowOffset = self.shadowOffset
         
         let c = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(c, 1)
-        CGContextSetLineJoin(c, CGLineJoin.Round)
+        c?.setLineWidth(1)
+        c?.setLineJoin(CGLineJoin.round)
         
-        CGContextSetTextDrawingMode(c, CGTextDrawingMode.Stroke)
-        self.textColor = UIColor.blackColor()
-        super.drawTextInRect(rect)
+        c?.setTextDrawingMode(CGTextDrawingMode.stroke)
+        self.textColor = UIColor.black
+        super.drawText(in: rect)
         
-        CGContextSetTextDrawingMode(c, CGTextDrawingMode.Fill)
+        c?.setTextDrawingMode(CGTextDrawingMode.fill)
         
-        self.textColor = UIColor.whiteColor()
+        self.textColor = UIColor.white
         self.shadowOffset = CGSize(width: 0, height: 0)
-        super.drawTextInRect(rect)
+        super.drawText(in: rect)
         
         self.shadowOffset = shadowOffset
     }

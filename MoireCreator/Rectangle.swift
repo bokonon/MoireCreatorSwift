@@ -59,15 +59,15 @@ class Rectangle: BaseType {
         }
         
         path.removeAllPoints()
-        path.moveToPoint(leftTopPoint)
-        path.addLineToPoint(rightTopPoint)
-        path.addLineToPoint(rightBottomPoint)
-        path.addLineToPoint(leftBottomPoint)
+        path.move(to: leftTopPoint)
+        path.addLine(to: rightTopPoint)
+        path.addLine(to: rightBottomPoint)
+        path.addLine(to: leftBottomPoint)
         // for draw
-        path.addLineToPoint(CGPoint(x: leftTopPoint.x, y: leftTopPoint.y - CGFloat(thick)/2))
+        path.addLine(to: CGPoint(x: leftTopPoint.x, y: leftTopPoint.y - CGFloat(thick)/2))
     }
     
-    override func autoMove(dx :CGFloat){
+    override func autoMove(_ dx :CGFloat){
         leftTopPoint.x += dx
         rightTopPoint.x += dx
         rightBottomPoint.x += dx
@@ -75,7 +75,7 @@ class Rectangle: BaseType {
         setPath()
     }
     
-    override func touchMove(dx :CGFloat, dy :CGFloat){
+    override func touchMove(_ dx :CGFloat, dy :CGFloat){
         leftTopPoint.x += dx
         rightTopPoint.x += dx
         rightBottomPoint.x += dx
@@ -87,7 +87,7 @@ class Rectangle: BaseType {
         setPath()
     }
     
-    func checkOutOfRange(frameWidth :Int, slope :Int, whichLine :Int, centerX: CGFloat){
+    func checkOutOfRange(_ frameWidth :Int, slope :Int, whichLine :Int, centerX: CGFloat){
         if(whichLine == lineA) {
             leftTopPoint = CGPoint(x: centerX - CGFloat(length)/2 , y: leftTopPoint.y)
             rightTopPoint = CGPoint(x: centerX + CGFloat(slope) + CGFloat(length)/2, y: rightTopPoint.y)
@@ -105,15 +105,15 @@ class Rectangle: BaseType {
     
     func setPath(){
         path.removeAllPoints()
-        path.moveToPoint(leftTopPoint)
-        path.addLineToPoint(rightTopPoint)
-        path.addLineToPoint(rightBottomPoint)
-        path.addLineToPoint(leftBottomPoint)
+        path.move(to: leftTopPoint)
+        path.addLine(to: rightTopPoint)
+        path.addLine(to: rightBottomPoint)
+        path.addLine(to: leftBottomPoint)
         // for draw
-        path.addLineToPoint(CGPoint(x: leftTopPoint.x, y: leftTopPoint.y - CGFloat(thick)/2))
+        path.addLine(to: CGPoint(x: leftTopPoint.x, y: leftTopPoint.y - CGFloat(thick)/2))
     }
     
-    func setThick(thick: Int) {
+    func setThick(_ thick: Int) {
         self.thick = thick
     }
     

@@ -46,13 +46,13 @@ class Lines: BaseTypes {
         }
     }
     
-    override func checkOutOfRange(frameWidth :Int){
+    override func checkOutOfRange(_ frameWidth :Int){
         for i in 0..<lines.count {
             lines[i].checkOutOfRange(frameWidth, slope: slope)
         }
     }
     
-    override func move(whichLine :Int){
+    override func move(_ whichLine :Int){
         if(whichLine == lineA) {
             for i in 0..<lines.count {
                 lines[i].autoMove(dx);
@@ -66,7 +66,7 @@ class Lines: BaseTypes {
         }
     }
     
-    override func touchMove(dx: CGFloat, dy: CGFloat){
+    override func touchMove(_ dx: CGFloat, dy: CGFloat){
         for i in 0..<lines.count {
             lines[i].touchMove(dx, dy: dy);
         }

@@ -65,7 +65,7 @@ class UIMoireView: UIView {
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         switch moireType {
         case typeLine:
@@ -169,10 +169,10 @@ class UIMoireView: UIView {
         print("frameHeight : ", frameHeight)
         
         // get userdefault
-        let userDefault = NSUserDefaults.standardUserDefaults()
+        let userDefault = UserDefaults.standard
         // set background preview color
-        if let backgroundColorData  = userDefault.objectForKey("backgroundColor") as? NSData {
-            if let backColor = NSKeyedUnarchiver.unarchiveObjectWithData(backgroundColorData) as? UIColor {
+        if let backgroundColorData  = userDefault.object(forKey: "backgroundColor") as? Data {
+            if let backColor = NSKeyedUnarchiver.unarchiveObject(with: backgroundColorData) as? UIColor {
                 self.backgroundColor = backColor
             }
         }
@@ -180,37 +180,37 @@ class UIMoireView: UIView {
             self.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }
         // set type
-        moireType = userDefault.integerForKey("type")
+        moireType = userDefault.integer(forKey: "type")
         
         print("moireType : ", moireType)
         
         // set color
         let lineAColor: UIColor
-        if let lineAColorData  = userDefault.objectForKey("lineAColor") as? NSData {
-            lineAColor = (NSKeyedUnarchiver.unarchiveObjectWithData(lineAColorData) as? UIColor)!
+        if let lineAColorData  = userDefault.object(forKey: "lineAColor") as? Data {
+            lineAColor = (NSKeyedUnarchiver.unarchiveObject(with: lineAColorData) as? UIColor)!
         }
         else {
             lineAColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         }
         let lineBColor: UIColor
-        if let lineBColorData  = userDefault.objectForKey("lineBColor") as? NSData {
-            lineBColor = (NSKeyedUnarchiver.unarchiveObjectWithData(lineBColorData) as? UIColor)!
+        if let lineBColorData  = userDefault.object(forKey: "lineBColor") as? Data {
+            lineBColor = (NSKeyedUnarchiver.unarchiveObject(with: lineBColorData) as? UIColor)!
         }
         else {
             lineBColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         }
         
         // set number
-        let lineANumber: Int = userDefault.integerForKey("lineANumber") ?? maxLines
-        let lineBNumber: Int = userDefault.integerForKey("lineBNumber") ?? maxLines
+        let lineANumber: Int = userDefault.integer(forKey: "lineANumber")
+        let lineBNumber: Int = userDefault.integer(forKey: "lineBNumber")
         
         // set thick
-        let lineAThick: Int = userDefault.integerForKey("lineAThick") ?? 1
-        let lineBThick: Int = userDefault.integerForKey("lineBThick") ?? 1
+        let lineAThick: Int = userDefault.integer(forKey: "lineAThick")
+        let lineBThick: Int = userDefault.integer(forKey: "lineBThick")
         
         // set slope
-        let lineASlope: Int = userDefault.integerForKey("lineASlope") ?? 10
-        let lineBSlope: Int = userDefault.integerForKey("lineBSlope") ?? 10
+        let lineASlope: Int = userDefault.integer(forKey: "lineASlope")
+        let lineBSlope: Int = userDefault.integer(forKey: "lineBSlope")
         
         switch moireType {
         case typeLine:
@@ -249,7 +249,7 @@ class UIMoireView: UIView {
         
     }
     
-    func touchMove(whichLine: Int, dx: CGFloat, dy: CGFloat) {
+    func touchMove(_ whichLine: Int, dx: CGFloat, dy: CGFloat) {
         switch moireType {
         case typeLine:
             if(whichLine == lineA) {
@@ -292,7 +292,7 @@ class UIMoireView: UIView {
         }
     }
     
-    func touchOriginalMove(whichLine: Int, movePoint: CGPoint) {
+    func touchOriginalMove(_ whichLine: Int, movePoint: CGPoint) {
         
         if(whichLine == lineA) {
             originalsA.touchMove(movePoint)
@@ -306,7 +306,7 @@ class UIMoireView: UIView {
         }
     }
 
-    func setOnpause(isPause: Bool) {
+    func setOnpause(_ isPause: Bool) {
         self.isPause = isPause
     }
     
@@ -315,15 +315,15 @@ class UIMoireView: UIView {
     }
     
     func getCapture() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.mainScreen().scale)
-        drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        return image!
     }
     
-    func setTouchingMode(touchingLine: Int, isTouching: Bool, firstPoint: CGPoint) {
+    func setTouchingMode(_ touchingLine: Int, isTouching: Bool, firstPoint: CGPoint) {
         self.isTouchingLine = touchingLine
         self.isTouching = isTouching
         

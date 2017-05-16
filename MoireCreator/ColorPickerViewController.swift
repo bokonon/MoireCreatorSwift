@@ -45,11 +45,11 @@ class ColorPickerViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "< Back", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
+        let newBackButton = UIBarButtonItem(title: "< Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ColorPickerViewController.back(_:)))
         self.navigationItem.leftBarButtonItem = newBackButton;
         
         // get userdefault
-        let userDefault = NSUserDefaults.standardUserDefaults()
+        let userDefault = UserDefaults.standard
         
         // for get ARGB
         var red: CGFloat     = 1.0
@@ -61,8 +61,8 @@ class ColorPickerViewController: UIViewController {
         case lineA:
             self.categoryTitle.text = "Line A"
             // get LineA preview color
-            if let lineAColorData  = userDefault.objectForKey("lineAColor") as? NSData {
-                if let lineAColor = NSKeyedUnarchiver.unarchiveObjectWithData(lineAColorData) as? UIColor {
+            if let lineAColorData  = userDefault.object(forKey: "lineAColor") as? Data {
+                if let lineAColor = NSKeyedUnarchiver.unarchiveObject(with: lineAColorData) as? UIColor {
                     lineAColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
                     break
                 }
@@ -71,8 +71,8 @@ class ColorPickerViewController: UIViewController {
         case lineB:
             self.categoryTitle.text = "Line B"
             // get LineB preview color
-            if let lineBColorData  = userDefault.objectForKey("lineBColor") as? NSData {
-                if let lineBColor = NSKeyedUnarchiver.unarchiveObjectWithData(lineBColorData) as? UIColor {
+            if let lineBColorData  = userDefault.object(forKey: "lineBColor") as? Data {
+                if let lineBColor = NSKeyedUnarchiver.unarchiveObject(with: lineBColorData) as? UIColor {
                     lineBColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
                     break
                 }
@@ -81,8 +81,8 @@ class ColorPickerViewController: UIViewController {
         case background:
             self.categoryTitle.text = "Background"
             // get background preview color
-            if let backgroundColorData  = userDefault.objectForKey("backgroundColor") as? NSData {
-                if let backgroundColor = NSKeyedUnarchiver.unarchiveObjectWithData(backgroundColorData) as? UIColor {
+            if let backgroundColorData  = userDefault.object(forKey: "backgroundColor") as? Data {
+                if let backgroundColor = NSKeyedUnarchiver.unarchiveObject(with: backgroundColorData) as? UIColor {
                     backgroundColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
                     break
                 }
@@ -105,19 +105,19 @@ class ColorPickerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func sliderRedChanged(sender: AnyObject) {
+    @IBAction func sliderRedChanged(_ sender: AnyObject) {
         updatePreviewColor()
     }
     
-    @IBAction func sliderGreenChanged(sender: AnyObject) {
+    @IBAction func sliderGreenChanged(_ sender: AnyObject) {
         updatePreviewColor()
     }
     
-    @IBAction func sliderBlueChanged(sender: AnyObject) {
+    @IBAction func sliderBlueChanged(_ sender: AnyObject) {
         updatePreviewColor()
     }
     
-    @IBAction func sliderAlphaChanged(sender: AnyObject) {
+    @IBAction func sliderAlphaChanged(_ sender: AnyObject) {
         updatePreviewColor()
     }
     
@@ -130,35 +130,35 @@ class ColorPickerViewController: UIViewController {
     }
     
     // when back
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
     
     func saveToUserDefault() {
-        let colorData : NSData = NSKeyedArchiver.archivedDataWithRootObject(getUIColor())
+        let colorData : Data = NSKeyedArchiver.archivedData(withRootObject: getUIColor())
         // get userdefault
-        let userDefault = NSUserDefaults.standardUserDefaults()
+        let userDefault = UserDefaults.standard
         switch colorCategory {
         case lineA:
-            userDefault.setObject(colorData, forKey: "lineAColor")
+            userDefault.set(colorData, forKey: "lineAColor")
         case lineB:
-            userDefault.setObject(colorData, forKey: "lineBColor")
+            userDefault.set(colorData, forKey: "lineBColor")
         case background:
-            userDefault.setObject(colorData, forKey: "backgroundColor")
+            userDefault.set(colorData, forKey: "backgroundColor")
         default: break
             
         }
         userDefault.synchronize()
     }
     
-    func back(sender: UIBarButtonItem) {
+    func back(_ sender: UIBarButtonItem) {
         // save to userdefault
         saveToUserDefault()
         if(self.delegate != nil){
             // call delegate method
             self.delegate.pickerDidFinished()
         }
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
         print("ColorPickerViewController back")
     }
     

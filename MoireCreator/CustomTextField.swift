@@ -11,7 +11,7 @@ import UIKit
 
 class CustomTextField: UITextField {
     
-    override func caretRectForPosition(position: UITextPosition) -> CGRect {
-        return CGRectZero
+    override func caretRect(for position: UITextPosition) -> CGRect {
+        return CGRect.zero
     }
 }

@@ -20,24 +20,24 @@ class Original: BaseType {
         path = UIBezierPath()
     }
     
-    override func autoMove(dx :CGFloat){
+    override func autoMove(_ dx :CGFloat){
         for i in 0..<self.points.count {
             if(i == 0) {
                 let firstPoint: CGPoint = CGPoint(x: self.points[i].x + dx, y: self.points[i].y)
                 path.removeAllPoints()
-                path.moveToPoint(firstPoint)
+                path.move(to: firstPoint)
                 
                 points[i] = firstPoint
             }
             else {
                 let tempPoint: CGPoint = CGPoint(x: self.points[i].x + dx, y: self.points[i].y)
-                path.addLineToPoint(tempPoint)
+                path.addLine(to: tempPoint)
                 points[i] = tempPoint
             }
         }
     }
     
-    override func checkOutOfRange(frameWidth :Int){
+    override func checkOutOfRange(_ frameWidth :Int){
         var min: CGFloat = 0
         var max: CGFloat = 0
         for i in 0..<self.points.count {
@@ -59,13 +59,13 @@ class Original: BaseType {
                 if(i == 0) {
                     let firstPoint: CGPoint = CGPoint(x: CGFloat(frameWidth) - min + self.points[i].x, y: self.points[i].y)
                     path.removeAllPoints()
-                    path.moveToPoint(firstPoint)
+                    path.move(to: firstPoint)
                     
                     points[i] = firstPoint
                 }
                 else {
                     let tempPoint: CGPoint = CGPoint(x: CGFloat(frameWidth) - min + self.points[i].x, y: self.points[i].y)
-                    path.addLineToPoint(tempPoint)
+                    path.addLine(to: tempPoint)
                     points[i] = tempPoint
                 }
             }
@@ -77,29 +77,29 @@ class Original: BaseType {
                 if(i == 0) {
                     let firstPoint: CGPoint = CGPoint(x: tempDiff - baseDiff, y: self.points[i].y)
                     path.removeAllPoints()
-                    path.moveToPoint(firstPoint)
+                    path.move(to: firstPoint)
                     
                     points[i] = firstPoint
                 }
                 else {
                     let tempPoint: CGPoint = CGPoint(x: tempDiff - baseDiff, y: self.points[i].y)
-                    path.addLineToPoint(tempPoint)
+                    path.addLine(to: tempPoint)
                     points[i] = tempPoint
                 }
             }
         }
     }
     
-    func start(firstPoint :CGPoint) {
+    func start(_ firstPoint :CGPoint) {
         path.removeAllPoints()
-        path.moveToPoint(firstPoint)
+        path.move(to: firstPoint)
         
         points.removeAll()
         points.append(firstPoint)
     }
     
-    func touchMove(movePoint :CGPoint){
-        path.addLineToPoint(movePoint)
+    func touchMove(_ movePoint :CGPoint){
+        path.addLine(to: movePoint)
         
         points.append(movePoint)
     }

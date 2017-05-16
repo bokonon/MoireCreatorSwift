@@ -38,7 +38,7 @@ class UIAboutView: UIView {
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
     }
     
@@ -47,7 +47,7 @@ class UIAboutView: UIView {
 //        topMargin = statusBarHeight+barHeight
 //    }
     
-    func move(rx: Double, ry: Double) {
+    func move(_ rx: Double, ry: Double) {
         for i in 0..<chars!.count {
             let random: CGFloat = CGFloat(arc4random_uniform(5)+1)
             let randomAddVal: CGFloat = CGFloat(random/5)

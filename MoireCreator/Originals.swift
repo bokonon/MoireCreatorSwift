@@ -39,13 +39,13 @@ class Originals: BaseTypes {
         }
     }
     
-    override func checkOutOfRange(frameWidth :Int){
+    override func checkOutOfRange(_ frameWidth :Int){
         for i in 0..<originals.count {
             originals[i].checkOutOfRange(frameWidth)
         }
     }
     
-    override func move(whichLine :Int){
+    override func move(_ whichLine :Int){
         if(whichLine == lineA) {
             for i in 0..<originals.count {
                 originals[i].autoMove(dx)
@@ -58,7 +58,7 @@ class Originals: BaseTypes {
         }
     }
     
-    func start(firstPoint: CGPoint) {
+    func start(_ firstPoint: CGPoint) {
         let margin: CGFloat = drawRange/CGFloat(originals.count)
         for i in 0..<originals.count {
             let tempPointX: CGFloat = firstPoint.x - drawRange/2 + margin*CGFloat(i)
@@ -70,7 +70,7 @@ class Originals: BaseTypes {
         }
     }
     
-    func touchMove(movePoint: CGPoint) {
+    func touchMove(_ movePoint: CGPoint) {
         let margin: CGFloat = drawRange/CGFloat(originals.count)
         for i in 0..<originals.count {
             let tempPointX: CGFloat = movePoint.x - drawRange/2 + margin*CGFloat(i)
