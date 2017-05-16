@@ -47,7 +47,7 @@ class Rectangles: BaseTypes {
         }
     }
     
-    func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
+    func checkOutOfRange(_ frameWidth :Int, frameHeight :Int, whichLine :Int){
         // LineA //
         if(whichLine == lineA) {
             if(CGFloat(frameWidth) < rectangles[number-1].leftBottomPoint.x) {
@@ -84,7 +84,7 @@ class Rectangles: BaseTypes {
         }
     }
     
-    override func move(whichLine :Int){
+    override func move(_ whichLine :Int){
         if(whichLine == lineA) {
             for i in 0..<rectangles.count {
                 rectangles[i].autoMove(dx);
@@ -98,13 +98,13 @@ class Rectangles: BaseTypes {
         }
     }
     
-    override func touchMove(dx: CGFloat, dy: CGFloat){
+    override func touchMove(_ dx: CGFloat, dy: CGFloat){
         for i in 0..<rectangles.count {
             rectangles[i].touchMove(dx, dy: dy);
         }
     }
     
-    override func setThick(thick: Int) {
+    override func setThick(_ thick: Int) {
         self.thick = thick
         for i in 0..<rectangles.count {
             rectangles[i].setThick(thick)

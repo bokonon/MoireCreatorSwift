@@ -46,7 +46,7 @@ class Circles: BaseTypes {
         }
     }
     
-    override func checkOutOfRange(frameWidth :Int){
+    override func checkOutOfRange(_ frameWidth :Int){
         if(CGFloat(frameWidth) < circles[number-1].centerPoint.x - circles[number-1].radius) {
             for i in 0..<circles.count {
                 circles[i].checkOutOfRange(frameWidth)
@@ -59,7 +59,7 @@ class Circles: BaseTypes {
         }
     }
     
-    override func move(whichLine :Int){
+    override func move(_ whichLine :Int){
         if(whichLine == lineA) {
             for i in 0..<circles.count {
                 circles[i].autoMove(dx);
@@ -73,7 +73,7 @@ class Circles: BaseTypes {
         }
     }
     
-    override func touchMove(dx: CGFloat, dy: CGFloat){
+    override func touchMove(_ dx: CGFloat, dy: CGFloat){
         for i in 0..<circles.count {
             circles[i].touchMove(dx, dy: dy);
         }

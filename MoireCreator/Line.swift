@@ -27,17 +27,17 @@ class Line: BaseType {
         startPoint = CGPoint(x: basePoint - arg, y: 0)
         endPoint = CGPoint(x: Int(startPoint.x) - slope + arg*2, y: frameHeight)
         path.removeAllPoints()
-        path.moveToPoint(startPoint)
-        path.addLineToPoint(endPoint)
+        path.move(to: startPoint)
+        path.addLine(to: endPoint)
     }
     
-    override func autoMove(dx :CGFloat){
+    override func autoMove(_ dx :CGFloat){
         startPoint.x += dx
         endPoint.x += dx
         setPath()
     }
     
-    override func touchMove(dx :CGFloat, dy :CGFloat){
+    override func touchMove(_ dx :CGFloat, dy :CGFloat){
         startPoint.x += dx
         endPoint.x += dx
 //        startPoint.y += dy
@@ -45,7 +45,7 @@ class Line: BaseType {
         setPath()
     }
     
-    override func checkOutOfRange(frameWidth :Int, slope :Int){
+    override func checkOutOfRange(_ frameWidth :Int, slope :Int){
         // LineB
         if(endPoint.x < startPoint.x) {
             if(frameWidth < Int(endPoint.x)) {
@@ -80,8 +80,8 @@ class Line: BaseType {
     
     func setPath(){
         path.removeAllPoints()
-        path.moveToPoint(startPoint)
-        path.addLineToPoint(endPoint)
+        path.move(to: startPoint)
+        path.addLine(to: endPoint)
     }
     
 }

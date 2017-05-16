@@ -15,23 +15,23 @@ class BaseType {
         
     }
     
-    func autoMove(dx :CGFloat){
+    func autoMove(_ dx :CGFloat){
         
     }
     
-    func touchMove(dx :CGFloat, dy: CGFloat){
+    func touchMove(_ dx :CGFloat, dy: CGFloat){
         
     }
     
-    func checkOutOfRange(frameWidth :Int, slope :Int){
+    func checkOutOfRange(_ frameWidth :Int, slope :Int){
         
     }
     
-    func checkOutOfRange(frameWidth :Int){
+    func checkOutOfRange(_ frameWidth :Int){
         
     }
     
-    func addTouchVal(touchDx :Int, touchDy :Int){
+    func addTouchVal(_ touchDx :Int, touchDy :Int){
         
     }
     
