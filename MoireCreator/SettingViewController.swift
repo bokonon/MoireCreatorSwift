@@ -37,11 +37,13 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     let maxThick: Int = 20
     let maxSlope: Int = 150
     
-//    let heightConstraint = NSLayoutConstraint(item: self.targetView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 0)
-    
     var colorCategory: Int = 0
     
+    
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     // type text field
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var typeTextField: UITextField!
     // preview color
     @IBOutlet weak var lineAColorView: UIView!
@@ -81,7 +83,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         self.typeTextField.delegate = self
         
         // AdMob load
-        bannerView.adUnitID = "ca-app-pub-xxxx"
+        bannerView.adUnitID = "ca-app-pub-XXXX"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         
@@ -98,6 +100,10 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         print("SettingViewController viewDidAppear")
     }
     
+    override func viewDidLayoutSubviews() {
+        scrollView.contentSize = contentView.frame.size;
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -108,13 +114,13 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         
         print(segue.identifier as Any)
         
-        if (segue.identifier == "lineASegue") {
+        if (segue.identifier == "segue_for_line_a_color") {
             colorCategory = lineA
         }
-        else if(segue.identifier == "lineBSegue") {
+        else if(segue.identifier == "segue_for_line_b_color") {
             colorCategory = lineB
         }
-        else if(segue.identifier == "backgroundSegue") {
+        else if(segue.identifier == "segue_for_line_background_color") {
             colorCategory = background
         }
         let colorPicker : ColorPickerViewController = segue.destination as! ColorPickerViewController
@@ -276,13 +282,6 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
                 (action:UIAlertAction!) -> Void in
                 self.setTypeTextFieldAndDefault(self.typeOriginal)
         })
-        
-        //        let destructiveAction:UIAlertAction = UIAlertAction(title: "Destructive",
-        //            style: UIAlertActionStyle.Destructive,
-        //            handler:{
-        //                (action:UIAlertAction!) -> Void in
-        //                print("Destructive")
-        //        })
         
         alert.addAction(cancelAction)
         alert.addAction(line)

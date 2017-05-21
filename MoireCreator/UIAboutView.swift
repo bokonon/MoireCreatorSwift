@@ -42,10 +42,9 @@ class UIAboutView: UIView {
         
     }
     
-//    func setNavigationBarHeight(barHeight: CGFloat) {
-//        let statusBarHeight: CGFloat = UIApplication.sharedApplication().statusBarFrame.height
-//        topMargin = statusBarHeight+barHeight
-//    }
+    func setNavigationBarHeight(barHeight: CGFloat) {
+        topMargin = barHeight
+    }
     
     func move(_ rx: Double, ry: Double) {
         for i in 0..<chars!.count {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4D83B9EE2EA70CA85094746B /* libPods-MoireCreator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C66CB14394502CC5B6DC0CE /* libPods-MoireCreator.a */; };
+		BA0959991ED07AAA00749D74 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = BA0959971ED07AAA00749D74 /* license.html */; };
+		BA09599A1ED07AAA00749D74 /* version.html in Resources */ = {isa = PBXBuildFile; fileRef = BA0959981ED07AAA00749D74 /* version.html */; };
 		BA0DC0EC1BE6063A00670C67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0DC0EB1BE6063A00670C67 /* AppDelegate.swift */; };
 		BA0DC0EE1BE6063A00670C67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0DC0ED1BE6063A00670C67 /* ViewController.swift */; };
 		BA0DC0F11BE6063A00670C67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA0DC0EF1BE6063A00670C67 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 		BABC9D331BF74427003883B0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABC9D321BF74427003883B0 /* CustomButton.swift */; };
 		BAC3ED181C020CA1002BCFCF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3ED171C020CA1002BCFCF /* AboutViewController.swift */; };
 		BAD9CDC51BEE18FE0007D36F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9CDC41BEE18FE0007D36F /* CustomTextField.swift */; };
+		BAEA43F91ECF447400EBAF5A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA43F81ECF447400EBAF5A /* InfoViewController.swift */; };
+		BAEA43FB1ECFE50F00EBAF5A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA43FA1ECFE50F00EBAF5A /* WebViewController.swift */; };
 		BAFEA5281C02E0C800EEBDD8 /* UIAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFEA5271C02E0C800EEBDD8 /* UIAboutView.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +61,8 @@
 		1E0D1519FCA74E6A9D4B9D4E /* Pods-MoireCreator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreator.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoireCreator/Pods-MoireCreator.release.xcconfig"; sourceTree = "<group>"; };
 		3623330218946750E7B02485 /* Pods-MoireCreator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoireCreator/Pods-MoireCreator.debug.xcconfig"; sourceTree = "<group>"; };
 		5C66CB14394502CC5B6DC0CE /* libPods-MoireCreator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoireCreator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0959971ED07AAA00749D74 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
+		BA0959981ED07AAA00749D74 /* version.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = version.html; sourceTree = "<group>"; };
 		BA0DC0E81BE6063A00670C67 /* MoireCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoireCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0DC0EB1BE6063A00670C67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA0DC0ED1BE6063A00670C67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +94,8 @@
 		BABC9D321BF74427003883B0 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		BAC3ED171C020CA1002BCFCF /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		BAD9CDC41BEE18FE0007D36F /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		BAEA43F81ECF447400EBAF5A /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		BAEA43FA1ECFE50F00EBAF5A /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		BAFEA5271C02E0C800EEBDD8 /* UIAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +166,8 @@
 				BA0DC11F1BE6340E00670C67 /* Type */,
 				BAD9CDC31BEE18B80007D36F /* Ui */,
 				BA0DC0F21BE6063A00670C67 /* images.xcassets */,
+				BA0959971ED07AAA00749D74 /* license.html */,
+				BA0959981ED07AAA00749D74 /* version.html */,
 				BA0DC0F41BE6063A00670C67 /* LaunchScreen.storyboard */,
 				BA0DC0F71BE6063A00670C67 /* Info.plist */,
 			);
@@ -255,6 +265,8 @@
 				BA57E6681BE8CE500015BEF5 /* SettingViewController.swift */,
 				BA71C4A81BEF1A910097633A /* ColorPickerViewController.swift */,
 				BAC3ED171C020CA1002BCFCF /* AboutViewController.swift */,
+				BAEA43F81ECF447400EBAF5A /* InfoViewController.swift */,
+				BAEA43FA1ECFE50F00EBAF5A /* WebViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -399,7 +411,9 @@
 			files = (
 				BA0DC0F61BE6063A00670C67 /* LaunchScreen.storyboard in Resources */,
 				BA0DC0F31BE6063A00670C67 /* images.xcassets in Resources */,
+				BA0959991ED07AAA00749D74 /* license.html in Resources */,
 				BA0DC0F11BE6063A00670C67 /* Main.storyboard in Resources */,
+				BA09599A1ED07AAA00749D74 /* version.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,7 +573,9 @@
 				BAB8D9D91C033075001AB48B /* Original.swift in Sources */,
 				BAC3ED181C020CA1002BCFCF /* AboutViewController.swift in Sources */,
 				BA0DC11A1BE6070000670C67 /* UIMoireView.swift in Sources */,
+				BAEA43F91ECF447400EBAF5A /* InfoViewController.swift in Sources */,
 				BA41ACB91C127AB200208A6A /* CustomLabel.swift in Sources */,
+				BAEA43FB1ECFE50F00EBAF5A /* WebViewController.swift in Sources */,
 				BABC9D331BF74427003883B0 /* CustomButton.swift in Sources */,
 				BA652B2F1BFCB1C000F310FB /* Circle.swift in Sources */,
 				BA0DC1271BE63DE200670C67 /* BaseType.swift in Sources */,
