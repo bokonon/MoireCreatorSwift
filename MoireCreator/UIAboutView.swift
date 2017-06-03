@@ -42,10 +42,6 @@ class UIAboutView: UIView {
         
     }
     
-    func setNavigationBarHeight(barHeight: CGFloat) {
-        topMargin = barHeight
-    }
-    
     func move(_ rx: Double, ry: Double) {
         for i in 0..<chars!.count {
             let random: CGFloat = CGFloat(arc4random_uniform(5)+1)

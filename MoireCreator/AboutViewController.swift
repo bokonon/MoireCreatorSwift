@@ -21,10 +21,6 @@ class AboutViewController: UIViewController {
         print("AboutViewController viewDidLoad")
         
         motionManager.deviceMotionUpdateInterval = 0.1 // 20Hz
-        
-        if let navigationBarHeight = self.navigationController?.navigationBar.frame.size.height {
-           aboutView.setNavigationBarHeight(barHeight: navigationBarHeight)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
