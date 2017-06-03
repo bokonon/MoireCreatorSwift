@@ -13,7 +13,6 @@ class Circles: BaseTypes {
     
     var circles = [Circle]()
     
-    // arg is magic number for A or B
     init(whichLine: Int, frameWidth: Int, frameHeight: Int, number: Int){
         super.init(number: number)
         let maxRadius = CGFloat(frameHeight)/3.0

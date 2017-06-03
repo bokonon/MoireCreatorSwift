@@ -13,7 +13,6 @@ class Lines: BaseTypes {
     
     var lines = [Line]()
     
-    // arg is magic number for A or B
     init(whichLine: Int, frameWidth: Int, frameHeight: Int, number: Int, slope: Int){
         super.init(number: number)
         self.slope = slope
