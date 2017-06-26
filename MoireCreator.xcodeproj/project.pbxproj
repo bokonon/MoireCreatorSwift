@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4D83B9EE2EA70CA85094746B /* libPods-MoireCreator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C66CB14394502CC5B6DC0CE /* libPods-MoireCreator.a */; };
+		BA0959991ED07AAA00749D74 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = BA0959971ED07AAA00749D74 /* license.html */; };
+		BA09599A1ED07AAA00749D74 /* version.html in Resources */ = {isa = PBXBuildFile; fileRef = BA0959981ED07AAA00749D74 /* version.html */; };
 		BA0DC0EC1BE6063A00670C67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0DC0EB1BE6063A00670C67 /* AppDelegate.swift */; };
 		BA0DC0EE1BE6063A00670C67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0DC0ED1BE6063A00670C67 /* ViewController.swift */; };
 		BA0DC0F11BE6063A00670C67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA0DC0EF1BE6063A00670C67 /* Main.storyboard */; };
@@ -23,6 +25,9 @@
 		BA41ACB91C127AB200208A6A /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41ACB81C127AB200208A6A /* CustomLabel.swift */; };
 		BA41ACBB1C127FAA00208A6A /* CustomPreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41ACBA1C127FAA00208A6A /* CustomPreView.swift */; };
 		BA57E6691BE8CE500015BEF5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57E6681BE8CE500015BEF5 /* SettingViewController.swift */; };
+		BA5948D01EF96385008BE2B9 /* Heart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5948CF1EF96385008BE2B9 /* Heart.swift */; };
+		BA5948D21EF96397008BE2B9 /* Hearts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5948D11EF96397008BE2B9 /* Hearts.swift */; };
+		BA5948D41EFE066F008BE2B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5948D31EFE066F008BE2B9 /* Constants.swift */; };
 		BA648F741BFFFAAA00FCC54E /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA648F731BFFFAAA00FCC54E /* Rectangle.swift */; };
 		BA648F761BFFFACF00FCC54E /* Rectangles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA648F751BFFFACF00FCC54E /* Rectangles.swift */; };
 		BA652B2F1BFCB1C000F310FB /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA652B2E1BFCB1C000F310FB /* Circle.swift */; };
@@ -33,6 +38,10 @@
 		BABC9D331BF74427003883B0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABC9D321BF74427003883B0 /* CustomButton.swift */; };
 		BAC3ED181C020CA1002BCFCF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3ED171C020CA1002BCFCF /* AboutViewController.swift */; };
 		BAD9CDC51BEE18FE0007D36F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9CDC41BEE18FE0007D36F /* CustomTextField.swift */; };
+		BADB2A241EFF3BA5005D825D /* Synapse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADB2A231EFF3BA5005D825D /* Synapse.swift */; };
+		BADB2A261EFF3BB4005D825D /* Synapses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADB2A251EFF3BB4005D825D /* Synapses.swift */; };
+		BAEA43F91ECF447400EBAF5A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA43F81ECF447400EBAF5A /* InfoViewController.swift */; };
+		BAEA43FB1ECFE50F00EBAF5A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA43FA1ECFE50F00EBAF5A /* WebViewController.swift */; };
 		BAFEA5281C02E0C800EEBDD8 /* UIAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFEA5271C02E0C800EEBDD8 /* UIAboutView.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +66,8 @@
 		1E0D1519FCA74E6A9D4B9D4E /* Pods-MoireCreator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreator.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoireCreator/Pods-MoireCreator.release.xcconfig"; sourceTree = "<group>"; };
 		3623330218946750E7B02485 /* Pods-MoireCreator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoireCreator/Pods-MoireCreator.debug.xcconfig"; sourceTree = "<group>"; };
 		5C66CB14394502CC5B6DC0CE /* libPods-MoireCreator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoireCreator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0959971ED07AAA00749D74 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
+		BA0959981ED07AAA00749D74 /* version.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = version.html; sourceTree = "<group>"; };
 		BA0DC0E81BE6063A00670C67 /* MoireCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoireCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0DC0EB1BE6063A00670C67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA0DC0ED1BE6063A00670C67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +89,9 @@
 		BA41ACB81C127AB200208A6A /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		BA41ACBA1C127FAA00208A6A /* CustomPreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPreView.swift; sourceTree = "<group>"; };
 		BA57E6681BE8CE500015BEF5 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		BA5948CF1EF96385008BE2B9 /* Heart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heart.swift; sourceTree = "<group>"; };
+		BA5948D11EF96397008BE2B9 /* Hearts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hearts.swift; sourceTree = "<group>"; };
+		BA5948D31EFE066F008BE2B9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BA648F731BFFFAAA00FCC54E /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		BA648F751BFFFACF00FCC54E /* Rectangles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangles.swift; sourceTree = "<group>"; };
 		BA652B2E1BFCB1C000F310FB /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
@@ -88,6 +102,10 @@
 		BABC9D321BF74427003883B0 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		BAC3ED171C020CA1002BCFCF /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		BAD9CDC41BEE18FE0007D36F /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		BADB2A231EFF3BA5005D825D /* Synapse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synapse.swift; sourceTree = "<group>"; };
+		BADB2A251EFF3BB4005D825D /* Synapses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synapses.swift; sourceTree = "<group>"; };
+		BAEA43F81ECF447400EBAF5A /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		BAEA43FA1ECFE50F00EBAF5A /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		BAFEA5271C02E0C800EEBDD8 /* UIAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,11 +171,14 @@
 			children = (
 				BAC3ED1A1C020DF9002BCFCF /* Controller */,
 				BAC3ED191C020DF0002BCFCF /* View */,
+				BA5948D31EFE066F008BE2B9 /* Constants.swift */,
 				BA0DC0EB1BE6063A00670C67 /* AppDelegate.swift */,
 				BA0DC0EF1BE6063A00670C67 /* Main.storyboard */,
 				BA0DC11F1BE6340E00670C67 /* Type */,
 				BAD9CDC31BEE18B80007D36F /* Ui */,
 				BA0DC0F21BE6063A00670C67 /* images.xcassets */,
+				BA0959971ED07AAA00749D74 /* license.html */,
+				BA0959981ED07AAA00749D74 /* version.html */,
 				BA0DC0F41BE6063A00670C67 /* LaunchScreen.storyboard */,
 				BA0DC0F71BE6063A00670C67 /* Info.plist */,
 			);
@@ -189,6 +210,8 @@
 				BA0DC1251BE63DA300670C67 /* Line */,
 				BA652B2D1BFCB1A400F310FB /* Circle */,
 				BA648F721BFFF9B600FCC54E /* Rect */,
+				BA5948CE1EF96345008BE2B9 /* Heart */,
+				BADB2A221EFF3B88005D825D /* Synapse */,
 				BAB8D9D71C033020001AB48B /* Original */,
 			);
 			name = Type;
@@ -210,6 +233,15 @@
 				BA0DC1201BE6343E00670C67 /* Lines.swift */,
 			);
 			name = Line;
+			sourceTree = "<group>";
+		};
+		BA5948CE1EF96345008BE2B9 /* Heart */ = {
+			isa = PBXGroup;
+			children = (
+				BA5948CF1EF96385008BE2B9 /* Heart.swift */,
+				BA5948D11EF96397008BE2B9 /* Hearts.swift */,
+			);
+			name = Heart;
 			sourceTree = "<group>";
 		};
 		BA648F721BFFF9B600FCC54E /* Rect */ = {
@@ -255,6 +287,8 @@
 				BA57E6681BE8CE500015BEF5 /* SettingViewController.swift */,
 				BA71C4A81BEF1A910097633A /* ColorPickerViewController.swift */,
 				BAC3ED171C020CA1002BCFCF /* AboutViewController.swift */,
+				BAEA43F81ECF447400EBAF5A /* InfoViewController.swift */,
+				BAEA43FA1ECFE50F00EBAF5A /* WebViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -268,6 +302,15 @@
 				BA41ACBA1C127FAA00208A6A /* CustomPreView.swift */,
 			);
 			name = Ui;
+			sourceTree = "<group>";
+		};
+		BADB2A221EFF3B88005D825D /* Synapse */ = {
+			isa = PBXGroup;
+			children = (
+				BADB2A231EFF3BA5005D825D /* Synapse.swift */,
+				BADB2A251EFF3BB4005D825D /* Synapses.swift */,
+			);
+			name = Synapse;
 			sourceTree = "<group>";
 		};
 		C2DE2419CDBB7633C961B442 /* Frameworks */ = {
@@ -356,7 +399,7 @@
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = YVYVV5ZB3C;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					BA0DC0FB1BE6063A00670C67 = {
 						CreatedOnToolsVersion = 7.1;
@@ -399,7 +442,9 @@
 			files = (
 				BA0DC0F61BE6063A00670C67 /* LaunchScreen.storyboard in Resources */,
 				BA0DC0F31BE6063A00670C67 /* images.xcassets in Resources */,
+				BA0959991ED07AAA00749D74 /* license.html in Resources */,
 				BA0DC0F11BE6063A00670C67 /* Main.storyboard in Resources */,
+				BA09599A1ED07AAA00749D74 /* version.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,19 +595,26 @@
 				BA41ACBB1C127FAA00208A6A /* CustomPreView.swift in Sources */,
 				BA0DC1291BE640AF00670C67 /* BaseTypes.swift in Sources */,
 				BA652B311BFCB1D400F310FB /* Circles.swift in Sources */,
+				BADB2A261EFF3BB4005D825D /* Synapses.swift in Sources */,
 				BA0DC0EE1BE6063A00670C67 /* ViewController.swift in Sources */,
 				BA0DC1211BE6343E00670C67 /* Lines.swift in Sources */,
 				BA57E6691BE8CE500015BEF5 /* SettingViewController.swift in Sources */,
 				BA71C4A91BEF1A910097633A /* ColorPickerViewController.swift in Sources */,
+				BA5948D41EFE066F008BE2B9 /* Constants.swift in Sources */,
+				BADB2A241EFF3BA5005D825D /* Synapse.swift in Sources */,
 				BA648F761BFFFACF00FCC54E /* Rectangles.swift in Sources */,
 				BA0DC0EC1BE6063A00670C67 /* AppDelegate.swift in Sources */,
 				BAB8D9D91C033075001AB48B /* Original.swift in Sources */,
 				BAC3ED181C020CA1002BCFCF /* AboutViewController.swift in Sources */,
 				BA0DC11A1BE6070000670C67 /* UIMoireView.swift in Sources */,
+				BAEA43F91ECF447400EBAF5A /* InfoViewController.swift in Sources */,
 				BA41ACB91C127AB200208A6A /* CustomLabel.swift in Sources */,
+				BAEA43FB1ECFE50F00EBAF5A /* WebViewController.swift in Sources */,
 				BABC9D331BF74427003883B0 /* CustomButton.swift in Sources */,
 				BA652B2F1BFCB1C000F310FB /* Circle.swift in Sources */,
+				BA5948D21EF96397008BE2B9 /* Hearts.swift in Sources */,
 				BA0DC1271BE63DE200670C67 /* BaseType.swift in Sources */,
+				BA5948D01EF96385008BE2B9 /* Heart.swift in Sources */,
 				BAB8D9DB1C033086001AB48B /* Originals.swift in Sources */,
 				BA0DC1231BE6356800670C67 /* Line.swift in Sources */,
 				BA648F741BFFFAAA00FCC54E /* Rectangle.swift in Sources */,
@@ -719,15 +771,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = YVYVV5ZB3C;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MoireCreator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = ys.moire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2c7182ad-0f2b-49ac-84d4-f89862ada661";
-				PROVISIONING_PROFILE_SPECIFIER = develop;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
@@ -739,16 +792,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = YVYVV5ZB3C;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MoireCreator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ys.moire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "58b09502-a659-4f14-a64d-6a51f31d0109";
-				PROVISIONING_PROFILE_SPECIFIER = distribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};

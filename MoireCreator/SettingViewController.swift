@@ -17,15 +17,6 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     
     var delegate: SettingViewControllerDelegate! = nil
     
-    // TYPE_LINE
-    let typeLine: Int = 0
-    // TYPE_CIRCLE
-    let typeCircle: Int = 1
-    // TYPE_RECT
-    let typeRect: Int = 2
-    // TYPE_ORIGINAL
-    let typeOriginal: Int = 3
-    
     // LINE_A
     let lineA: Int = 0
     // LINE_B
@@ -37,11 +28,12 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     let maxThick: Int = 20
     let maxSlope: Int = 150
     
-//    let heightConstraint = NSLayoutConstraint(item: self.targetView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 0)
-    
     var colorCategory: Int = 0
     
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     // type text field
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var typeTextField: UITextField!
     // preview color
     @IBOutlet weak var lineAColorView: UIView!
@@ -72,7 +64,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     // override method
     override func viewDidLoad() {
         super.viewDidLoad()
+        #if DEBUG
         print("SettingViewController viewDidLoad")
+        #endif
         
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "< MoireView", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SettingViewController.back(_:)))
@@ -81,7 +75,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         self.typeTextField.delegate = self
         
         // AdMob load
-        bannerView.adUnitID = "ca-app-pub-xxxx"
+        bannerView.adUnitID = "ca-app-pub-6671743874516869/7620044437"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         
@@ -90,12 +84,20 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        #if DEBUG
         print("SettingViewController viewWillAppear")
+        #endif
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        #if DEBUG
         print("SettingViewController viewDidAppear")
+        #endif
+    }
+    
+    override func viewDidLayoutSubviews() {
+        scrollView.contentSize = contentView.frame.size;
     }
     
     override func didReceiveMemoryWarning() {
@@ -108,13 +110,13 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         
         print(segue.identifier as Any)
         
-        if (segue.identifier == "lineASegue") {
+        if (segue.identifier == "segue_for_line_a_color") {
             colorCategory = lineA
         }
-        else if(segue.identifier == "lineBSegue") {
+        else if(segue.identifier == "segue_for_line_b_color") {
             colorCategory = lineB
         }
-        else if(segue.identifier == "backgroundSegue") {
+        else if(segue.identifier == "segue_for_line_background_color") {
             colorCategory = background
         }
         let colorPicker : ColorPickerViewController = segue.destination as! ColorPickerViewController
@@ -149,7 +151,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        #if DEBUG
         print("textFieldShouldReturn")
+        #endif
         showTypeAlert()
         return false
     }
@@ -161,13 +165,17 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         // set Type
         let type: Int = userDefault.integer(forKey: "type")
         switch type {
-        case typeLine:
+        case Constants.typeLine:
             self.typeTextField.text = "Line"
-        case typeCircle:
+        case Constants.typeCircle:
             self.typeTextField.text = "Circle"
-        case typeRect:
+        case Constants.typeRect:
             self.typeTextField.text = "Rectangle"
-        case typeOriginal:
+        case Constants.typeHeart:
+            self.typeTextField.text = "Heart"
+        case Constants.typeSynapse:
+            self.typeTextField.text = "Synapse"
+        case Constants.typeOriginal:
             self.typeTextField.text = "Original"
         default:
             self.typeTextField.text = "Line"
@@ -218,13 +226,17 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     func setTypeTextFieldAndDefault(_ type: Int) {
         self.typeTextField.endEditing(true)
         switch type {
-        case typeLine:
+        case Constants.typeLine:
             self.typeTextField.text = "Line"
-        case typeCircle:
+        case Constants.typeCircle:
             self.typeTextField.text = "Circle"
-        case typeRect:
+        case Constants.typeRect:
             self.typeTextField.text = "Rectangle"
-        case typeOriginal:
+        case Constants.typeHeart:
+            self.typeTextField.text = "Heart"
+        case Constants.typeSynapse:
+            self.typeTextField.text = "Synapse"
+        case Constants.typeOriginal:
             self.typeTextField.text = "Original"
         default:
             self.typeTextField.text = "Line"
@@ -253,41 +265,50 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
             style: UIAlertActionStyle.default,
             handler:{
                 (action:UIAlertAction!) -> Void in
-                self.setTypeTextFieldAndDefault(self.typeLine)
+                self.setTypeTextFieldAndDefault(Constants.typeLine)
         })
         
         let circle:UIAlertAction = UIAlertAction(title: "Circle",
             style: UIAlertActionStyle.default,
             handler:{
                 (action:UIAlertAction!) -> Void in
-                self.setTypeTextFieldAndDefault(self.typeCircle)
+                self.setTypeTextFieldAndDefault(Constants.typeCircle)
         })
         
         let rect:UIAlertAction = UIAlertAction(title: "Rectangle",
             style: UIAlertActionStyle.default,
             handler:{
                 (action:UIAlertAction!) -> Void in
-                self.setTypeTextFieldAndDefault(self.typeRect)
+                self.setTypeTextFieldAndDefault(Constants.typeRect)
+        })
+        
+        let heart:UIAlertAction = UIAlertAction(title: "Heart",
+            style: UIAlertActionStyle.default,
+            handler:{
+                (action:UIAlertAction!) -> Void in
+                self.setTypeTextFieldAndDefault(Constants.typeHeart)
+        })
+        
+        let synapse:UIAlertAction = UIAlertAction(title: "Synapse",
+            style: UIAlertActionStyle.default,
+            handler:{
+                (action:UIAlertAction!) -> Void in
+                self.setTypeTextFieldAndDefault(Constants.typeSynapse)
         })
         
         let original:UIAlertAction = UIAlertAction(title: "Original",
             style: UIAlertActionStyle.default,
             handler:{
                 (action:UIAlertAction!) -> Void in
-                self.setTypeTextFieldAndDefault(self.typeOriginal)
+                self.setTypeTextFieldAndDefault(Constants.typeOriginal)
         })
-        
-        //        let destructiveAction:UIAlertAction = UIAlertAction(title: "Destructive",
-        //            style: UIAlertActionStyle.Destructive,
-        //            handler:{
-        //                (action:UIAlertAction!) -> Void in
-        //                print("Destructive")
-        //        })
         
         alert.addAction(cancelAction)
         alert.addAction(line)
         alert.addAction(circle)
         alert.addAction(rect)
+        alert.addAction(heart)
+        alert.addAction(synapse)
         alert.addAction(original)
         //        sheet.addAction(destructiveAction)
         
@@ -296,12 +317,13 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     
     // color picker end
     func pickerDidFinished(){
+        #if DEBUG
         print("SettingViewController pickerDidFinished")
+        #endif
         initView()
     }
     
     func back(_ sender: UIBarButtonItem) {
-        print("SettingViewController back")
         // save current status
         let userDefault = UserDefaults.standard
         // number
@@ -321,7 +343,6 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         if(self.delegate != nil) {
             self.delegate.settingDidFinished()
         }
-        print("SettingViewController back")
     }
     
     func getUserDefaultColor(_ userDefault: UserDefaults, defaultName: String) -> UIColor {

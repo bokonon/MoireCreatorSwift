@@ -67,7 +67,7 @@ class Rectangle: BaseType {
         path.addLine(to: CGPoint(x: leftTopPoint.x, y: leftTopPoint.y - CGFloat(thick)/2))
     }
     
-    override func autoMove(_ dx :CGFloat){
+    override func autoMove(dx :CGFloat){
         leftTopPoint.x += dx
         rightTopPoint.x += dx
         rightBottomPoint.x += dx
@@ -75,7 +75,7 @@ class Rectangle: BaseType {
         setPath()
     }
     
-    override func touchMove(_ dx :CGFloat, dy :CGFloat){
+    override func touchMove(dx :CGFloat, dy :CGFloat){
         leftTopPoint.x += dx
         rightTopPoint.x += dx
         rightBottomPoint.x += dx
@@ -87,7 +87,7 @@ class Rectangle: BaseType {
         setPath()
     }
     
-    func checkOutOfRange(_ frameWidth :Int, slope :Int, whichLine :Int, centerX: CGFloat){
+    func checkOutOfRange(frameWidth :Int, slope :Int, whichLine :Int, centerX: CGFloat){
         if(whichLine == lineA) {
             leftTopPoint = CGPoint(x: centerX - CGFloat(length)/2 , y: leftTopPoint.y)
             rightTopPoint = CGPoint(x: centerX + CGFloat(slope) + CGFloat(length)/2, y: rightTopPoint.y)
@@ -113,7 +113,7 @@ class Rectangle: BaseType {
         path.addLine(to: CGPoint(x: leftTopPoint.x, y: leftTopPoint.y - CGFloat(thick)/2))
     }
     
-    func setThick(_ thick: Int) {
+    func setThick(thick: Int) {
         self.thick = thick
     }
     
