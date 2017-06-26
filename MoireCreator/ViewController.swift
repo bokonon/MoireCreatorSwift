@@ -22,12 +22,7 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     let lineA: Int = 0
     let lineB: Int = 1
     
-    // TYPE_ORIGINAL
-    let typeOriginal: Int = 3
-    
     var currentLine: Int = 0
-    
-    var moveCount: Int = 0
     
     var timer: Timer!
     
@@ -43,7 +38,9 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        #if DEBUG
         print("ViewController viewWillAppear")
+        #endif
         
         // automaticaly update view
         timer = nil
@@ -52,7 +49,9 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        #if DEBUG
         print("ViewController viewDidAppear")
+        #endif
         
         // only first time called
         if isFirstFlg {
@@ -63,12 +62,16 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        #if DEBUG
         print("ViewController viewWillDisappear")
+        #endif
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        #if DEBUG
         print("ViewController viewDidDisappear")
+        #endif
         
         if timer.isValid == true {
             timer.invalidate()
@@ -82,9 +85,9 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        #if DEBUG
         print("ViewController touchesBegan")
-        
-        moveCount = 0
+        #endif
         
         let touchEvent = touches.first!
         let firstPoint: CGPoint = touchEvent.previousLocation(in: moireView)
@@ -93,12 +96,11 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        #if DEBUG
         print("ViewController touchesMoved")
+        #endif
         
-        moveCount += 1
-        print("moveCount", moveCount)
-        
-        if(moireView.moireType == typeOriginal) {
+        if(moireView.moireType == Constants.typeOriginal) {
             let touchEvent = touches.first!
             let movePoint: CGPoint = touchEvent.previousLocation(in: moireView)
             
@@ -114,17 +116,25 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
             let newDy = touchEvent.location(in: moireView).y
             
             let dx = newDx - preDx
+            
+            #if DEBUG
             print("x:\(dx)")
+            #endif
             
             let dy = newDy - preDy
+            
+            #if DEBUG
             print("y:\(dy)")
+            #endif
             
             moireView.touchMove(currentLine, dx: dx, dy: dy)
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        #if DEBUG
         print("ViewController touchesEnded")
+        #endif
         
         let touch = touches.first!
         let endPoint = touch.location(in: moireView)
@@ -146,7 +156,9 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     
     // setting screen end
     func settingDidFinished() {
+        #if DEBUG
         print("ViewController settingDidFinished")
+        #endif
         
         moireView.updateView()
     }

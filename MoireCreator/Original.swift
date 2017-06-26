@@ -20,7 +20,7 @@ class Original: BaseType {
         path = UIBezierPath()
     }
     
-    override func autoMove(_ dx :CGFloat){
+    override func autoMove(dx :CGFloat){
         for i in 0..<self.points.count {
             if(i == 0) {
                 let firstPoint: CGPoint = CGPoint(x: self.points[i].x + dx, y: self.points[i].y)
@@ -37,7 +37,7 @@ class Original: BaseType {
         }
     }
     
-    override func checkOutOfRange(_ frameWidth :Int){
+    override func checkOutOfRange(frameWidth :Int){
         var min: CGFloat = 0
         var max: CGFloat = 0
         for i in 0..<self.points.count {
@@ -90,7 +90,7 @@ class Original: BaseType {
         }
     }
     
-    func start(_ firstPoint :CGPoint) {
+    func start(firstPoint :CGPoint) {
         path.removeAllPoints()
         path.move(to: firstPoint)
         
@@ -98,7 +98,7 @@ class Original: BaseType {
         points.append(firstPoint)
     }
     
-    func touchMove(_ movePoint :CGPoint){
+    func touchMove(movePoint :CGPoint){
         path.addLine(to: movePoint)
         
         points.append(movePoint)

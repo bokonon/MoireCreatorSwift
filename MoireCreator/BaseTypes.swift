@@ -32,15 +32,15 @@ class BaseTypes {
         self.number = number
     }
     
-    func checkOutOfRange(_ frameWidth :Int) {
+    func checkOutOfRange(frameWidth :Int) {
         
     }
     
-    func move(_ whichLine :Int) {
+    func move(whichLine :Int) {
         
     }
     
-    func touchMove(_ dx: CGFloat, dy: CGFloat) {
+    func touchMove(dx: CGFloat, dy: CGFloat) {
         
     }
     
@@ -48,11 +48,11 @@ class BaseTypes {
         color.setStroke()
     }
     
-    func setColor(_ color: UIColor) {
+    func setColor(color: UIColor) {
         self.color = color
     }
     
-    func setThick(_ thick: Int) {
+    func setThick(thick: Int) {
         self.thick = thick
     }
     

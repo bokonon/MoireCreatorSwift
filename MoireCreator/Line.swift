@@ -31,13 +31,13 @@ class Line: BaseType {
         path.addLine(to: endPoint)
     }
     
-    override func autoMove(_ dx :CGFloat){
+    override func autoMove(dx :CGFloat){
         startPoint.x += dx
         endPoint.x += dx
         setPath()
     }
     
-    override func touchMove(_ dx :CGFloat, dy :CGFloat){
+    override func touchMove(dx :CGFloat, dy :CGFloat){
         startPoint.x += dx
         endPoint.x += dx
 //        startPoint.y += dy
@@ -45,7 +45,7 @@ class Line: BaseType {
         setPath()
     }
     
-    override func checkOutOfRange(_ frameWidth :Int, slope :Int){
+    override func checkOutOfRange(frameWidth :Int, slope :Int){
         // LineB
         if(endPoint.x < startPoint.x) {
             if(frameWidth < Int(endPoint.x)) {

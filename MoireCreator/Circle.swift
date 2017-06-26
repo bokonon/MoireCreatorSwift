@@ -32,18 +32,18 @@ class Circle: BaseType {
         
     }
     
-    override func autoMove(_ dx :CGFloat){
+    override func autoMove(dx :CGFloat){
         centerPoint.x += dx
         setPath()
     }
     
-    override func touchMove(_ dx :CGFloat, dy :CGFloat){
+    override func touchMove(dx :CGFloat, dy :CGFloat){
         centerPoint.x += dx
         centerPoint.y += dy
         setPath()
     }
     
-    override func checkOutOfRange(_ frameWidth :Int){
+    override func checkOutOfRange(frameWidth :Int){
         if(CGFloat(frameWidth) < centerPoint.x) {
             let diff: Float = Float(Int(centerPoint.x) - frameWidth)
             centerPoint.x = -CGFloat(diff)
