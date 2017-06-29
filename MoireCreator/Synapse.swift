@@ -23,7 +23,7 @@ class Synapse: BaseType {
     var rightTop: CGPoint
     var rightBottom: CGPoint
     
-    var curveMargin: CGFloat = 15
+    var curveMargin: CGFloat = 1
     var path: UIBezierPath!
     
     var thick: Int = 1
@@ -94,117 +94,61 @@ class Synapse: BaseType {
     func setPath(){
         path.removeAllPoints()
         
-//        path.move(to: top)
-//        path.addCurve(to: leftTop,
-//                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(345.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(345.0 * CGFloat.pi / 180)),
-//                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(330.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(330.0 * CGFloat.pi / 180)))
-//        
-//        path.move(to: leftTop)
-//        path.addCurve(to: left,
-//                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(300.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(300.0 * CGFloat.pi / 180)),
-//                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(285.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(285.0 * CGFloat.pi / 180)))
-//        
-//        path.move(to: left)
-//        path.addCurve(to: leftBottom,
-//                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(255.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(255.0 * CGFloat.pi / 180)),
-//                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(240.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(240.0 * CGFloat.pi / 180)))
-//        
-//        path.move(to: leftBottom)
-//        path.addCurve(to: bottom,
-//                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(210.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(210.0 * CGFloat.pi / 180)),
-//                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(195.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(195.0 * CGFloat.pi / 180)))
-//        
-//        path.move(to: bottom)
-//        path.addCurve(to: rightBottom,
-//                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(165.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(165.0 * CGFloat.pi / 180)),
-//                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(150.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(150.0 * CGFloat.pi / 180)))
-//        
-//        path.move(to: rightBottom)
-//        path.addCurve(to: right,
-//                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(120.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(120.0 * CGFloat.pi / 180)),
-//                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(105.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(105.0 * CGFloat.pi / 180)))
-//        
-//        path.move(to: right)
-//        path.addCurve(to: rightTop,
-//                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(75.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(75.0 * CGFloat.pi / 180)),
-//                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(60.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(60.0 * CGFloat.pi / 180)))
-//        
-//        path.move(to: rightTop)
-//        path.addCurve(to: top,
-//                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(30.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(30.0 * CGFloat.pi / 180)),
-//                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(15.0 * CGFloat.pi / 180),
-//                                             y: center.y + curveMargin * sin(15.0 * CGFloat.pi / 180)))
-        
         path.move(to: top)
         path.addCurve(to: leftTop,
-                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(345.0),
-                                             y: center.y + curveMargin * sin(345.0)),
-                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(330.0),
-                                             y: center.y + curveMargin * sin(330.0)))
+                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(345.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(345.0 * CGFloat.pi / 180)),
+                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(330.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(330.0 * CGFloat.pi / 180)))
         
         path.move(to: leftTop)
         path.addCurve(to: left,
-                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(300.0),
-                                             y: center.y + curveMargin * sin(300.0)),
-                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(285.0),
-                                             y: center.y + curveMargin * sin(285.0)))
+                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(300.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(300.0 * CGFloat.pi / 180)),
+                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(285.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(285.0 * CGFloat.pi / 180)))
         
         path.move(to: left)
         path.addCurve(to: leftBottom,
-                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(255.0),
-                                             y: center.y + curveMargin * sin(255.0)),
-                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(240.0),
-                                             y: center.y + curveMargin * sin(240.0)))
+                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(255.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(255.0 * CGFloat.pi / 180)),
+                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(240.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(240.0 * CGFloat.pi / 180)))
         
         path.move(to: leftBottom)
         path.addCurve(to: bottom,
-                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(210.0),
-                                             y: center.y + curveMargin * sin(210.0)),
-                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(195.0),
-                                             y: center.y + curveMargin * sin(195.0)))
+                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(210.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(210.0 * CGFloat.pi / 180)),
+                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(195.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(195.0 * CGFloat.pi / 180)))
         
         path.move(to: bottom)
         path.addCurve(to: rightBottom,
-                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(165.0),
-                                             y: center.y + curveMargin * sin(165.0)),
-                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(150.0),
-                                             y: center.y + curveMargin * sin(150.0)))
+                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(165.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(165.0 * CGFloat.pi / 180)),
+                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(150.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(150.0 * CGFloat.pi / 180)))
         
         path.move(to: rightBottom)
         path.addCurve(to: right,
-                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(120.0),
-                                             y: center.y + curveMargin * sin(120.0)),
-                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(105.0),
-                                             y: center.y + curveMargin * sin(105.0)))
+                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(120.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(120.0 * CGFloat.pi / 180)),
+                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(105.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(105.0 * CGFloat.pi / 180)))
         
         path.move(to: right)
         path.addCurve(to: rightTop,
-                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(75.0),
-                                             y: center.y + curveMargin * sin(75.0)),
-                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(60.0),
-                                             y: center.y + curveMargin * sin(60.0)))
+                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(75.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(75.0 * CGFloat.pi / 180)),
+                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(60.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(60.0 * CGFloat.pi / 180)))
         
         path.move(to: rightTop)
         path.addCurve(to: top,
-                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(30.0),
-                                             y: center.y + curveMargin * sin(30.0)),
-                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(15.0),
-                                             y: center.y + curveMargin * sin(15.0)))
+                      controlPoint1: CGPoint(x: center.x + curveMargin * cos(30.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(30.0 * CGFloat.pi / 180)),
+                      controlPoint2: CGPoint(x: center.x + curveMargin * cos(15.0 * CGFloat.pi / 180),
+                                             y: center.y + curveMargin * sin(15.0 * CGFloat.pi / 180)))
         
         
         // with addQuadCurve
