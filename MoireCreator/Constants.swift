@@ -20,3 +20,7 @@ struct Constants {
     // TYPE_ORIGINAL
     static let typeOriginal: Int = 5
 }
+
+struct ApiConstants {
+    static let admobApiKey = "AdmobApiKey"
+}

@@ -25,9 +25,11 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         
         // AdMob load
-        bannerView.adUnitID = "ca-app-pub-XXXX"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        if let apiKey = KeyManager().getValue(key: ApiConstants.admobApiKey) as? String {
+            bannerView.adUnitID = apiKey
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
         
     }
     
