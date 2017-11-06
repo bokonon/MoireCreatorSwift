@@ -50,7 +50,9 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ table: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        #if DEBUG
         print("indexPath.row : " + String(describing: indexPath.row))
+        #endif
         let cell = table.dequeueReusableCell(withIdentifier: "InfoTableCell", for: indexPath)
         cell.textLabel?.text = categoryArray[indexPath.row]
         

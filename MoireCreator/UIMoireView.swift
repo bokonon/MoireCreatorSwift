@@ -50,19 +50,21 @@ class UIMoireView: UIView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         
-        updateView()
     }
     
     // init from code
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        updateView()
     }
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
+        
+        if moireType == nil {
+            return
+        }
         
         switch moireType {
         case Constants.typeLine:
@@ -192,8 +194,13 @@ class UIMoireView: UIView {
             print("default")
         }
     }
-    
-    func updateView() {
+        
+    func updateView(type: Int, backgroundColor: UIColor,
+                    lineAColor: UIColor, lineBColor: UIColor,
+                    lineANumber: Int, lineBNumber: Int,
+                    lineAThick: Int, lineBThick: Int,
+                    lineASlope: Int, lineBSlope: Int) {
+        
         frameWidth = Int(self.frame.width)
         frameHeight = Int(self.frame.height)
         
@@ -202,49 +209,14 @@ class UIMoireView: UIView {
         print("frameHeight : ", frameHeight)
         #endif
         
-        // get userdefault
-        let userDefault = UserDefaults.standard
-        // set background preview color
-        if let backgroundColorData  = userDefault.object(forKey: "backgroundColor") as? Data {
-            if let backColor = NSKeyedUnarchiver.unarchiveObject(with: backgroundColorData) as? UIColor {
-                self.backgroundColor = backColor
-            }
-        }
-        else {
-            self.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        }
         // set type
-        moireType = userDefault.integer(forKey: "type")
+        self.moireType = type
         
+        #if DEBUG
         print("moireType : ", moireType)
+        #endif
         
-        // set color
-        let lineAColor: UIColor
-        if let lineAColorData  = userDefault.object(forKey: "lineAColor") as? Data {
-            lineAColor = (NSKeyedUnarchiver.unarchiveObject(with: lineAColorData) as? UIColor)!
-        }
-        else {
-            lineAColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        }
-        let lineBColor: UIColor
-        if let lineBColorData  = userDefault.object(forKey: "lineBColor") as? Data {
-            lineBColor = (NSKeyedUnarchiver.unarchiveObject(with: lineBColorData) as? UIColor)!
-        }
-        else {
-            lineBColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        }
-        
-        // set number
-        let lineANumber: Int = userDefault.integer(forKey: "lineANumber")
-        let lineBNumber: Int = userDefault.integer(forKey: "lineBNumber")
-        
-        // set thick
-        let lineAThick: Int = userDefault.integer(forKey: "lineAThick")
-        let lineBThick: Int = userDefault.integer(forKey: "lineBThick")
-        
-        // set slope
-        let lineASlope: Int = userDefault.integer(forKey: "lineASlope")
-        let lineBSlope: Int = userDefault.integer(forKey: "lineBSlope")
+        self.backgroundColor = backgroundColor
         
         switch moireType {
         case Constants.typeLine:
@@ -290,7 +262,9 @@ class UIMoireView: UIView {
             originalsB.setColor(color: lineBColor)
             originalsB.setThick(thick: lineBThick)
         default:
+            #if DEBUG
             print("IllegalArgument on update")
+            #endif
         }
         
     }
@@ -356,7 +330,9 @@ class UIMoireView: UIView {
 //            print("typeOriginal")
             
         default:
+            #if DEBUG
             print("default")
+            #endif
         }
     }
     
@@ -378,7 +354,7 @@ class UIMoireView: UIView {
         self.isPause = isPause
     }
     
-    func getOnPause() -> Bool{
+    func isOnPause() -> Bool{
         return isPause
     }
     
@@ -420,7 +396,9 @@ class UIMoireView: UIView {
                 }
             }
         default:
+            #if DEBUG
             print("default")
+            #endif
         }
     }
 

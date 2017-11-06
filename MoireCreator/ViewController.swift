@@ -8,7 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, SettingViewControllerDelegate {
+protocol SavePhotosAlbumDelegate {
+    func savePhotosAlbumComplete()
+    func savePhotosAlbumFailed(error: NSError)
+}
+
+class ViewController: UIViewController, SettingViewControllerDelegate, SavePhotosAlbumDelegate {
     
     // drawing canvas view
     @IBOutlet weak var moireView: UIMoireView!
@@ -19,6 +24,8 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     
     @IBOutlet weak var playButton: UIButton!
     
+    @IBOutlet weak var captureButton: UIButton!
+    
     let lineA: Int = 0
     let lineB: Int = 1
     
@@ -27,12 +34,16 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     var timer: Timer!
     
     var isFirstFlg: Bool = true
+    
+    let presenter: ViewControllerPresenter = ViewControllerPresenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        #if DEBUG
         print("ViewController viewDidLoad")
+        #endif
         
-        self.initUserDefault()
+        presenter.initUserDefaults()
         
     }
     
@@ -55,7 +66,7 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
         
         // only first time called
         if isFirstFlg {
-            moireView.updateView()
+            updateView()
             isFirstFlg = false
         }
     }
@@ -150,7 +161,7 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
         }
     }
     
-    func update() {
+    @objc func update() {
         moireView.setNeedsDisplay()
     }
     
@@ -160,7 +171,7 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
         print("ViewController settingDidFinished")
         #endif
         
-        moireView.updateView()
+        updateView()
     }
     
     // line a button click
@@ -191,7 +202,7 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     
     // play button click
     @IBAction func playButtonClicked(_ sender: AnyObject) {
-        if(moireView.getOnPause()) {
+        if(moireView.isOnPause()) {
             if let image = UIImage(named: "stop.png") {
                 playButton.setBackgroundImage(image, for: UIControlState())
                 moireView.setOnpause(false)
@@ -209,26 +220,59 @@ class ViewController: UIViewController, SettingViewControllerDelegate {
     // capture button click
     @IBAction func captureButtonClicked(_ sender: AnyObject) {
         if(moireView != nil) {
+            if let image = UIImage(named: "photo_on.png") {
+                captureButton.setBackgroundImage(image, for: UIControlState())
+            }
+                
             let image = moireView.getCapture()
-            
-            UIImageWriteToSavedPhotosAlbum(image, self, #selector(ViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
+            presenter.savePhotosAlbum(image: image, delegate: self)
         }
     }
     
-    func image(_ image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
-        if error != nil {
-            print(error.code)
+    func updateView() {
+        let moireType = presenter.getType()
+        let backgroundColor = presenter.getBackgroundColor()
+        let lineAColor = presenter.getLineAColor()
+        let lineBColor = presenter.getLineBColor()
+        let lineANumber = presenter.getLineANumber()
+        let lineBNumber = presenter.getLineBNumber()
+        let lineAThick = presenter.getLineAThick()
+        let lineBThick = presenter.getLineBThick()
+        let lineASlope = presenter.getLineASlope()
+        let lineBSlope = presenter.getLineBSlope()
+        
+        moireView.updateView(type: moireType, backgroundColor: backgroundColor,
+                             lineAColor: lineAColor, lineBColor: lineBColor,
+                             lineANumber: lineANumber, lineBNumber: lineBNumber,
+                             lineAThick: lineAThick, lineBThick: lineBThick,
+                             lineASlope: lineASlope, lineBSlope: lineBSlope)
+    }
+    
+    func savePhotosAlbumComplete() {
+        setCaptureButtonDefault()
+    }
+    
+    func savePhotosAlbumFailed(error: NSError) {
+        setCaptureButtonDefault()
+        showAlert(title: "Error", message: "Capture saving failed.")
+    }
+    
+    func setCaptureButtonDefault() {
+        if let image = UIImage(named: "photo_off.png") {
+            captureButton.setBackgroundImage(image, for: UIControlState())
         }
     }
     
-    func initUserDefault() {
-        let userDefault = UserDefaults.standard
-        userDefault.register(defaults: ["lineANumber": 50])
-        userDefault.register(defaults: ["lineBNumber": 50])
-        userDefault.register(defaults: ["lineAThick": 1])
-        userDefault.register(defaults: ["lineBThick": 1])
-        userDefault.register(defaults: ["lineASlope": 10])
-        userDefault.register(defaults: ["lineBSlope": 10])
+    func showAlert(title: String, message: String) {
+        let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle:  UIAlertControllerStyle.alert)
+        
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("OK")
+        })
+        
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
     }
+        
 }
-

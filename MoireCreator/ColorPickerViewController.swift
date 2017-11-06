@@ -39,6 +39,7 @@ class ColorPickerViewController: UIViewController {
     // preview
     @IBOutlet weak var previewColor: UIView!
     
+    let presenter: ColorPickerViewControllerPresenter = ColorPickerViewControllerPresenter()
     
     // override method
     override func viewDidLoad() {
@@ -135,23 +136,23 @@ class ColorPickerViewController: UIViewController {
     }
     
     func saveToUserDefault() {
-        let colorData : Data = NSKeyedArchiver.archivedData(withRootObject: getUIColor())
+        let colorData: Data = NSKeyedArchiver.archivedData(withRootObject: getUIColor())
         // get userdefault
         let userDefault = UserDefaults.standard
         switch colorCategory {
         case lineA:
-            userDefault.set(colorData, forKey: "lineAColor")
+            presenter.setLineAColor(colorData: colorData)
         case lineB:
-            userDefault.set(colorData, forKey: "lineBColor")
+            presenter.setLineBColor(colorData: colorData)
         case background:
-            userDefault.set(colorData, forKey: "backgroundColor")
+            presenter.setBackgroundColor(colorData: colorData)
         default: break
             
         }
         userDefault.synchronize()
     }
     
-    func back(_ sender: UIBarButtonItem) {
+    @objc func back(_ sender: UIBarButtonItem) {
         // save to userdefault
         saveToUserDefault()
         if(self.delegate != nil){
@@ -159,7 +160,10 @@ class ColorPickerViewController: UIViewController {
             self.delegate.pickerDidFinished()
         }
         self.navigationController?.popViewController(animated: true)
+        
+        #if DEBUG
         print("ColorPickerViewController back")
+        #endif
     }
     
 }
