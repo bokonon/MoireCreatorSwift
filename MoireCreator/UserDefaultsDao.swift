@@ -64,6 +64,10 @@ class UserDefaultsDao {
     }
     
     // set
+    func setType(type: Int) {
+        userDefaults.set(type, forKey: UserDefaultsConstants.type)
+    }
+    
     func setLineAColor(colorData: Data) {
         userDefaults.set(colorData, forKey: UserDefaultsConstants.lineAColor)
     }

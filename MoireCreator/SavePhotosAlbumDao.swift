@@ -19,9 +19,6 @@ class SavePhotosAlbumDao: NSObject {
     }
     
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
-        
-        print("image...")
-        
         if error != nil {
             delegate?.savePhotosAlbumFailed(error: error)
         }

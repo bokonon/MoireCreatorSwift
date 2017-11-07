@@ -57,6 +57,10 @@ class UserDefaultsUseCase {
         return dao.getLineBSlope()
     }
     
+    func setType(type: Int) {
+        return dao.setType(type: type)
+    }
+    
     func update(lineANumberValue: Int, lineBNumberValue: Int,
                 lineAThickValue: Int, lineBThickValue: Int,
                 lineASlopeValue: Int, lineBSlopeValue: Int) {

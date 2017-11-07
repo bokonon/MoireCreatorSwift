@@ -13,6 +13,10 @@ class SettingViewControllerPresenter {
     
     let useCase: UserDefaultsUseCase = UserDefaultsUseCase()
     
+    func setType(type: Int) {
+        return useCase.setType(type: type)
+    }
+    
     func update(lineANumberValue: Int, lineBNumberValue: Int,
                 lineAThickValue: Int, lineBThickValue: Int,
                 lineASlopeValue: Int, lineBSlopeValue: Int) {

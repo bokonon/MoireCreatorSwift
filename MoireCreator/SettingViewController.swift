@@ -30,7 +30,6 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     
     var colorCategory: Int = 0
     
-    
     @IBOutlet weak var scrollView: UIScrollView!
     // type text field
     @IBOutlet weak var contentView: UIView!
@@ -78,9 +77,6 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         
         // AdMob load
         if let apiKey = KeyManager().getValue(key: ApiConstants.admobApiKey) as? String {
-            
-            print("apiKey : ", apiKey)
-            
             bannerView.adUnitID = apiKey
             bannerView.rootViewController = self
             bannerView.load(GADRequest())
@@ -114,8 +110,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     
     // when go to color picker screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        
+        #if DEBUG
         print(segue.identifier as Any)
+        #endif
         
         if (segue.identifier == "segue_for_line_a_color") {
             colorCategory = lineA
@@ -246,10 +243,8 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         default:
             self.typeTextField.text = "Line"
         }
-        // get userdefault
-        let userDefault = UserDefaults.standard
-        userDefault.set(type, forKey: "type")
-        userDefault.synchronize()
+        
+        presenter.setType(type: type)
     }
     
     // select Type ActionSheet
