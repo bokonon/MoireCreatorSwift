@@ -44,7 +44,6 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
         #endif
         
         presenter.initUserDefaults()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,13 +68,6 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
             updateView()
             isFirstFlg = false
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        #if DEBUG
-        print("ViewController viewWillDisappear")
-        #endif
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -153,7 +145,7 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
         moireView.setTouchingMode(currentLine, isTouching: false, firstPoint: endPoint)
     }
     
-    // when go to color picker screen
+    // when go to setting screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "segue_for_setting") {
             let settingView : SettingViewController = segue.destination as! SettingViewController

@@ -30,7 +30,7 @@
                                 <items>
                                     <barButtonItem style="plain" id="aiO-mj-atX">
                                         <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="rjD-qE-XK3">
-                                            <rect key="frame" x="16" y="10" width="30" height="30"/>
+                                            <rect key="frame" x="16" y="5" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="lineA_on"/>
                                             <connections>
@@ -41,7 +41,7 @@
                                     <barButtonItem width="8" style="plain" systemItem="fixedSpace" id="IGk-cz-3WX"/>
                                     <barButtonItem style="plain" id="lnN-1S-cJe">
                                         <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="tP0-bZ-gus">
-                                            <rect key="frame" x="54" y="10" width="30" height="30"/>
+                                            <rect key="frame" x="64" y="5" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="lineB_off"/>
                                             <connections>
@@ -52,7 +52,7 @@
                                     <barButtonItem width="8" style="plain" systemItem="fixedSpace" id="lyt-iA-veY"/>
                                     <barButtonItem style="plain" id="3nI-Yz-LXU">
                                         <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="F8j-fZ-PxF">
-                                            <rect key="frame" x="92" y="10" width="30" height="30"/>
+                                            <rect key="frame" x="112" y="5" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="stop"/>
                                             <connections>
@@ -63,7 +63,7 @@
                                     <barButtonItem width="8" style="plain" systemItem="fixedSpace" id="a6X-XT-m9M"/>
                                     <barButtonItem style="plain" id="O4R-SK-rNK">
                                         <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="QHL-Zf-ZaP">
-                                            <rect key="frame" x="130" y="10" width="30" height="30"/>
+                                            <rect key="frame" x="160" y="5" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="photo_off"/>
                                             <connections>
@@ -74,7 +74,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="yht-qt-Oeo"/>
                                     <barButtonItem style="plain" id="3wk-Qm-Gmg">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q2r-GO-Fon" customClass="CustomButton" customModule="MoireCreator" customModuleProvider="target">
-                                            <rect key="frame" x="319" y="10" width="48" height="30"/>
+                                            <rect key="frame" x="307" y="10" width="60" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="setting"/>
                                             <userDefinedRuntimeAttributes>
@@ -1584,21 +1584,27 @@
         <!--Settig-->
         <scene sceneID="ukQ-9q-0yy">
             <objects>
-                <viewController storyboardIdentifier="setting" id="xsR-3p-7Ib" customClass="SettingViewController" customModule="MoireCreator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="setting" automaticallyAdjustsScrollViewInsets="NO" id="xsR-3p-7Ib" customClass="SettingViewController" customModule="MoireCreator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PRA-AT-Mm5"/>
                         <viewControllerLayoutGuide type="bottom" id="OIW-rl-YST"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="m91-rx-JSE">
+                    <view key="view" contentMode="scaleAspectFit" id="m91-rx-JSE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ps5-73-Zg7">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ps5-73-Zg7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCN-up-6R9" userLabel="ContentView">
+                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="CCN-up-6R9" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1136"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTH-og-N1q">
+                                                <rect key="frame" x="32" y="42" width="37.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFe-hC-JMe">
                                                 <rect key="frame" x="32" y="70" width="311" height="1"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1924,12 +1930,6 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTH-og-N1q">
-                                                <rect key="frame" x="32" y="42" width="37.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fpv-RM-Qb6">
                                                 <rect key="frame" x="32" y="200" width="311" height="1"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2129,7 +2129,7 @@
                                     <constraint firstItem="CCN-up-6R9" firstAttribute="leading" secondItem="Ps5-73-Zg7" secondAttribute="leading" id="vzD-fR-hw4"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29C-2H-tQ6" userLabel="BannerView" customClass="GADBannerView">
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="29C-2H-tQ6" userLabel="BannerView" customClass="GADBannerView">
                                 <rect key="frame" x="0.0" y="553" width="375" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -2144,12 +2144,12 @@
                             <constraint firstItem="Ps5-73-Zg7" firstAttribute="top" secondItem="PRA-AT-Mm5" secondAttribute="bottom" id="6lu-K9-KJz"/>
                             <constraint firstItem="Ps5-73-Zg7" firstAttribute="leading" secondItem="m91-rx-JSE" secondAttribute="leading" id="FHE-yt-ylk"/>
                             <constraint firstItem="OIW-rl-YST" firstAttribute="top" secondItem="29C-2H-tQ6" secondAttribute="bottom" id="PUE-ya-9rL"/>
-                            <constraint firstAttribute="bottom" secondItem="Ps5-73-Zg7" secondAttribute="bottom" id="RY9-tE-eEO"/>
                             <constraint firstAttribute="trailing" secondItem="29C-2H-tQ6" secondAttribute="trailing" id="duL-1L-Nac"/>
                             <constraint firstItem="29C-2H-tQ6" firstAttribute="leading" secondItem="m91-rx-JSE" secondAttribute="leading" id="msR-mH-ZDb"/>
                             <constraint firstItem="OIW-rl-YST" firstAttribute="top" secondItem="Ps5-73-Zg7" secondAttribute="bottom" id="reN-lt-5IC"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Settig" id="Mzi-ZM-RyK"/>
                     <connections>
                         <outlet property="backgroundColorView" destination="5YA-rN-bvM" id="VIU-NB-lHw"/>

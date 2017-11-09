@@ -7,10 +7,23 @@
 //
 
 import Foundation
+import UIKit
 
 class ColorPickUseCase {
     
     let dao: UserDefaultsDao = UserDefaultsDao()
+    
+    func getLineAColor() -> UIColor {
+        return dao.getLineAColor()
+    }
+    
+    func getLineBColor() -> UIColor {
+        return dao.getLineBColor()
+    }
+    
+    func getBackgroundColor() -> UIColor {
+        return dao.getBackgroundColor()
+    }
     
     func setLineAColor(colorData: Data) {
         return dao.setLineAColor(colorData: colorData)

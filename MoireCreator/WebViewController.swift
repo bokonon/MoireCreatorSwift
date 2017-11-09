@@ -17,11 +17,6 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     var category:String?
     var path:String?
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         indicator.startAnimating()
@@ -37,7 +32,9 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         }
         
         if let url = path {
-            print("url : " + url)
+            #if DEBUG
+            print("url : ", url)
+            #endif
             if url.hasPrefix("http") {
                 #if DEBUG
                 print("http")

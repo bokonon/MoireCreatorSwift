@@ -18,14 +18,12 @@ class AboutViewController: UIViewController {
     // override method
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("AboutViewController viewDidLoad")
         
         motionManager.deviceMotionUpdateInterval = 0.1 // 20Hz
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("AboutViewController viewWillAppear")
+        super.viewWillAppear(animated)
         
         // Start motion data acquisition
         motionManager.startDeviceMotionUpdates( to: OperationQueue.current!, withHandler:{
@@ -50,25 +48,16 @@ class AboutViewController: UIViewController {
             
             self.update(rx, ry: ry)
             
-                        print("val x", rx)
-                        print("val y", ry)
-            //            print("val z", rz)
+            #if DEBUG
+            print("val x", rx)
+            print("val y", ry)
+//            print("val z", rz)
+            #endif
         })
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("AboutViewController viewDidAppear")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("AboutViewController viewWillDisappear")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("AboutViewController viewDidDisappear")
         
         if motionManager.isDeviceMotionActive {
             motionManager.stopDeviceMotionUpdates()

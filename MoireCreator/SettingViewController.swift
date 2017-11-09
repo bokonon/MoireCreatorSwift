@@ -69,11 +69,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         print("SettingViewController viewDidLoad")
         #endif
         
-        self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "< MoireView", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SettingViewController.back(_:)))
-        self.navigationItem.leftBarButtonItem = newBackButton;
-        
         self.typeTextField.delegate = self
+        
+        initView()
         
         // AdMob load
         if let apiKey = KeyManager().getValue(key: ApiConstants.admobApiKey) as? String {
@@ -82,21 +80,20 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
             bannerView.load(GADRequest())
         }
         
-        initView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        #if DEBUG
-        print("SettingViewController viewWillAppear")
-        #endif
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        #if DEBUG
-        print("SettingViewController viewDidAppear")
-        #endif
+    override func viewWillDisappear(_ animated : Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParentViewController {
+            presenter.update(lineANumberValue: Int(lineANumberSlider.value), lineBNumberValue: Int(lineBNumberSlider.value),
+                             lineAThickValue: Int(lineAThickSlider.value), lineBThickValue: Int(lineBThickSlider.value),
+                             lineASlopeValue: Int(lineASlopeSlider.value), lineBSlopeValue: Int(lineBSlopeSlider.value))
+            
+            if(self.delegate != nil) {
+                self.delegate.settingDidFinished()
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -129,15 +126,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         colorPicker.delegate = self
     }
     
-    // when back
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
     @IBAction func sliderNumberAChanged(_ sender: UISlider) {
         lineANumberLabel.text = String(Int(sender.value))
     }
-    
     @IBAction func sliderNumberBChanged(_ sender: UISlider) {
         lineBNumberLabel.text = String(Int(sender.value))
     }
@@ -321,17 +312,6 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         print("SettingViewController pickerDidFinished")
         #endif
         initView()
-    }
-    
-    @objc func back(_ sender: UIBarButtonItem) {
-        presenter.update(lineANumberValue: Int(lineANumberSlider.value), lineBNumberValue: Int(lineBNumberSlider.value),
-                         lineAThickValue: Int(lineAThickSlider.value), lineBThickValue: Int(lineBThickSlider.value),
-                         lineASlopeValue: Int(lineASlopeSlider.value), lineBSlopeValue: Int(lineBSlopeSlider.value))
-        
-        self.navigationController?.popViewController(animated: true)
-        if(self.delegate != nil) {
-            self.delegate.settingDidFinished()
-        }
     }
 
 }
