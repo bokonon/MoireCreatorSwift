@@ -25,9 +25,11 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         
         // AdMob load
-        bannerView.adUnitID = "ca-app-pub-XXXX"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        if let apiKey = KeyManager().getValue(key: ApiConstants.admobApiKey) as? String {
+            bannerView.adUnitID = apiKey
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
         
     }
     
@@ -48,7 +50,9 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ table: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        #if DEBUG
         print("indexPath.row : " + String(describing: indexPath.row))
+        #endif
         let cell = table.dequeueReusableCell(withIdentifier: "InfoTableCell", for: indexPath)
         cell.textLabel?.text = categoryArray[indexPath.row]
         

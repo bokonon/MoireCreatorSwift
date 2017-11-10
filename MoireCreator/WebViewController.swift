@@ -17,11 +17,6 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     var category:String?
     var path:String?
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         indicator.startAnimating()
@@ -30,14 +25,20 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         webView.delegate = self
         
         if category != nil {
+            #if DEBUG
             print("category : " + category!)
+            #endif
             self.title = category
         }
         
         if let url = path {
-            print("url : " + url)
+            #if DEBUG
+            print("url : ", url)
+            #endif
             if url.hasPrefix("http") {
+                #if DEBUG
                 print("http")
+                #endif
                 webView.loadRequest(URLRequest(url: URL(string: url)!))
             } else {
                 if let local = Bundle.main.url(forResource: url, withExtension: "html") {
@@ -49,11 +50,15 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         if webView.isLoading {
+            #if DEBUG
             print("webview loading")
+            #endif
             return
         }
         indicator.stopAnimating()
+        #if DEBUG
         print("webview finished")
+        #endif
     }
     
 }

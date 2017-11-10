@@ -61,8 +61,10 @@ class Hearts: BaseTypes {
         } else if (CGFloat(frameWidth) < heart[number - 1].leftTop[1].x) {
             // disappear for more than width
             for i in 0..<heart.count {
-                heart[i].checkOutOfRange(centerX: -heart[number - 1].width / 2,
-                                         centerY: heart[i].centerTop.y + (heart[i].height / 2 - heart[i].height / 5))
+                let centerX = -heart[number - 1].width / 2
+                let centerY = heart[i].centerTop.y + (heart[i].height / 2 - heart[i].height / 5)
+                heart[i].checkOutOfRange(centerX: centerX,
+                                         centerY: centerY)
             }
         }
     }

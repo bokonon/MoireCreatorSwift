@@ -13,7 +13,7 @@ protocol SettingViewControllerDelegate{
     func settingDidFinished()
 }
 
-class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerViewControllerDelegate{
+class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerViewControllerDelegate {
     
     var delegate: SettingViewControllerDelegate! = nil
     
@@ -29,7 +29,6 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     let maxSlope: Int = 150
     
     var colorCategory: Int = 0
-    
     
     @IBOutlet weak var scrollView: UIScrollView!
     // type text field
@@ -61,6 +60,8 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     // AdMob
     @IBOutlet weak var bannerView: GADBannerView!
     
+    let presenter: SettingViewControllerPresenter = SettingViewControllerPresenter()
+    
     // override method
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,32 +69,31 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         print("SettingViewController viewDidLoad")
         #endif
         
-        self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "< MoireView", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SettingViewController.back(_:)))
-        self.navigationItem.leftBarButtonItem = newBackButton;
-        
         self.typeTextField.delegate = self
         
-        // AdMob load
-        bannerView.adUnitID = "ca-app-pub-6671743874516869/7620044437"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        
         initView()
+        
+        // AdMob load
+        if let apiKey = KeyManager().getValue(key: ApiConstants.admobApiKey) as? String {
+            bannerView.adUnitID = apiKey
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        #if DEBUG
-        print("SettingViewController viewWillAppear")
-        #endif
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        #if DEBUG
-        print("SettingViewController viewDidAppear")
-        #endif
+    override func viewWillDisappear(_ animated : Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParentViewController {
+            presenter.update(lineANumberValue: Int(lineANumberSlider.value), lineBNumberValue: Int(lineBNumberSlider.value),
+                             lineAThickValue: Int(lineAThickSlider.value), lineBThickValue: Int(lineBThickSlider.value),
+                             lineASlopeValue: Int(lineASlopeSlider.value), lineBSlopeValue: Int(lineBSlopeSlider.value))
+            
+            if(self.delegate != nil) {
+                self.delegate.settingDidFinished()
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -107,8 +107,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     
     // when go to color picker screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        
+        #if DEBUG
         print(segue.identifier as Any)
+        #endif
         
         if (segue.identifier == "segue_for_line_a_color") {
             colorCategory = lineA
@@ -125,15 +126,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         colorPicker.delegate = self
     }
     
-    // when back
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
     @IBAction func sliderNumberAChanged(_ sender: UISlider) {
         lineANumberLabel.text = String(Int(sender.value))
     }
-    
     @IBAction func sliderNumberBChanged(_ sender: UISlider) {
         lineBNumberLabel.text = String(Int(sender.value))
     }
@@ -159,11 +154,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     }
     
     func initView() {
-        // get userdefault
-        let userDefault = UserDefaults.standard
         
         // set Type
-        let type: Int = userDefault.integer(forKey: "type")
+        let type: Int = presenter.getType()
         switch type {
         case Constants.typeLine:
             self.typeTextField.text = "Line"
@@ -182,43 +175,43 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         }
         
         // set color
-        lineAColorView.backgroundColor = getUserDefaultColor(userDefault, defaultName: "lineAColor")
-        lineBColorView.backgroundColor = getUserDefaultColor(userDefault, defaultName: "lineBColor")
-        backgroundColorView.backgroundColor = getUserDefaultColor(userDefault, defaultName: "backgroundColor")
+        lineAColorView.backgroundColor = presenter.getLineAColor()
+        lineBColorView.backgroundColor = presenter.getLineBColor()
+        backgroundColorView.backgroundColor = presenter.getBackgroundColor()
         
         // set number
         lineANumberSlider.minimumValue = 10
         lineANumberSlider.maximumValue = Float(maxLines)
-        let lineANumberValue: Int = userDefault.integer(forKey: "lineANumber")
+        let lineANumberValue: Int = presenter.getLineANumber()
         lineANumberSlider.setValue(Float(lineANumberValue), animated: true)
         lineANumberLabel.text = String(lineANumberValue)
         lineBNumberSlider.minimumValue = 10
         lineBNumberSlider.maximumValue = Float(maxLines)
-        let lineBNumberValue: Int = userDefault.integer(forKey: "lineBNumber")
+        let lineBNumberValue: Int = presenter.getLineBNumber()
         lineBNumberSlider.setValue(Float(lineBNumberValue), animated: true)
         lineBNumberLabel.text = String(lineBNumberValue)
         
         // set thick
         lineAThickSlider.minimumValue = 1
         lineAThickSlider.maximumValue = Float(maxThick)
-        let lineAThickValue: Int = userDefault.integer(forKey: "lineAThick")
+        let lineAThickValue: Int = presenter.getLineAThick()
         lineAThickSlider.setValue(Float(lineAThickValue), animated: true)
         lineAThickLabel.text = String(lineAThickValue)
         lineBThickSlider.minimumValue = 1
         lineBThickSlider.maximumValue = Float(maxThick)
-        let lineBThickValue: Int = userDefault.integer(forKey: "lineBThick")
+        let lineBThickValue: Int = presenter.getLineBThick()
         lineBThickSlider.setValue(Float(lineBThickValue), animated: true)
         lineBThickLabel.text = String(lineBThickValue)
         
         // set slope
         lineASlopeSlider.minimumValue = 0
         lineASlopeSlider.maximumValue = Float(maxSlope)
-        let lineASlopeValue: Int = userDefault.integer(forKey: "lineASlope")
+        let lineASlopeValue: Int = presenter.getLineASlope()
         lineASlopeSlider.setValue(Float(lineASlopeValue), animated: true)
         lineASlopeLabel.text = String(lineASlopeValue)
         lineBSlopeSlider.minimumValue = 0
         lineBSlopeSlider.maximumValue = Float(maxSlope)
-        let lineBSlopeValue: Int = userDefault.integer(forKey: "lineBSlope")
+        let lineBSlopeValue: Int = presenter.getLineBSlope()
         lineBSlopeSlider.setValue(Float(lineBSlopeValue), animated: true)
         lineBSlopeLabel.text = String(lineBSlopeValue)
     }
@@ -241,10 +234,8 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         default:
             self.typeTextField.text = "Line"
         }
-        // get userdefault
-        let userDefault = UserDefaults.standard
-        userDefault.set(type, forKey: "type")
-        userDefault.synchronize()
+        
+        presenter.setType(type: type)
     }
     
     // select Type ActionSheet
@@ -321,40 +312,6 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         print("SettingViewController pickerDidFinished")
         #endif
         initView()
-    }
-    
-    func back(_ sender: UIBarButtonItem) {
-        // save current status
-        let userDefault = UserDefaults.standard
-        // number
-        userDefault.set(Int(lineANumberSlider.value), forKey: "lineANumber")
-        userDefault.set(Int(lineBNumberSlider.value), forKey: "lineBNumber")
-        // thick
-        userDefault.set(Int(lineAThickSlider.value), forKey: "lineAThick")
-        userDefault.set(Int(lineBThickSlider.value), forKey: "lineBThick")
-        // slope
-        userDefault.set(Int(lineASlopeSlider.value), forKey: "lineASlope")
-        userDefault.set(Int(lineBSlopeSlider.value), forKey: "lineBSlope")
-        
-        // user deafult synch
-        userDefault.synchronize()
-        
-        self.navigationController?.popViewController(animated: true)
-        if(self.delegate != nil) {
-            self.delegate.settingDidFinished()
-        }
-    }
-    
-    func getUserDefaultColor(_ userDefault: UserDefaults, defaultName: String) -> UIColor {
-        if let colorData  = userDefault.object(forKey: defaultName) as? Data {
-            if let color = NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor {
-                return color
-            }
-        }
-        if(defaultName == "backgroundColor") {
-            return UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        }
-        return UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
     }
 
 }

@@ -1,0 +1,29 @@
+//
+//  KeyManager.swift
+//  MoireCreator
+//
+//  Created by yuji shimada on 2017/11/04.
+//  Copyright © 2017年 yuji shimada. All rights reserved.
+//
+
+import Foundation
+
+struct KeyManager {
+    
+    private let keyFilePath = Bundle.main.path(forResource: "keys", ofType: "plist")
+    
+    func getKeys() -> NSDictionary? {
+        guard let keyFilePath = keyFilePath else {
+            return nil
+        }
+        return NSDictionary(contentsOfFile: keyFilePath)
+    }
+    
+    func getValue(key: String) -> AnyObject? {
+        guard let keys = getKeys() else {
+            return nil
+        }
+        return keys.value(forKey: key) as AnyObject
+    }
+    
+}

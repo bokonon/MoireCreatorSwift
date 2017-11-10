@@ -20,3 +20,20 @@ struct Constants {
     // TYPE_ORIGINAL
     static let typeOriginal: Int = 5
 }
+
+struct ApiConstants {
+    static let admobApiKey = "AdmobApiKey"
+}
+
+struct UserDefaultsConstants {
+    static let type = "type"
+    static let lineAColor = "lineAColor"
+    static let lineBColor = "lineBColor"
+    static let backgroundColor = "backgroundColor"
+    static let lineANumber = "lineANumber"
+    static let lineBNumber = "lineBNumber"
+    static let lineAThick = "lineAThick"
+    static let lineBThick = "lineBThick"
+    static let lineASlope = "lineASlope"
+    static let lineBSlope = "lineBSlope"
+}
