@@ -156,23 +156,8 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     func initView() {
         
         // set Type
-        let type: Int = presenter.getType()
-        switch type {
-        case Constants.typeLine:
-            self.typeTextField.text = "Line"
-        case Constants.typeCircle:
-            self.typeTextField.text = "Circle"
-        case Constants.typeRect:
-            self.typeTextField.text = "Rectangle"
-        case Constants.typeHeart:
-            self.typeTextField.text = "Heart"
-        case Constants.typeSynapse:
-            self.typeTextField.text = "Synapse"
-        case Constants.typeOriginal:
-            self.typeTextField.text = "Original"
-        default:
-            self.typeTextField.text = "Line"
-        }
+        let type: Type = presenter.getType()
+        self.typeTextField.text = type.description
         
         // set color
         lineAColorView.backgroundColor = presenter.getLineAColor()
@@ -216,24 +201,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
         lineBSlopeLabel.text = String(lineBSlopeValue)
     }
     
-    func setTypeTextFieldAndDefault(_ type: Int) {
+    func setTypeTextFieldAndDefault(_ type: Type) {
         self.typeTextField.endEditing(true)
-        switch type {
-        case Constants.typeLine:
-            self.typeTextField.text = "Line"
-        case Constants.typeCircle:
-            self.typeTextField.text = "Circle"
-        case Constants.typeRect:
-            self.typeTextField.text = "Rectangle"
-        case Constants.typeHeart:
-            self.typeTextField.text = "Heart"
-        case Constants.typeSynapse:
-            self.typeTextField.text = "Synapse"
-        case Constants.typeOriginal:
-            self.typeTextField.text = "Original"
-        default:
-            self.typeTextField.text = "Line"
-        }
+        self.typeTextField.text = type.description
         
         presenter.setType(type: type)
     }
@@ -252,55 +222,17 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
                 self.typeTextField.endEditing(true)
         })
         
-        let line:UIAlertAction = UIAlertAction(title: "Line",
-            style: UIAlertActionStyle.default,
-            handler:{
+        for type in Type.cases {
+            let action:UIAlertAction = UIAlertAction(title: type.description,
+               style: UIAlertActionStyle.default,
+               handler:{
                 (action:UIAlertAction!) -> Void in
-                self.setTypeTextFieldAndDefault(Constants.typeLine)
-        })
-        
-        let circle:UIAlertAction = UIAlertAction(title: "Circle",
-            style: UIAlertActionStyle.default,
-            handler:{
-                (action:UIAlertAction!) -> Void in
-                self.setTypeTextFieldAndDefault(Constants.typeCircle)
-        })
-        
-        let rect:UIAlertAction = UIAlertAction(title: "Rectangle",
-            style: UIAlertActionStyle.default,
-            handler:{
-                (action:UIAlertAction!) -> Void in
-                self.setTypeTextFieldAndDefault(Constants.typeRect)
-        })
-        
-        let heart:UIAlertAction = UIAlertAction(title: "Heart",
-            style: UIAlertActionStyle.default,
-            handler:{
-                (action:UIAlertAction!) -> Void in
-                self.setTypeTextFieldAndDefault(Constants.typeHeart)
-        })
-        
-        let synapse:UIAlertAction = UIAlertAction(title: "Synapse",
-            style: UIAlertActionStyle.default,
-            handler:{
-                (action:UIAlertAction!) -> Void in
-                self.setTypeTextFieldAndDefault(Constants.typeSynapse)
-        })
-        
-        let original:UIAlertAction = UIAlertAction(title: "Original",
-            style: UIAlertActionStyle.default,
-            handler:{
-                (action:UIAlertAction!) -> Void in
-                self.setTypeTextFieldAndDefault(Constants.typeOriginal)
-        })
+                self.setTypeTextFieldAndDefault(type)
+            })
+            alert.addAction(action)
+        }
         
         alert.addAction(cancelAction)
-        alert.addAction(line)
-        alert.addAction(circle)
-        alert.addAction(rect)
-        alert.addAction(heart)
-        alert.addAction(synapse)
-        alert.addAction(original)
         //        sheet.addAction(destructiveAction)
         
         present(alert, animated: true, completion: nil)

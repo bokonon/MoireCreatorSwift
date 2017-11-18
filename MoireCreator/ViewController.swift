@@ -103,7 +103,7 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
         print("ViewController touchesMoved")
         #endif
         
-        if(moireView.moireType == Constants.typeOriginal) {
+        if(moireView.moireType == .ORIGINAL) {
             let touchEvent = touches.first!
             let movePoint: CGPoint = touchEvent.previousLocation(in: moireView)
             
@@ -222,7 +222,7 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
     }
     
     func updateView() {
-        let moireType = presenter.getType()
+        let type = presenter.getType()
         let backgroundColor = presenter.getBackgroundColor()
         let lineAColor = presenter.getLineAColor()
         let lineBColor = presenter.getLineBColor()
@@ -233,7 +233,7 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
         let lineASlope = presenter.getLineASlope()
         let lineBSlope = presenter.getLineBSlope()
         
-        moireView.updateView(type: moireType, backgroundColor: backgroundColor,
+        moireView.updateView(type: type, backgroundColor: backgroundColor,
                              lineAColor: lineAColor, lineBColor: lineBColor,
                              lineANumber: lineANumber, lineBNumber: lineBNumber,
                              lineAThick: lineAThick, lineBThick: lineBThick,

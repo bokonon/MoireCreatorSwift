@@ -13,7 +13,7 @@ class SettingViewControllerPresenter {
     
     let useCase: UserDefaultsUseCase = UserDefaultsUseCase()
     
-    func setType(type: Int) {
+    func setType(type: Type) {
         return useCase.setType(type: type)
     }
     
@@ -25,7 +25,7 @@ class SettingViewControllerPresenter {
                                lineASlopeValue: lineASlopeValue, lineBSlopeValue: lineBSlopeValue)
     }
     
-    func getType() -> Int {
+    func getType() -> Type {
         return useCase.getType()
     }
     

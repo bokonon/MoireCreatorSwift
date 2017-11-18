@@ -51,7 +51,7 @@ class Hearts: BaseTypes {
         }
     }
     
-    func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
+    override func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
         if (heart[number - 1].rightTop[0].x < 0) {
             // disappear for less than 0
             for i in 0..<heart.count {

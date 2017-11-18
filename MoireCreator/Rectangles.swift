@@ -51,7 +51,7 @@ class Rectangles: BaseTypes {
         }
     }
     
-    func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
+    override func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
         // LineA
         if(whichLine == lineA) {
             if(CGFloat(frameWidth) < rectangle[number-1].leftBottomPoint.x) {

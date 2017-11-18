@@ -18,7 +18,7 @@ class ViewControllerPresenter {
         userDefaultsUseCase.initUserDefaults()
     }
     
-    func getType() -> Int {
+    func getType() -> Type {
         return userDefaultsUseCase.getType()
     }
     

@@ -14,31 +14,15 @@ class UIMoireView: UIView {
     let maxThick: Int = 20
     let maxSlope: Int = 150
     
-    var moireType: Int!
+    var moireType: Type!
     
     let lineA: Int = 0
     let lineB: Int = 1
     
-    var linesA: Lines!
-    var linesB: Lines!
-    
-    var circlesA: Circles!
-    var circlesB: Circles!
-    
-    var rectanglesA: Rectangles!
-    var rectanglesB: Rectangles!
-    
-    var heartsA: Hearts!
-    var heartsB: Hearts!
-    
-    var synapsesA: Synapses!
-    var synapsesB: Synapses!
-    
-    var originalsA: Originals!
-    var originalsB: Originals!
+    var typesA: BaseTypes!
+    var typesB: BaseTypes!
     
     var frameWidth: Int!
-    
     var frameHeight: Int!
     
     var isPause: Bool = false
@@ -49,13 +33,11 @@ class UIMoireView: UIView {
     // init from story board
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        
     }
     
     // init from code
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
     }
     
     // Only override drawRect: if you perform custom drawing.
@@ -67,135 +49,103 @@ class UIMoireView: UIView {
         }
         
         switch moireType {
-        case Constants.typeLine:
-            linesA.checkOutOfRange(frameWidth: frameWidth)
-            linesB.checkOutOfRange(frameWidth: frameWidth)
+        case .LINE:
+            typesA.checkOutOfRange(frameWidth: frameWidth)
+            typesB.checkOutOfRange(frameWidth: frameWidth)
             
             if(!isPause){
                 if(isTouchingLine == lineA && isTouching) {
                     // do nothing
                 }
                 else {
-                    linesA.move(whichLine: lineA)
+                    typesA.move(whichLine: lineA)
                 }
                 if(isTouchingLine == lineB && isTouching) {
                     // do nothing
                 }
                 else {
-                    linesB.move(whichLine: lineB)
+                    typesB.move(whichLine: lineB)
                 }
             }
-            linesA.draw()
-            linesB.draw()
-        case Constants.typeCircle:
-            circlesA.checkOutOfRange(frameWidth: frameWidth)
-            circlesB.checkOutOfRange(frameWidth: frameWidth)
+            typesA.draw()
+            typesB.draw()
+        case .CIRCLE:
+            typesA.checkOutOfRange(frameWidth: frameWidth)
+            typesB.checkOutOfRange(frameWidth: frameWidth)
             
             if(!isPause){
                 if(isTouchingLine == lineB) {
-                    circlesA.move(whichLine: lineA)
+                    typesA.move(whichLine: lineA)
                 }
                 else if(isTouchingLine == lineA && !isTouching){
-                    circlesA.move(whichLine: lineA)
+                    typesA.move(whichLine: lineA)
                 }
                 if(isTouchingLine == lineA) {
-                    circlesB.move(whichLine: lineB)
+                    typesB.move(whichLine: lineB)
                 }
                 else if(isTouchingLine == lineB && !isTouching){
-                    circlesB.move(whichLine: lineB)
+                    typesB.move(whichLine: lineB)
                 }
             }
-            circlesA.draw()
-            circlesB.draw()
-        case Constants.typeRect:
-            rectanglesA.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineA)
-            rectanglesB.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineB)
+            typesA.draw()
+            typesB.draw()
+        case .RECT:
+            fallthrough
+        case .HEART:
+            fallthrough
+        case .SYNAPSE:
+            fallthrough
+        case .OCTAGON:
+            typesA.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineA)
+            typesB.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineB)
             
             if(!isPause){
                 if(isTouchingLine == lineA && isTouching) {
                     // do nothing
                 }
                 else {
-                    rectanglesA.move(whichLine: lineA)
+                    typesA.move(whichLine: lineA)
                 }
                 if(isTouchingLine == lineB && isTouching) {
                     // do nothing
                 }
                 else {
-                    rectanglesB.move(whichLine: lineB)
+                    typesB.move(whichLine: lineB)
                 }
             }
-            rectanglesA.draw()
-            rectanglesB.draw()
-        case Constants.typeHeart:
-            heartsA.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineA)
-            heartsB.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineB)
+            typesA.draw()
+            typesB.draw()
             
-            if(!isPause){
-                if(isTouchingLine == lineA && isTouching) {
-                    // do nothing
-                }
-                else {
-                    heartsA.move(whichLine: lineA)
-                }
-                if(isTouchingLine == lineB && isTouching) {
-                    // do nothing
-                }
-                else {
-                    heartsB.move(whichLine: lineB)
-                }
-            }
-            heartsA.draw()
-            heartsB.draw()
-        case Constants.typeSynapse:
-            synapsesA.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineA)
-            synapsesB.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineB)
-            
-            if(!isPause){
-                if(isTouchingLine == lineA && isTouching) {
-                    // do nothing
-                }
-                else {
-                    synapsesA.move(whichLine: lineA)
-                }
-                if(isTouchingLine == lineB && isTouching) {
-                    // do nothing
-                }
-                else {
-                    synapsesB.move(whichLine: lineB)
-                }
-            }
-            synapsesA.draw()
-            synapsesB.draw()
-        case Constants.typeOriginal:
+        case .ORIGINAL:
             if(!isPause){
                 if(isTouchingLine == lineA && isTouching) {
                     // do nothing
                 }
                 else {
                     if(!isTouching) {
-                        originalsA.checkOutOfRange(frameWidth: frameWidth)
+                        typesA.checkOutOfRange(frameWidth: frameWidth)
                     }
-                    originalsA.move(whichLine: lineA)
+                    typesA.move(whichLine: lineA)
                 }
                 if(isTouchingLine == lineB && isTouching) {
                     // do nothing
                 }
                 else {
                     if(!isTouching) {
-                        originalsB.checkOutOfRange(frameWidth: frameWidth)
+                        typesB.checkOutOfRange(frameWidth: frameWidth)
                     }
-                    originalsB.move(whichLine: lineB)
+                    typesB.move(whichLine: lineB)
                 }
             }
-            originalsA.draw()
-            originalsB.draw()
+            typesA.draw()
+            typesB.draw()
+            
         default:
             print("default")
         }
     }
         
-    func updateView(type: Int, backgroundColor: UIColor,
+    func updateView(type: Type, backgroundColor: UIColor,
                     lineAColor: UIColor, lineBColor: UIColor,
                     lineANumber: Int, lineBNumber: Int,
                     lineAThick: Int, lineBThick: Int,
@@ -209,7 +159,6 @@ class UIMoireView: UIView {
         print("frameHeight : ", frameHeight)
         #endif
         
-        // set type
         self.moireType = type
         
         #if DEBUG
@@ -219,116 +168,71 @@ class UIMoireView: UIView {
         self.backgroundColor = backgroundColor
         
         switch moireType {
-        case Constants.typeLine:
-            linesA = Lines(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber, slope: lineASlope)
-            linesA.setColor(color: lineAColor)
-            linesA.setThick(thick: lineAThick)
-            linesB = Lines(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber, slope: lineBSlope)
-            linesB.setColor(color: lineBColor)
-            linesB.setThick(thick: lineBThick)
-        case Constants.typeCircle:
-            circlesA = Circles(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
-            circlesA.setColor(color: lineAColor)
-            circlesA.setThick(thick: lineAThick)
-            circlesB = Circles(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber)
-            circlesB.setColor(color: lineBColor)
-            circlesB.setThick(thick: lineBThick)
-        case Constants.typeRect:
-            rectanglesA = Rectangles(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber, slope: lineASlope)
-            rectanglesA.setColor(color: lineAColor)
-            rectanglesA.setThick(thick: lineAThick)
-            rectanglesB = Rectangles(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber, slope: lineBSlope)
-            rectanglesB.setColor(color: lineBColor)
-            rectanglesB.setThick(thick: lineBThick)
-        case Constants.typeHeart:
-            heartsA = Hearts(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
-            heartsA.setColor(color: lineAColor)
-            heartsA.setThick(thick: lineAThick)
-            heartsB = Hearts(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber)
-            heartsB.setColor(color: lineBColor)
-            heartsB.setThick(thick: lineBThick)
-        case Constants.typeSynapse:
-            synapsesA = Synapses(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
-            synapsesA.setColor(color: lineAColor)
-            synapsesA.setThick(thick: lineAThick)
-            synapsesB = Synapses(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber)
-            synapsesB.setColor(color: lineBColor)
-            synapsesB.setThick(thick: lineBThick)
-        case Constants.typeOriginal:
-            originalsA = Originals(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
-            originalsA.setColor(color: lineAColor)
-            originalsA.setThick(thick: lineAThick)
-            originalsB = Originals(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
-            originalsB.setColor(color: lineBColor)
-            originalsB.setThick(thick: lineBThick)
+        case .LINE:
+            typesA = Lines(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber, slope: lineASlope)
+            typesB = Lines(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber, slope: lineBSlope)
+        case .CIRCLE:
+            typesA = Circles(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
+            typesB = Circles(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber)
+        case .RECT:
+            typesA = Rectangles(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber, slope: lineASlope)
+            typesB = Rectangles(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber, slope: lineBSlope)
+        case .HEART:
+            typesA = Hearts(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
+            typesB = Hearts(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber)
+        case .SYNAPSE:
+            typesA = Synapses(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
+            typesB = Synapses(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber)
+        case .ORIGINAL:
+            typesA = Originals(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
+            typesB = Originals(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
+        case .OCTAGON:
+            typesA = Octagons(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
+            typesB = Octagons(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber)
         default:
             #if DEBUG
             print("IllegalArgument on update")
             #endif
+        }
+        if (typesA != nil) {
+            typesA.setColor(color: lineAColor)
+            typesA.setThick(thick: lineAThick)
+        }
+        if (typesB != nil) {
+            typesB.setColor(color: lineBColor)
+            typesB.setThick(thick: lineBThick)
         }
         
     }
     
     func touchMove(_ whichLine: Int, dx: CGFloat, dy: CGFloat) {
         switch moireType {
-        case Constants.typeLine:
+        case .LINE:
+            fallthrough
+        case .CIRCLE:
+            fallthrough
+        case .RECT:
+            fallthrough
+        case .HEART:
+            fallthrough
+        case .SYNAPSE:
+            fallthrough
+        case .OCTAGON:
             if(whichLine == lineA) {
-                linesA.touchMove(dx: dx, dy: dy)
+                typesA.touchMove(dx: dx, dy: dy)
 //                linesA.checkOutOfRange(frameWidth)
 //                linesA.draw()
             }
             else {
-                linesB.touchMove(dx: dx, dy: dy)
+                typesB.touchMove(dx: dx, dy: dy)
 //                linesB.checkOutOfRange(frameWidth)
 //                linesB.draw()
             }
-        case Constants.typeCircle:
-            if(whichLine == lineA) {
-                circlesA.touchMove(dx: dx, dy: dy)
-//                circlesA.checkOutOfRange(frameWidth)
-//                circlesA.draw()
-            }
-            else {
-                circlesB.touchMove(dx: dx, dy: dy)
-//                circlesB.checkOutOfRange(frameWidth)
-//                circlesB.draw()
-            }
-        case Constants.typeRect:
-            if(whichLine == lineA) {
-                rectanglesA.touchMove(dx: dx, dy: dy)
-//                rectanglesA.checkOutOfRange(frameWidth)
-//                rectanglesA.draw()
-            }
-            else {
-                rectanglesB.touchMove(dx: dx, dy: dy)
-//                rectanglesB.checkOutOfRange(frameWidth)
-//                rectanglesB.draw()
-            }
-        case Constants.typeHeart:
-            if(whichLine == lineA) {
-                heartsA.touchMove(dx: dx, dy: dy)
-//                heartsA.checkOutOfRange(frameWidth)
-//                heartsA.draw()
-            }
-            else {
-                heartsB.touchMove(dx: dx, dy: dy)
-//                heartsB.checkOutOfRange(frameWidth)
-//                heartsB.draw()
-            }
-        case Constants.typeSynapse:
-            if(whichLine == lineA) {
-                synapsesA.touchMove(dx: dx, dy: dy)
-                //                synapsesA.checkOutOfRange(frameWidth)
-                //                synapsesA.draw()
-            }
-            else {
-                synapsesB.touchMove(dx: dx, dy: dy)
-                //                synapsesB.checkOutOfRange(frameWidth)
-                //                synapsesB.draw()
-            }
-//        case typeOriginal:
-//            print("typeOriginal")
-            
+        case .ORIGINAL:
+            // do nothing
+            #if DEBUG
+            print("default")
+            #endif
         default:
             #if DEBUG
             print("default")
@@ -339,14 +243,14 @@ class UIMoireView: UIView {
     func touchOriginalMove(_ whichLine: Int, movePoint: CGPoint) {
         
         if(whichLine == lineA) {
-            originalsA.touchMove(movePoint: movePoint)
+            typesA.touchMove(movePoint: movePoint)
 //            originalsA.checkOutOfRange(frameWidth)
-            originalsA.draw()
+            typesA.draw()
         }
         else {
-            originalsB.touchMove(movePoint: movePoint)
+            typesB.touchMove(movePoint: movePoint)
 //            originalsB.checkOutOfRange(frameWidth)
-            originalsB.draw()
+            typesB.draw()
         }
     }
 
@@ -372,27 +276,23 @@ class UIMoireView: UIView {
         self.isTouching = isTouching
         
         switch moireType {
-//        case Constants.typeLine:
-//        case Constants.typeCircle:
-//        case Constants.typeRect:
-//        case Constants.typeHeart:
-        case Constants.typeOriginal:
+        case .ORIGINAL:
             // touch down
             if(isTouching) {
                 if(touchingLine == lineA) {
-                    originalsA.start(firstPoint: firstPoint)
+                    typesA.start(firstPoint: firstPoint)
                 }
                 else {
-                    originalsB.start(firstPoint: firstPoint)
+                    typesB.start(firstPoint: firstPoint)
                 }
             }
                 // touch up
             else {
                 if(touchingLine == lineA) {
-                    originalsA.end()
+                    typesA.end()
                 }
                 else {
-                    originalsB.end()
+                    typesB.end()
                 }
             }
         default:

@@ -22,9 +22,44 @@ class UserDefaultsDao {
         userDefaults.register(defaults: [UserDefaultsConstants.lineBSlope: 10])
     }
     
+    func update(lineANumberValue: Int, lineBNumberValue: Int,
+                lineAThickValue: Int, lineBThickValue: Int,
+                lineASlopeValue: Int, lineBSlopeValue: Int) {
+        // number
+        userDefaults.set(lineANumberValue, forKey: UserDefaultsConstants.lineANumber)
+        userDefaults.set(lineBNumberValue, forKey: UserDefaultsConstants.lineBNumber)
+        // thick
+        userDefaults.set(lineAThickValue, forKey: UserDefaultsConstants.lineAThick)
+        userDefaults.set(lineBThickValue, forKey: UserDefaultsConstants.lineBThick)
+        // slope
+        userDefaults.set(lineASlopeValue, forKey: UserDefaultsConstants.lineASlope)
+        userDefaults.set(lineBSlopeValue, forKey: UserDefaultsConstants.lineBSlope)
+        
+        // user deafult synch
+        userDefaults.synchronize()
+    }
+    
+    // set
+    func setType(type: Type) {
+        userDefaults.set(type.rawValue, forKey: UserDefaultsConstants.type)
+    }
+    
+    func setLineAColor(colorData: Data) {
+        userDefaults.set(colorData, forKey: UserDefaultsConstants.lineAColor)
+    }
+    
+    func setLineBColor(colorData: Data) {
+        userDefaults.set(colorData, forKey: UserDefaultsConstants.lineBColor)
+    }
+    
+    func setBackgroundColor(colorData: Data) {
+        userDefaults.set(colorData, forKey: UserDefaultsConstants.backgroundColor)
+    }
+    
     // get
-    func getType() -> Int {
-        return userDefaults.integer(forKey: UserDefaultsConstants.type)
+    func getType() -> Type {
+        let rawValue = userDefaults.integer(forKey: UserDefaultsConstants.type)
+        return Type(rawValue: rawValue)!
     }
     
     func getLineAColor() -> UIColor {
@@ -61,40 +96,6 @@ class UserDefaultsDao {
     
     func getLineBSlope() -> Int {
         return userDefaults.integer(forKey: UserDefaultsConstants.lineBSlope)
-    }
-    
-    // set
-    func setType(type: Int) {
-        userDefaults.set(type, forKey: UserDefaultsConstants.type)
-    }
-    
-    func setLineAColor(colorData: Data) {
-        userDefaults.set(colorData, forKey: UserDefaultsConstants.lineAColor)
-    }
-    
-    func setLineBColor(colorData: Data) {
-        userDefaults.set(colorData, forKey: UserDefaultsConstants.lineBColor)
-    }
-    
-    func setBackgroundColor(colorData: Data) {
-        userDefaults.set(colorData, forKey: UserDefaultsConstants.backgroundColor)
-    }
-    
-    func update(lineANumberValue: Int, lineBNumberValue: Int,
-                lineAThickValue: Int, lineBThickValue: Int,
-                lineASlopeValue: Int, lineBSlopeValue: Int) {
-        // number
-        userDefaults.set(lineANumberValue, forKey: UserDefaultsConstants.lineANumber)
-        userDefaults.set(lineBNumberValue, forKey: UserDefaultsConstants.lineBNumber)
-        // thick
-        userDefaults.set(lineAThickValue, forKey: UserDefaultsConstants.lineAThick)
-        userDefaults.set(lineBThickValue, forKey: UserDefaultsConstants.lineBThick)
-        // slope
-        userDefaults.set(lineASlopeValue, forKey: UserDefaultsConstants.lineASlope)
-        userDefaults.set(lineBSlopeValue, forKey: UserDefaultsConstants.lineBSlope)
-        
-        // user deafult synch
-        userDefaults.synchronize()
     }
     
     func getUserDefaultColor(defaultName: String) -> UIColor {

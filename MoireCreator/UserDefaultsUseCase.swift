@@ -17,7 +17,19 @@ class UserDefaultsUseCase {
         dao.initUserDefaults()
     }
     
-    func getType() -> Int {
+    func setType(type: Type) {
+        return dao.setType(type: type)
+    }
+    
+    func update(lineANumberValue: Int, lineBNumberValue: Int,
+                lineAThickValue: Int, lineBThickValue: Int,
+                lineASlopeValue: Int, lineBSlopeValue: Int) {
+        dao.update(lineANumberValue: lineANumberValue, lineBNumberValue: lineBNumberValue,
+                   lineAThickValue: lineAThickValue, lineBThickValue: lineBThickValue,
+                   lineASlopeValue: lineASlopeValue, lineBSlopeValue: lineBSlopeValue)
+    }
+    
+    func getType() -> Type {
         return dao.getType()
     }
     
@@ -55,18 +67,6 @@ class UserDefaultsUseCase {
     
     func getLineBSlope() -> Int {
         return dao.getLineBSlope()
-    }
-    
-    func setType(type: Int) {
-        return dao.setType(type: type)
-    }
-    
-    func update(lineANumberValue: Int, lineBNumberValue: Int,
-                lineAThickValue: Int, lineBThickValue: Int,
-                lineASlopeValue: Int, lineBSlopeValue: Int) {
-        dao.update(lineANumberValue: lineANumberValue, lineBNumberValue: lineBNumberValue,
-                               lineAThickValue: lineAThickValue, lineBThickValue: lineBThickValue,
-                               lineASlopeValue: lineASlopeValue, lineBSlopeValue: lineBSlopeValue)
     }
     
 }

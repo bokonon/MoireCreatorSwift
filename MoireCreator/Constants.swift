@@ -6,19 +6,63 @@
 //  Copyright © 2017年 yuji shimada. All rights reserved.
 //
 
-struct Constants {
-    // TYPE_LINE
-    static let typeLine: Int = 0
-    // TYPE_CIRCLE
-    static let typeCircle: Int = 1
-    // TYPE_RECT
-    static let typeRect: Int = 2
-    // TYPE_HEART
-    static let typeHeart: Int = 3
-    // TYPE_SYNAPSE
-    static let typeSynapse: Int = 4
-    // TYPE_ORIGINAL
-    static let typeOriginal: Int = 5
+public protocol Enumerable {
+    associatedtype Case = Self
+}
+
+public extension Enumerable where Case: Hashable {
+    private static var iterator: AnyIterator<Case> {
+        var n = 0
+        return AnyIterator {
+            defer { n += 1 }
+            
+            let next = withUnsafePointer(to: &n) {
+                UnsafeRawPointer($0).assumingMemoryBound(to: Case.self).pointee
+            }
+            return next.hashValue == n ? next : nil
+        }
+    }
+    
+    public static func enumerate() -> EnumeratedSequence<AnySequence<Case>> {
+        return AnySequence(self.iterator).enumerated()
+    }
+    
+    public static var cases: [Case] {
+        return Array(self.iterator)
+    }
+    
+    public static var count: Int {
+        return self.cases.count
+    }
+}
+
+enum Type: Int, Enumerable {
+    case LINE = 0
+    case CIRCLE = 1
+    case RECT = 2
+    case HEART = 3
+    case SYNAPSE = 4
+    case ORIGINAL = 5
+    case OCTAGON = 6
+    
+    var description: String {
+        switch self {
+        case .LINE:
+            return "Line"
+        case .CIRCLE:
+            return "Circle"
+        case .RECT:
+            return "Rect"
+        case .HEART:
+            return "Heart"
+        case .SYNAPSE:
+            return "Synapse"
+        case .ORIGINAL:
+            return "Original"
+        case .OCTAGON:
+            return "Octagon"
+        }
+    }
 }
 
 struct ApiConstants {

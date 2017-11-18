@@ -62,7 +62,7 @@ class Synapses: BaseTypes {
         }
     }
     
-    func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
+    override func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
         if (synapse[number - 1].right.x < 0) {
             let startX = CGFloat(frameWidth) -  synapse[0].center.x + synapse[number - 1].right.x
             for i in 0..<synapse.count {

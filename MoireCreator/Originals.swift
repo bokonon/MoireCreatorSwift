@@ -58,7 +58,7 @@ class Originals: BaseTypes {
         }
     }
     
-    func start(firstPoint: CGPoint) {
+    override func start(firstPoint: CGPoint) {
         let margin: CGFloat = drawRange/CGFloat(original.count)
         for i in 0..<original.count {
             let tempPointX: CGFloat = firstPoint.x - drawRange/2 + margin*CGFloat(i)
@@ -72,7 +72,7 @@ class Originals: BaseTypes {
         }
     }
     
-    func touchMove(movePoint: CGPoint) {
+    override func touchMove(movePoint: CGPoint) {
         let margin: CGFloat = drawRange/CGFloat(original.count)
         for i in 0..<original.count {
             let tempPointX: CGFloat = movePoint.x - drawRange/2 + margin*CGFloat(i)
@@ -86,7 +86,7 @@ class Originals: BaseTypes {
         }
     }
     
-    func end() {
+    override func end() {
         
     }
 }
