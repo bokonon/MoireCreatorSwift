@@ -71,18 +71,18 @@ class Octagons: BaseTypes {
         }
         // LineB
         else {
-            if(CGFloat(frameWidth) < plus[number-1].centerPoint.x - plus[number-1].length) {
-                let diff: CGFloat = plus[number-1].centerPoint.x - plus[number-1].length - CGFloat(frameWidth)
+            if(CGFloat(frameWidth) < octagons[number-1].centerPoint.x - octagons[number-1].length) {
+                let diff: CGFloat = octagons[number-1].centerPoint.x - octagons[number-1].length - CGFloat(frameWidth)
                 let centerX: CGFloat = -CGFloat(frameHeight)/3 + diff
-                for i in 0..<plus.count {
-                    plus[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineB, centerX: centerX)
+                for i in 0..<octagons.count {
+                    octagons[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineB, centerX: centerX)
                 }
             }
-            else if(plus[number-1].centerPoint.x + plus[number-1].length < 0) {
-                let diff = -(plus[number-1].centerPoint.x + plus[number-1].length)
+            else if(octagons[number-1].centerPoint.x + octagons[number-1].length < 0) {
+                let diff = -(octagons[number-1].centerPoint.x + octagons[number-1].length)
                 let centerX = CGFloat(frameWidth) + CGFloat(frameHeight)/3 - diff
-                for i in 0..<plus.count {
-                    plus[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineB, centerX: centerX)
+                for i in 0..<octagons.count {
+                    octagons[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineB, centerX: centerX)
                 }
             }
         }
@@ -90,28 +90,28 @@ class Octagons: BaseTypes {
     
     override func move(whichLine :Int){
         if(whichLine == lineA) {
-            for i in 0..<plus.count {
-                plus[i].autoMove(dx: dx);
+            for i in 0..<octagons.count {
+                octagons[i].autoMove(dx: dx);
             }
             
         }
         else if(whichLine == lineB) {
-            for j in 0..<plus.count {
-                plus[j].autoMove(dx: -dx);
+            for j in 0..<octagons.count {
+                octagons[j].autoMove(dx: -dx);
             }
         }
     }
     
     override func touchMove(dx: CGFloat, dy: CGFloat){
-        for i in 0..<plus.count {
-            plus[i].touchMove(dx: dx, dy: dy);
+        for i in 0..<octagons.count {
+            octagons[i].touchMove(dx: dx, dy: dy);
         }
     }
     
     override func setThick(thick: Int) {
         self.thick = thick
-        for i in 0..<plus.count {
-            plus[i].setThick(thick: thick)
+        for i in 0..<octagons.count {
+            octagons[i].setThick(thick: thick)
         }
     }
 }
