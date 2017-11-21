@@ -11,7 +11,7 @@ import UIKit
 
 class Octagons: BaseTypes {
     
-    var plus = [Octagon]()
+    var octagons = [Octagon]()
     
     init(whichLine: Int, frameWidth: Int, frameHeight: Int, number: Int){
         super.init(number: number)
@@ -19,10 +19,10 @@ class Octagons: BaseTypes {
         let maxLength = CGFloat(frameHeight)/3.0
         for i in 0..<self.number {
             if(whichLine == lineA){
-                plus.append(Octagon(frameHeight: frameHeight, centerPoint: CGPoint(x: 0,y: CGFloat(frameHeight)/3), whichLine: lineA, length: maxLength/CGFloat(number)*CGFloat(i)))
+                octagons.append(Octagon(frameHeight: frameHeight, centerPoint: CGPoint(x: 0,y: CGFloat(frameHeight)/3), whichLine: lineA, length: maxLength/CGFloat(number)*CGFloat(i)))
             }
             else {
-                plus.append(Octagon(frameHeight: frameHeight, centerPoint: CGPoint(x: CGFloat(frameWidth),y: CGFloat(frameHeight)*CGFloat(2)/3), whichLine: lineB, length: maxLength/CGFloat(number)*CGFloat(i)))
+                octagons.append(Octagon(frameHeight: frameHeight, centerPoint: CGPoint(x: CGFloat(frameWidth),y: CGFloat(frameHeight)*CGFloat(2)/3), whichLine: lineB, length: maxLength/CGFloat(number)*CGFloat(i)))
             }
         }
     }
@@ -31,7 +31,7 @@ class Octagons: BaseTypes {
         
         super.draw()
         
-        for i in 0..<plus.count {
+        for i in 0..<octagons.count {
             
             // change color of first and last lines for debug
             #if DEBUG
@@ -46,26 +46,26 @@ class Octagons: BaseTypes {
                 }
             #endif
             
-            plus[i].path.lineWidth = CGFloat(thick)
-            plus[i].path.stroke()
+            octagons[i].path.lineWidth = CGFloat(thick)
+            octagons[i].path.stroke()
         }
     }
     
     override func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
         // LineA
         if(whichLine == lineA) {
-            if(CGFloat(frameWidth) < plus[number-1].centerPoint.x - plus[number-1].length) {
-                let diff: CGFloat = plus[number-1].centerPoint.x - plus[number-1].length - CGFloat(frameWidth)
+            if(CGFloat(frameWidth) < octagons[number-1].centerPoint.x - octagons[number-1].length) {
+                let diff: CGFloat = octagons[number-1].centerPoint.x - octagons[number-1].length - CGFloat(frameWidth)
                 let centerX: CGFloat = -CGFloat(frameHeight)/3 + diff
-                for i in 0..<plus.count {
-                    plus[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineA, centerX: centerX)
+                for i in 0..<octagons.count {
+                    octagons[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineA, centerX: centerX)
                 }
             }
-            else if(plus[number-1].centerPoint.x + plus[number-1].length < 0) {
-                let diff: CGFloat = -(plus[number-1].centerPoint.x + plus[number-1].length)
+            else if(octagons[number-1].centerPoint.x + octagons[number-1].length < 0) {
+                let diff: CGFloat = -(octagons[number-1].centerPoint.x + octagons[number-1].length)
                 let centerX: CGFloat = CGFloat(frameWidth) + CGFloat(frameHeight)/3 - diff
-                for i in 0..<plus.count {
-                    plus[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineA, centerX: centerX)
+                for i in 0..<octagons.count {
+                    octagons[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineA, centerX: centerX)
                 }
             }
         }
