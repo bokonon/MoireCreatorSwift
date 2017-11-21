@@ -36,12 +36,28 @@ class BaseTypes {
         
     }
     
+    // for synapse
+    func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
+        
+    }
+    
     func move(whichLine :Int) {
         
     }
     
     func touchMove(dx: CGFloat, dy: CGFloat) {
         
+    }
+    
+    // for original
+    func touchMove(movePoint: CGPoint) {
+        
+    }
+    
+    func start(firstPoint: CGPoint) {
+    }
+    
+    func end() {
     }
     
     func draw() {

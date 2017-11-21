@@ -48,6 +48,8 @@
 		BAD9CDC51BEE18FE0007D36F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9CDC41BEE18FE0007D36F /* CustomTextField.swift */; };
 		BADB2A241EFF3BA5005D825D /* Synapse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADB2A231EFF3BA5005D825D /* Synapse.swift */; };
 		BADB2A261EFF3BB4005D825D /* Synapses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADB2A251EFF3BB4005D825D /* Synapses.swift */; };
+		BAE1F90B1FB7DB7F005B8902 /* Octagon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1F90A1FB7DB7F005B8902 /* Octagon.swift */; };
+		BAE1F90D1FB7DBC5005B8902 /* Octagons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1F90C1FB7DBC5005B8902 /* Octagons.swift */; };
 		BAE2FCEC1FAD4EFD009F6C3E /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAE2FCEB1FAD4EFD009F6C3E /* keys.plist */; };
 		BAE2FCEE1FAD5057009F6C3E /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE2FCED1FAD5057009F6C3E /* KeyManager.swift */; };
 		BAEA43F91ECF447400EBAF5A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA43F81ECF447400EBAF5A /* InfoViewController.swift */; };
@@ -122,6 +124,8 @@
 		BAD9CDC41BEE18FE0007D36F /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BADB2A231EFF3BA5005D825D /* Synapse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synapse.swift; sourceTree = "<group>"; };
 		BADB2A251EFF3BB4005D825D /* Synapses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synapses.swift; sourceTree = "<group>"; };
+		BAE1F90A1FB7DB7F005B8902 /* Octagon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Octagon.swift; sourceTree = "<group>"; };
+		BAE1F90C1FB7DBC5005B8902 /* Octagons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Octagons.swift; sourceTree = "<group>"; };
 		BAE2FCEB1FAD4EFD009F6C3E /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		BAE2FCED1FAD5057009F6C3E /* KeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
 		BAEA43F81ECF447400EBAF5A /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 				BA5948CE1EF96345008BE2B9 /* Heart */,
 				BADB2A221EFF3B88005D825D /* Synapse */,
 				BAB8D9D71C033020001AB48B /* Original */,
+				BAE1F9091FB7DAC3005B8902 /* Octagon */,
 			);
 			name = Type;
 			sourceTree = "<group>";
@@ -397,6 +402,15 @@
 				BADB2A251EFF3BB4005D825D /* Synapses.swift */,
 			);
 			name = Synapse;
+			sourceTree = "<group>";
+		};
+		BAE1F9091FB7DAC3005B8902 /* Octagon */ = {
+			isa = PBXGroup;
+			children = (
+				BAE1F90A1FB7DB7F005B8902 /* Octagon.swift */,
+				BAE1F90C1FB7DBC5005B8902 /* Octagons.swift */,
+			);
+			name = Octagon;
 			sourceTree = "<group>";
 		};
 		C2DE2419CDBB7633C961B442 /* Frameworks */ = {
@@ -693,11 +707,13 @@
 				BA71C4A91BEF1A910097633A /* ColorPickerViewController.swift in Sources */,
 				BAA8E8811FADEEF4005607A7 /* UserDefaultsUseCase.swift in Sources */,
 				BA5948D41EFE066F008BE2B9 /* Constants.swift in Sources */,
+				BAE1F90B1FB7DB7F005B8902 /* Octagon.swift in Sources */,
 				BADB2A241EFF3BA5005D825D /* Synapse.swift in Sources */,
 				BA648F761BFFFACF00FCC54E /* Rectangles.swift in Sources */,
 				BA326EAD1FADCAA30090262C /* SavePhotosAlbumUseCase.swift in Sources */,
 				BA0DC0EC1BE6063A00670C67 /* AppDelegate.swift in Sources */,
 				BA326EAB1FADC58C0090262C /* ViewControllerPresenter.swift in Sources */,
+				BAE1F90D1FB7DBC5005B8902 /* Octagons.swift in Sources */,
 				BAA8E8831FAE0609005607A7 /* SettingViewControllerPresenter.swift in Sources */,
 				BAB8D9D91C033075001AB48B /* Original.swift in Sources */,
 				BAC3ED181C020CA1002BCFCF /* AboutViewController.swift in Sources */,
