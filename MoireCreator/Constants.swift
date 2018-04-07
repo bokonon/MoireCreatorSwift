@@ -44,6 +44,7 @@ enum Type: Int, Enumerable {
     case SYNAPSE = 4
     case ORIGINAL = 5
     case OCTAGON = 6
+    case FLOWER = 7
     
     var description: String {
         switch self {
@@ -61,6 +62,8 @@ enum Type: Int, Enumerable {
             return "Original"
         case .OCTAGON:
             return "Octagon"
+        case .FLOWER:
+            return "Flower"
         }
     }
 }
