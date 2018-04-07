@@ -96,6 +96,8 @@ class UIMoireView: UIView {
         case .SYNAPSE:
             fallthrough
         case .OCTAGON:
+            fallthrough
+        case .FLOWER:
             typesA.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineA)
             typesB.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineB)
             
@@ -189,6 +191,9 @@ class UIMoireView: UIView {
         case .OCTAGON:
             typesA = Octagons(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
             typesB = Octagons(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber)
+        case .FLOWER:
+            typesA = Flowers(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber)
+            typesB = Flowers(whichLine: lineB, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineBNumber)
         default:
             #if DEBUG
             print("IllegalArgument on update")
@@ -218,6 +223,8 @@ class UIMoireView: UIView {
         case .SYNAPSE:
             fallthrough
         case .OCTAGON:
+            fallthrough
+        case .FLOWER:
             if(whichLine == lineA) {
                 typesA.touchMove(dx: dx, dy: dy)
 //                linesA.checkOutOfRange(frameWidth)
