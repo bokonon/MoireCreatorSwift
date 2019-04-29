@@ -10,70 +10,71 @@ import Foundation
 import UIKit
 
 class BaseTypes {
+  
+  let lineA: Int = 0
+  let lineB: Int = 1
+  
+  let maxLines: Int = 50
+  
+  let autoSpeed: Float = 0.7
+  
+  var number: Int = 50
+  
+  var thick: Int = 1
+  
+  var slope: Int = 0
+  
+  var dx: CGFloat = 0.7
+  
+  var color: UIColor!
+  
+  init(number: Int) {
+    self.number = number
+  }
+  
+  func checkOutOfRange(frameWidth :Int) {
     
-    let lineA: Int = 0
-    let lineB: Int = 1
+  }
+  
+  // for synapse
+  func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
     
-    let maxLines: Int = 50
+  }
+  
+  func move(whichLine :Int) {
     
-    let autoSpeed: Float = 0.7
+  }
+  
+  func touchMove(dx: CGFloat, dy: CGFloat) {
     
-    var number: Int = 50
+  }
+  
+  // for original
+  func touchMove(movePoint: CGPoint) {
     
-    var thick: Int = 1
-    
-    var slope: Int = 0
-    
-    var dx: CGFloat = 0.7
-    
-    var color: UIColor!
-    
-    init(number: Int) {
-        self.number = number
-    }
-    
-    func checkOutOfRange(frameWidth :Int) {
-        
-    }
-    
-    // for synapse
-    func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
-        
-    }
-    
-    func move(whichLine :Int) {
-        
-    }
-    
-    func touchMove(dx: CGFloat, dy: CGFloat) {
-        
-    }
-    
-    // for original
-    func touchMove(movePoint: CGPoint) {
-        
-    }
-    
-    func start(firstPoint: CGPoint) {
-    }
-    
-    func end() {
-    }
-    
-    func draw() {
-        color.setStroke()
-    }
-    
-    func setColor(color: UIColor) {
-        self.color = color
-    }
-    
-    func setThick(thick: Int) {
-        self.thick = thick
-    }
-    
-//    func setSlope(slope: Int) {
-//        self.slope = slope
-//    }
-    
+  }
+  
+  func start(firstPoint: CGPoint) {
+  }
+  
+  func end() {
+  }
+  
+  func draw() {
+    color.setStroke()
+  }
+  
+  func setColor(color: UIColor) {
+    self.color = color
+  }
+  
+  func setThick(thick: Int) {
+    self.thick = thick
+  }
+  
+  //    func setSlope(slope: Int) {
+  //        self.slope = slope
+  //    }
+  
 }
+

@@ -10,11 +10,12 @@ import Foundation
 import UIKit
 
 class SavePhotosAlbumUseCase {
-    
-    let dao: SavePhotosAlbumDao = SavePhotosAlbumDao()
-    
-    func save(image: UIImage, delegate: SavePhotosAlbumDelegate) {
-        dao.save(image: image, delegate: delegate)
-    }
-    
+  
+  let dao: SavePhotosAlbumDao = SavePhotosAlbumDao()
+  
+  func save(image: UIImage, delegate: SavePhotosAlbumDelegate) {
+    dao.save(image: image, delegate: delegate)
+  }
+  
 }
+

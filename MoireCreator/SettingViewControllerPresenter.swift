@@ -10,59 +10,60 @@ import UIKit
 import Foundation
 
 class SettingViewControllerPresenter {
-    
-    let useCase: UserDefaultsUseCase = UserDefaultsUseCase()
-    
-    func setType(type: Type) {
-        return useCase.setType(type: type)
-    }
-    
-    func update(lineANumberValue: Int, lineBNumberValue: Int,
-                lineAThickValue: Int, lineBThickValue: Int,
-                lineASlopeValue: Int, lineBSlopeValue: Int) {
-        useCase.update(lineANumberValue: lineANumberValue, lineBNumberValue: lineBNumberValue,
-                               lineAThickValue: lineAThickValue, lineBThickValue: lineBThickValue,
-                               lineASlopeValue: lineASlopeValue, lineBSlopeValue: lineBSlopeValue)
-    }
-    
-    func getType() -> Type {
-        return useCase.getType()
-    }
-    
-    func getLineAColor() -> UIColor {
-        return useCase.getLineAColor()
-    }
-    
-    func getLineBColor() -> UIColor {
-        return useCase.getLineBColor()
-    }
-    
-    func getBackgroundColor() -> UIColor {
-        return useCase.getBackgroundColor()
-    }
-    
-    func getLineANumber() -> Int {
-        return useCase.getLineANumber()
-    }
-    
-    func getLineBNumber() -> Int {
-        return useCase.getLineBNumber()
-    }
-    
-    func getLineAThick() -> Int {
-        return useCase.getLineAThick()
-    }
-    
-    func getLineBThick() -> Int {
-        return useCase.getLineBThick()
-    }
-    
-    func getLineASlope() -> Int {
-        return useCase.getLineASlope()
-    }
-    
-    func getLineBSlope() -> Int {
-        return useCase.getLineBSlope()
-    }
-    
+  
+  let useCase: UserDefaultsUseCase = UserDefaultsUseCase()
+  
+  func setType(type: Type) {
+    return useCase.setType(type: type)
+  }
+  
+  func update(lineANumberValue: Int, lineBNumberValue: Int,
+              lineAThickValue: Int, lineBThickValue: Int,
+              lineASlopeValue: Int, lineBSlopeValue: Int) {
+    useCase.update(lineANumberValue: lineANumberValue, lineBNumberValue: lineBNumberValue,
+                   lineAThickValue: lineAThickValue, lineBThickValue: lineBThickValue,
+                   lineASlopeValue: lineASlopeValue, lineBSlopeValue: lineBSlopeValue)
+  }
+  
+  func getType() -> Type {
+    return useCase.getType()
+  }
+  
+  func getLineAColor() -> UIColor {
+    return useCase.getLineAColor()
+  }
+  
+  func getLineBColor() -> UIColor {
+    return useCase.getLineBColor()
+  }
+  
+  func getBackgroundColor() -> UIColor {
+    return useCase.getBackgroundColor()
+  }
+  
+  func getLineANumber() -> Int {
+    return useCase.getLineANumber()
+  }
+  
+  func getLineBNumber() -> Int {
+    return useCase.getLineBNumber()
+  }
+  
+  func getLineAThick() -> Int {
+    return useCase.getLineAThick()
+  }
+  
+  func getLineBThick() -> Int {
+    return useCase.getLineBThick()
+  }
+  
+  func getLineASlope() -> Int {
+    return useCase.getLineASlope()
+  }
+  
+  func getLineBSlope() -> Int {
+    return useCase.getLineBSlope()
+  }
+  
 }
+
