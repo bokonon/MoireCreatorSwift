@@ -18,7 +18,7 @@ class Rectangles: BaseTypes {
     self.slope = slope
     let maxLength = CGFloat(frameHeight)/3.0*2
     for i in 0..<self.number {
-      if(whichLine == lineA){
+      if whichLine == lineA {
         rectangle.append(Rectangle(frameHeight: frameHeight, slope: (Int)(CGFloat(slope)/CGFloat(number)*CGFloat(i)), centerPoint: CGPoint(x: 0,y: CGFloat(frameHeight)/3), whichLine: lineA, length: maxLength/CGFloat(number)*CGFloat(i)))
       }
       else {
@@ -35,10 +35,10 @@ class Rectangles: BaseTypes {
       
       // change color of first and last lines for debug
       #if DEBUG
-      if(i == 0){
+      if i == 0 {
         UIColor.red.setStroke()
       }
-      else if (i == rectangle.count - 1) {
+      else if i == rectangle.count - 1 {
         UIColor.blue.setStroke()
       }
       else {
@@ -53,7 +53,7 @@ class Rectangles: BaseTypes {
   
   override func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
     // LineA
-    if(whichLine == lineA) {
+    if whichLine == lineA {
       if(CGFloat(frameWidth) < rectangle[number-1].leftBottomPoint.x) {
         let diff: CGFloat = rectangle[number-1].leftBottomPoint.x - CGFloat(frameWidth)
         let centerX: CGFloat = -CGFloat(frameHeight)/3 + diff - CGFloat(slope)
@@ -61,7 +61,7 @@ class Rectangles: BaseTypes {
           rectangle[i].checkOutOfRange(frameWidth: frameWidth, slope: (Int)(CGFloat(slope)/CGFloat(number)*CGFloat(i)), whichLine: lineA, centerX: centerX)
         }
       }
-      else if(rectangle[number-1].rightTopPoint.x < 0) {
+      else if rectangle[number-1].rightTopPoint.x < 0 {
         let diff: CGFloat = rectangle[number-1].rightTopPoint.x
         let centerX: CGFloat = CGFloat(frameWidth) + CGFloat(frameHeight)/3 - diff + CGFloat(slope)
         for i in 0..<rectangle.count {
@@ -71,14 +71,14 @@ class Rectangles: BaseTypes {
     }
       // LineB
     else {
-      if(CGFloat(frameWidth) < rectangle[number-1].leftTopPoint.x) {
+      if CGFloat(frameWidth) < rectangle[number-1].leftTopPoint.x {
         let diff: CGFloat = rectangle[number-1].leftTopPoint.x - CGFloat(frameWidth)
         let centerX: CGFloat = -CGFloat(frameHeight)/3 + diff - CGFloat(slope)
         for i in 0..<rectangle.count {
           rectangle[i].checkOutOfRange(frameWidth: frameWidth, slope: (Int)(CGFloat(slope)/CGFloat(number)*CGFloat(i)), whichLine: lineB, centerX: centerX)
         }
       }
-      else if(rectangle[number-1].rightBottomPoint.x < 0) {
+      else if rectangle[number-1].rightBottomPoint.x < 0 {
         let diff = CGFloat(rectangle[number-1].rightBottomPoint.x)
         let centerX = CGFloat(frameWidth) + CGFloat(frameHeight)/3 + diff + CGFloat(slope)
         for i in 0..<rectangle.count {
@@ -89,13 +89,13 @@ class Rectangles: BaseTypes {
   }
   
   override func move(whichLine :Int){
-    if(whichLine == lineA) {
+    if whichLine == lineA {
       for i in 0..<rectangle.count {
         rectangle[i].autoMove(dx: dx);
       }
       
     }
-    else if(whichLine == lineB) {
+    else if whichLine == lineB {
       for j in 0..<rectangle.count {
         rectangle[j].autoMove(dx: -dx);
       }

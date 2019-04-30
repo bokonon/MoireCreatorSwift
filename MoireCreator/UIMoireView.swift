@@ -53,14 +53,14 @@ class UIMoireView: UIView {
       typesA.checkOutOfRange(frameWidth: frameWidth)
       typesB.checkOutOfRange(frameWidth: frameWidth)
       
-      if(!isPause){
-        if(isTouchingLine == lineA && isTouching) {
+      if !isPause {
+        if isTouchingLine == lineA && isTouching {
           // do nothing
         }
         else {
           typesA.move(whichLine: lineA)
         }
-        if(isTouchingLine == lineB && isTouching) {
+        if isTouchingLine == lineB && isTouching {
           // do nothing
         }
         else {
@@ -73,17 +73,17 @@ class UIMoireView: UIView {
       typesA.checkOutOfRange(frameWidth: frameWidth)
       typesB.checkOutOfRange(frameWidth: frameWidth)
       
-      if(!isPause){
-        if(isTouchingLine == lineB) {
+      if !isPause {
+        if isTouchingLine == lineB {
           typesA.move(whichLine: lineA)
         }
-        else if(isTouchingLine == lineA && !isTouching){
+        else if isTouchingLine == lineA && !isTouching {
           typesA.move(whichLine: lineA)
         }
-        if(isTouchingLine == lineA) {
+        if isTouchingLine == lineA {
           typesB.move(whichLine: lineB)
         }
-        else if(isTouchingLine == lineB && !isTouching){
+        else if isTouchingLine == lineB && !isTouching {
           typesB.move(whichLine: lineB)
         }
       }
@@ -101,14 +101,14 @@ class UIMoireView: UIView {
       typesA.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineA)
       typesB.checkOutOfRange(frameWidth: frameWidth, frameHeight: frameHeight, whichLine: lineB)
       
-      if(!isPause){
-        if(isTouchingLine == lineA && isTouching) {
+      if !isPause {
+        if isTouchingLine == lineA && isTouching {
           // do nothing
         }
         else {
           typesA.move(whichLine: lineA)
         }
-        if(isTouchingLine == lineB && isTouching) {
+        if isTouchingLine == lineB && isTouching {
           // do nothing
         }
         else {
@@ -119,21 +119,21 @@ class UIMoireView: UIView {
       typesB.draw()
       
     case .ORIGINAL:
-      if(!isPause){
-        if(isTouchingLine == lineA && isTouching) {
+      if !isPause {
+        if isTouchingLine == lineA && isTouching {
           // do nothing
         }
         else {
-          if(!isTouching) {
+          if !isTouching {
             typesA.checkOutOfRange(frameWidth: frameWidth)
           }
           typesA.move(whichLine: lineA)
         }
-        if(isTouchingLine == lineB && isTouching) {
+        if isTouchingLine == lineB && isTouching {
           // do nothing
         }
         else {
-          if(!isTouching) {
+          if !isTouching {
             typesB.checkOutOfRange(frameWidth: frameWidth)
           }
           typesB.move(whichLine: lineB)
@@ -230,7 +230,7 @@ class UIMoireView: UIView {
     case .OCTAGON:
       fallthrough
     case .FLOWER:
-      if(whichLine == lineA) {
+      if whichLine == lineA {
         typesA.touchMove(dx: dx, dy: dy)
         //                linesA.checkOutOfRange(frameWidth)
         //                linesA.draw()
@@ -254,7 +254,7 @@ class UIMoireView: UIView {
   
   func touchOriginalMove(_ whichLine: Int, movePoint: CGPoint) {
     
-    if(whichLine == lineA) {
+    if whichLine == lineA {
       typesA.touchMove(movePoint: movePoint)
       //            originalsA.checkOutOfRange(frameWidth)
       typesA.draw()
@@ -294,8 +294,8 @@ class UIMoireView: UIView {
     switch moireType {
     case .ORIGINAL:
       // touch down
-      if(isTouching) {
-        if(touchingLine == lineA) {
+      if isTouching {
+        if touchingLine == lineA {
           typesA.start(firstPoint: firstPoint)
         }
         else {
@@ -304,7 +304,7 @@ class UIMoireView: UIView {
       }
         // touch up
       else {
-        if(touchingLine == lineA) {
+        if touchingLine == lineA {
           typesA.end()
         }
         else {

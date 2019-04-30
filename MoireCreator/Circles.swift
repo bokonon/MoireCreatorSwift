@@ -17,7 +17,7 @@ class Circles: BaseTypes {
     super.init(number: number)
     let maxRadius = CGFloat(frameHeight)/3.0
     for i in 0..<self.number {
-      if(whichLine == lineA){
+      if whichLine == lineA {
         circle.append(Circle(point: CGPoint(x: 0,y: CGFloat(frameHeight)/CGFloat(3)), radius: maxRadius/CGFloat(number)*CGFloat(i)))
       }
       else {
@@ -34,10 +34,10 @@ class Circles: BaseTypes {
       
       // change color of first and last lines for debug
       #if DEBUG
-      if(i == 0){
+      if i == 0 {
         UIColor.red.setStroke()
       }
-      else if (i == circle.count - 1) {
+      else if i == circle.count - 1 {
         UIColor.blue.setStroke()
       }
       else {
@@ -51,12 +51,12 @@ class Circles: BaseTypes {
   }
   
   override func checkOutOfRange(frameWidth :Int){
-    if(CGFloat(frameWidth) < circle[number-1].centerPoint.x - circle[number-1].radius) {
+    if CGFloat(frameWidth) < circle[number-1].centerPoint.x - circle[number-1].radius {
       for i in 0..<circle.count {
         circle[i].checkOutOfRange(frameWidth: frameWidth)
       }
     }
-    else if(circle[number-1].centerPoint.x + circle[number-1].radius < 0) {
+    else if circle[number-1].centerPoint.x + circle[number-1].radius < 0 {
       for i in 0..<circle.count {
         circle[i].checkOutOfRange(frameWidth: frameWidth)
       }
@@ -64,13 +64,13 @@ class Circles: BaseTypes {
   }
   
   override func move(whichLine :Int){
-    if(whichLine == lineA) {
+    if whichLine == lineA {
       for i in 0..<circle.count {
         circle[i].autoMove(dx: dx);
       }
       
     }
-    else if(whichLine == lineB) {
+    else if whichLine == lineB {
       for j in 0..<circle.count {
         circle[j].autoMove(dx: -dx);
       }

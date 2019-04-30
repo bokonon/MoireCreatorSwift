@@ -155,7 +155,7 @@ class ViewController: UIViewController {
   
   // when go to setting screen
   override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-    if (segue.identifier == "segue_for_setting") {
+    if segue.identifier == "segue_for_setting" {
       let settingView : SettingViewController = segue.destination as! SettingViewController
       settingView.delegate = self
     }
@@ -186,7 +186,7 @@ class ViewController: UIViewController {
     Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
       AnalyticsParameterContentType: "b button"
       ])
-    if(currentLine == lineA) {
+    if currentLine == lineA {
       currentLine = lineB
       if let image = UIImage(named: "lineB_on.png") {
         lineBButton.setBackgroundImage(image, for: UIControlState())
@@ -202,7 +202,7 @@ class ViewController: UIViewController {
     Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
       AnalyticsParameterContentType: "play button"
       ])
-    if(moireView.isOnPause()) {
+    if moireView.isOnPause() {
       if let image = UIImage(named: "stop.png") {
         playButton.setBackgroundImage(image, for: UIControlState())
         moireView.setOnpause(false)
@@ -222,7 +222,7 @@ class ViewController: UIViewController {
     Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
       AnalyticsParameterContentType: "capture button"
       ])
-    if(moireView != nil) {
+    if moireView != nil {
       if let image = UIImage(named: "photo_on.png") {
         captureButton.setBackgroundImage(image, for: UIControlState())
       }

@@ -132,7 +132,7 @@ class Flower: BaseType {
     setPath()
   }
   
-  func setPath(){
+  func setPath() {
     path.removeAllPoints()
     path.move(to: inner[pointNumber-1].point)
     for i in 0..<pointNumber {

@@ -47,14 +47,14 @@ class Line: BaseType {
   
   override func checkOutOfRange(frameWidth :Int, slope :Int){
     // LineB
-    if(endPoint.x < startPoint.x) {
-      if(frameWidth < Int(endPoint.x)) {
+    if endPoint.x < startPoint.x {
+      if frameWidth < Int(endPoint.x) {
         let diff: Float = Float(Int(endPoint.x) - frameWidth)
         endPoint.x = CGFloat(Float(-slope) + diff)
         startPoint.x = endPoint.x + CGFloat(slope)
         setPath()
       }
-      else if(startPoint.x < 0) {
+      else if startPoint.x < 0 {
         let diff: Float = Float(-startPoint.x)
         endPoint.x = CGFloat(Float(frameWidth) - diff)
         startPoint.x = endPoint.x + CGFloat(slope)
@@ -63,13 +63,13 @@ class Line: BaseType {
     }
       // LineA
     else {
-      if(endPoint.x < 0) {
+      if endPoint.x < 0 {
         let diff: Float = -Float(endPoint.x)
         startPoint.x = CGFloat(Float(frameWidth) - diff)
         endPoint.x = startPoint.x + CGFloat(slope)
         setPath()
       }
-      else if(frameWidth < Int(startPoint.x)) {
+      else if frameWidth < Int(startPoint.x) {
         let diff: Float = Float(startPoint.x) - Float(frameWidth)
         startPoint.x = CGFloat(Float(-slope) + diff)
         endPoint.x = startPoint.x + CGFloat(slope)

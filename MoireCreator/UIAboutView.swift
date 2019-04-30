@@ -56,16 +56,16 @@ class UIAboutView: UIView {
   
   func checkInFrame() {
     for i in 0..<chars!.count {
-      if(chars![i].frame.origin.x < 0) {
+      if chars![i].frame.origin.x < 0 {
         chars![i].frame.origin.x = 0
       }
-      else if(frameWidth - chars![i].frame.width < chars![i].frame.origin.x) {
+      else if frameWidth - chars![i].frame.width < chars![i].frame.origin.x {
         chars![i].frame.origin.x = frameWidth - chars![i].frame.width
       }
-      if(chars![i].frame.origin.y < topMargin) {
+      if chars![i].frame.origin.y < topMargin {
         chars![i].frame.origin.y = topMargin
       }
-      else if(frameHeight - chars![i].frame.height < chars![i].frame.origin.y) {
+      else if frameHeight - chars![i].frame.height < chars![i].frame.origin.y {
         chars![i].frame.origin.y = frameHeight  - chars![i].frame.height
       }
     }

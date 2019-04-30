@@ -44,13 +44,13 @@ class Circle: BaseType {
   }
   
   override func checkOutOfRange(frameWidth :Int){
-    if(CGFloat(frameWidth) < centerPoint.x) {
+    if CGFloat(frameWidth) < centerPoint.x {
       let diff: Float = Float(Int(centerPoint.x) - frameWidth)
       centerPoint.x = -CGFloat(diff)
       
       setPath()
     }
-    else if(centerPoint.x < 0) {
+    else if centerPoint.x < 0 {
       let diff: Float = Float(-centerPoint.x)
       centerPoint.x = CGFloat(Float(frameWidth) + diff)
       

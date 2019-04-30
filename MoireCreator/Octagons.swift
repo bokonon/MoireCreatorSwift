@@ -18,7 +18,7 @@ class Octagons: BaseTypes {
     
     let maxLength = CGFloat(frameHeight)/3.0
     for i in 0..<self.number {
-      if(whichLine == lineA){
+      if whichLine == lineA {
         octagon.append(Octagon(frameHeight: frameHeight, centerPoint: CGPoint(x: 0,y: CGFloat(frameHeight)/3), whichLine: lineA, length: maxLength/CGFloat(number)*CGFloat(i)))
       }
       else {
@@ -27,7 +27,7 @@ class Octagons: BaseTypes {
     }
   }
   
-  override func draw(){
+  override func draw() {
     
     super.draw()
     
@@ -35,10 +35,10 @@ class Octagons: BaseTypes {
       
       // change color of first and last lines for debug
       #if DEBUG
-      if(i == 0){
+      if i == 0 {
         UIColor.red.setStroke()
       }
-      else if (i == octagon.count - 1) {
+      else if i == octagon.count - 1 {
         UIColor.blue.setStroke()
       }
       else {
@@ -53,15 +53,15 @@ class Octagons: BaseTypes {
   
   override func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
     // LineA
-    if(whichLine == lineA) {
-      if(CGFloat(frameWidth) < octagon[number-1].centerPoint.x - octagon[number-1].length) {
+    if whichLine == lineA {
+      if CGFloat(frameWidth) < octagon[number-1].centerPoint.x - octagon[number-1].length {
         let diff: CGFloat = octagon[number-1].centerPoint.x - octagon[number-1].length - CGFloat(frameWidth)
         let centerX: CGFloat = -CGFloat(frameHeight)/3 + diff
         for i in 0..<octagon.count {
           octagon[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineA, centerX: centerX)
         }
       }
-      else if(octagon[number-1].centerPoint.x + octagon[number-1].length < 0) {
+      else if octagon[number-1].centerPoint.x + octagon[number-1].length < 0 {
         let diff: CGFloat = -(octagon[number-1].centerPoint.x + octagon[number-1].length)
         let centerX: CGFloat = CGFloat(frameWidth) + CGFloat(frameHeight)/3 - diff
         for i in 0..<octagon.count {
@@ -71,14 +71,14 @@ class Octagons: BaseTypes {
     }
       // LineB
     else {
-      if(CGFloat(frameWidth) < octagon[number-1].centerPoint.x - octagon[number-1].length) {
+      if CGFloat(frameWidth) < octagon[number-1].centerPoint.x - octagon[number-1].length {
         let diff: CGFloat = octagon[number-1].centerPoint.x - octagon[number-1].length - CGFloat(frameWidth)
         let centerX: CGFloat = -CGFloat(frameHeight)/3 + diff
         for i in 0..<octagon.count {
           octagon[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineB, centerX: centerX)
         }
       }
-      else if(octagon[number-1].centerPoint.x + octagon[number-1].length < 0) {
+      else if octagon[number-1].centerPoint.x + octagon[number-1].length < 0 {
         let diff = -(octagon[number-1].centerPoint.x + octagon[number-1].length)
         let centerX = CGFloat(frameWidth) + CGFloat(frameHeight)/3 - diff
         for i in 0..<octagon.count {
@@ -89,13 +89,13 @@ class Octagons: BaseTypes {
   }
   
   override func move(whichLine :Int){
-    if(whichLine == lineA) {
+    if whichLine == lineA {
       for i in 0..<octagon.count {
         octagon[i].autoMove(dx: dx);
       }
       
     }
-    else if(whichLine == lineB) {
+    else if whichLine == lineB {
       for j in 0..<octagon.count {
         octagon[j].autoMove(dx: -dx);
       }

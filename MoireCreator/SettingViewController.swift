@@ -93,7 +93,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
                        lineAThickValue: Int(lineAThickSlider.value), lineBThickValue: Int(lineBThickSlider.value),
                        lineASlopeValue: Int(lineASlopeSlider.value), lineBSlopeValue: Int(lineBSlopeSlider.value))
       
-      if(self.delegate != nil) {
+      if self.delegate != nil {
         self.delegate.settingDidFinished()
       }
     }
@@ -116,13 +116,13 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     print(segue.identifier as Any)
     #endif
     
-    if (segue.identifier == "segue_for_line_a_color") {
+    if segue.identifier == "segue_for_line_a_color" {
       colorCategory = lineA
     }
-    else if(segue.identifier == "segue_for_line_b_color") {
+    else if segue.identifier == "segue_for_line_b_color" {
       colorCategory = lineB
     }
-    else if(segue.identifier == "segue_for_line_background_color") {
+    else if segue.identifier == "segue_for_line_background_color" {
       colorCategory = background
     }
     let colorPicker : ColorPickerViewController = segue.destination as! ColorPickerViewController

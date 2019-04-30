@@ -21,7 +21,7 @@ class Originals: BaseTypes {
     drawRange = CGFloat(frameHeight)*2/3
     
     for _ in 0..<self.number {
-      if(whichLine == lineA){
+      if whichLine == lineA {
         original.append(Original())
       }
       else {
@@ -46,7 +46,7 @@ class Originals: BaseTypes {
   }
   
   override func move(whichLine :Int){
-    if(whichLine == lineA) {
+    if whichLine == lineA {
       for i in 0..<original.count {
         original[i].autoMove(dx: dx)
       }

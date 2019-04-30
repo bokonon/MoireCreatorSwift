@@ -21,10 +21,10 @@ class Synapses: BaseTypes {
     
     var centerX: CGFloat = 0
     var centerY: CGFloat = 0
-    if (whichLine == lineA) {
+    if whichLine == lineA {
       centerX = 0
       centerY = CGFloat(frameHeight) / 3
-    } else if (whichLine == lineB) {
+    } else if whichLine == lineB {
       centerX = CGFloat(frameWidth)
       centerY = CGFloat(frameHeight) * 2 / 3
     }
@@ -46,10 +46,10 @@ class Synapses: BaseTypes {
       
       // change color of first and last lines for debug
       #if DEBUG
-      if(i == 0){
+      if i == 0 {
         UIColor.red.setStroke()
       }
-      else if (i == synapse.count - 1) {
+      else if i == synapse.count - 1 {
         UIColor.blue.setStroke()
       }
       else {

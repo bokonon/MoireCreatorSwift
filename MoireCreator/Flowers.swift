@@ -35,10 +35,10 @@ class Flowers: BaseTypes {
       
       // change color of first and last lines for debug
       #if DEBUG
-      if(i == 0){
+      if i == 0 {
         UIColor.red.setStroke()
       }
-      else if (i == flower.count - 1) {
+      else if i == flower.count - 1 {
         UIColor.blue.setStroke()
       }
       else {
@@ -53,15 +53,15 @@ class Flowers: BaseTypes {
   
   override func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
     // LineA
-    if(whichLine == lineA) {
-      if(CGFloat(frameWidth) < flower[number-1].centerPoint.x - flower[number-1].length) {
+    if whichLine == lineA {
+      if CGFloat(frameWidth) < flower[number-1].centerPoint.x - flower[number-1].length {
         let diff: CGFloat = flower[number-1].centerPoint.x - flower[number-1].length - CGFloat(frameWidth)
         let centerX: CGFloat = -CGFloat(frameHeight)/3 + diff
         for i in 0..<flower.count {
           flower[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineA, centerX: centerX)
         }
       }
-      else if(flower[number-1].centerPoint.x + flower[number-1].length < 0) {
+      else if flower[number-1].centerPoint.x + flower[number-1].length < 0 {
         let diff: CGFloat = -(flower[number-1].centerPoint.x + flower[number-1].length)
         let centerX: CGFloat = CGFloat(frameWidth) + CGFloat(frameHeight)/3 - diff
         for i in 0..<flower.count {
@@ -71,14 +71,14 @@ class Flowers: BaseTypes {
     }
       // LineB
     else {
-      if(CGFloat(frameWidth) < flower[number-1].centerPoint.x - flower[number-1].length) {
+      if CGFloat(frameWidth) < flower[number-1].centerPoint.x - flower[number-1].length {
         let diff: CGFloat = flower[number-1].centerPoint.x - flower[number-1].length - CGFloat(frameWidth)
         let centerX: CGFloat = -CGFloat(frameHeight)/3 + diff
         for i in 0..<flower.count {
           flower[i].checkOutOfRange(frameWidth: frameWidth, whichLine: lineB, centerX: centerX)
         }
       }
-      else if(flower[number-1].centerPoint.x + flower[number-1].length < 0) {
+      else if flower[number-1].centerPoint.x + flower[number-1].length < 0 {
         let diff = -(flower[number-1].centerPoint.x + flower[number-1].length)
         let centerX = CGFloat(frameWidth) + CGFloat(frameHeight)/3 - diff
         for i in 0..<flower.count {
@@ -89,13 +89,13 @@ class Flowers: BaseTypes {
   }
   
   override func move(whichLine :Int){
-    if(whichLine == lineA) {
+    if whichLine == lineA {
       for i in 0..<flower.count {
         flower[i].autoMove(dx: dx);
       }
       
     }
-    else if(whichLine == lineB) {
+    else if whichLine == lineB {
       for j in 0..<flower.count {
         flower[j].autoMove(dx: -dx);
       }

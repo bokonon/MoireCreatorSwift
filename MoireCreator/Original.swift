@@ -22,7 +22,7 @@ class Original: BaseType {
   
   override func autoMove(dx :CGFloat){
     for i in 0..<self.points.count {
-      if(i == 0) {
+      if i == 0 {
         let firstPoint: CGPoint = CGPoint(x: self.points[i].x + dx, y: self.points[i].y)
         path.removeAllPoints()
         path.move(to: firstPoint)
@@ -54,9 +54,9 @@ class Original: BaseType {
         }
       }
     }
-    if(max < 0) {
+    if max < 0 {
       for i in 0..<self.points.count {
-        if(i == 0) {
+        if i == 0 {
           let firstPoint: CGPoint = CGPoint(x: CGFloat(frameWidth) - min + self.points[i].x, y: self.points[i].y)
           path.removeAllPoints()
           path.move(to: firstPoint)
@@ -74,7 +74,7 @@ class Original: BaseType {
       for i in 0..<self.points.count {
         let baseDiff: CGFloat = max - CGFloat(frameWidth)
         let tempDiff: CGFloat = self.points[i].x - CGFloat(frameWidth)
-        if(i == 0) {
+        if i == 0 {
           let firstPoint: CGPoint = CGPoint(x: tempDiff - baseDiff, y: self.points[i].y)
           path.removeAllPoints()
           path.move(to: firstPoint)

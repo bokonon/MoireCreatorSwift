@@ -39,7 +39,7 @@ class Rectangle: BaseType {
     
     self.length = length
     
-    if(whichLine == lineA) {
+    if whichLine == lineA {
       let commonTopY = centerPoint.y - CGFloat(length)/2
       leftTopPoint = CGPoint(x: centerPoint.x - CGFloat(length)/2 , y: commonTopY)
       rightTopPoint = CGPoint(x: centerPoint.x + CGFloat(slope) + CGFloat(length)/2, y: commonTopY)
@@ -88,7 +88,7 @@ class Rectangle: BaseType {
   }
   
   func checkOutOfRange(frameWidth :Int, slope :Int, whichLine :Int, centerX: CGFloat){
-    if(whichLine == lineA) {
+    if whichLine == lineA {
       leftTopPoint = CGPoint(x: centerX - CGFloat(length)/2 , y: leftTopPoint.y)
       rightTopPoint = CGPoint(x: centerX + CGFloat(slope) + CGFloat(length)/2, y: rightTopPoint.y)
       rightBottomPoint = CGPoint(x: centerX + CGFloat(length)/2, y: rightBottomPoint.y)

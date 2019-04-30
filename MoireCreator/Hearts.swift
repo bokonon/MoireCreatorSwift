@@ -19,9 +19,9 @@ class Hearts: BaseTypes {
     for i in 0..<self.number {
       let heartWidth = CGFloat(frameWidth / number * (i + 1))
       let heartHeight = CGFloat(frameHeight * 2 / 3 / number * (i + 1))
-      if (whichLine == lineA) {
+      if whichLine == lineA {
         heart.append(Heart(centerX: 0, centerY: CGFloat(frameHeight) * 5 / 18, width: heartWidth, height: heartHeight))
-      } else if (whichLine == lineB) {
+      } else if whichLine == lineB {
         heart.append(Heart(centerX: CGFloat(frameWidth), centerY: CGFloat(frameHeight * 2 / 3), width: heartWidth, height: heartHeight))
       }
     }
@@ -35,10 +35,10 @@ class Hearts: BaseTypes {
       
       // change color of first and last lines for debug
       #if DEBUG
-      if(i == 0){
+      if i == 0 {
         UIColor.red.setStroke()
       }
-      else if (i == heart.count - 1) {
+      else if i == heart.count - 1 {
         UIColor.blue.setStroke()
       }
       else {
@@ -52,13 +52,13 @@ class Hearts: BaseTypes {
   }
   
   override func checkOutOfRange(frameWidth :Int, frameHeight :Int, whichLine :Int){
-    if (heart[number - 1].rightTop[0].x < 0) {
+    if heart[number - 1].rightTop[0].x < 0 {
       // disappear for less than 0
       for i in 0..<heart.count {
         heart[i].checkOutOfRange(centerX: CGFloat(frameWidth) + heart[number - 1].width / 2,
                                  centerY: heart[i].centerTop.y + (heart[i].height / 2 - heart[i].height / 5))
       }
-    } else if (CGFloat(frameWidth) < heart[number - 1].leftTop[1].x) {
+    } else if CGFloat(frameWidth) < heart[number - 1].leftTop[1].x {
       // disappear for more than width
       for i in 0..<heart.count {
         let centerX = -heart[number - 1].width / 2
@@ -70,12 +70,12 @@ class Hearts: BaseTypes {
   }
   
   override func move(whichLine :Int){
-    if(whichLine == lineA) {
+    if whichLine == lineA {
       for i in 0..<heart.count {
         heart[i].autoMove(dx: dx)
       }
     }
-    else if(whichLine == lineB) {
+    else if whichLine == lineB {
       for i in 0..<heart.count {
         heart[i].autoMove(dx: -dx)
       }

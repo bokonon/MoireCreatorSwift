@@ -17,7 +17,7 @@ class Lines: BaseTypes {
     super.init(number: number)
     self.slope = slope
     for i in 0..<self.number {
-      if(whichLine == lineA){
+      if whichLine == lineA {
         line.append(Line(frameHeight: frameHeight, slope: slope, basePoint: Int(Float(frameWidth + slope) / Float(number) * Float(i)), arg: 0))
       }
       else {
@@ -34,10 +34,10 @@ class Lines: BaseTypes {
       
       // change color of first and last lines for debug
       #if DEBUG
-      if(i == 0){
+      if i == 0 {
         UIColor.red.setStroke()
       }
-      else if (i == line.count - 1) {
+      else if i == line.count - 1 {
         UIColor.blue.setStroke()
       }
       else {
@@ -57,13 +57,13 @@ class Lines: BaseTypes {
   }
   
   override func move(whichLine :Int){
-    if(whichLine == lineA) {
+    if whichLine == lineA {
       for i in 0..<line.count {
         line[i].autoMove(dx: dx);
       }
       
     }
-    else if(whichLine == lineB) {
+    else if whichLine == lineB {
       for j in 0..<line.count {
         line[j].autoMove(dx: -dx);
       }
