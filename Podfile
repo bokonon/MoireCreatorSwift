@@ -5,7 +5,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '7.0'
 target 'MoireCreator' do
-pod 'Google-Mobile-Ads-SDK', '~> 7.0'
+pod 'Firebase/Core'
+pod 'Firebase/AdMob'
 end
 
 target 'MoireCreatorTests' do

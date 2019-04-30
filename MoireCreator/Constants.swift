@@ -6,37 +6,7 @@
 //  Copyright © 2017年 yuji shimada. All rights reserved.
 //
 
-public protocol Enumerable {
-  associatedtype Case = Self
-}
-
-public extension Enumerable where Case: Hashable {
-  private static var iterator: AnyIterator<Case> {
-    var n = 0
-    return AnyIterator {
-      defer { n += 1 }
-      
-      let next = withUnsafePointer(to: &n) {
-        UnsafeRawPointer($0).assumingMemoryBound(to: Case.self).pointee
-      }
-      return next.hashValue == n ? next : nil
-    }
-  }
-  
-  public static func enumerate() -> EnumeratedSequence<AnySequence<Case>> {
-    return AnySequence(self.iterator).enumerated()
-  }
-  
-  public static var cases: [Case] {
-    return Array(self.iterator)
-  }
-  
-  public static var count: Int {
-    return self.cases.count
-  }
-}
-
-enum Type: Int, Enumerable {
+enum Type: Int, CaseIterable {
   case LINE = 0
   case CIRCLE = 1
   case RECT = 2
@@ -69,7 +39,8 @@ enum Type: Int, Enumerable {
 }
 
 struct ApiConstants {
-  static let admobApiKey = "AdmobApiKey"
+  static let admobAppID = ""
+  static let admobUnitID = ""
 }
 
 struct UserDefaultsConstants {

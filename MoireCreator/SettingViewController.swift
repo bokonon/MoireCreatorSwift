@@ -7,6 +7,8 @@
 //
 
 import UIKit
+
+import Firebase
 import GoogleMobileAds
 
 protocol SettingViewControllerDelegate {
@@ -14,6 +16,8 @@ protocol SettingViewControllerDelegate {
 }
 
 class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerViewControllerDelegate {
+  
+  // MARK: - Properties -
   
   var delegate: SettingViewControllerDelegate! = nil
   
@@ -62,7 +66,8 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
   
   let presenter: SettingViewControllerPresenter = SettingViewControllerPresenter()
   
-  // override method
+  // MARK: - Life cycle events -
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     #if DEBUG
@@ -74,11 +79,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     initView()
     
     // AdMob load
-    if let apiKey = KeyManager().getValue(key: ApiConstants.admobApiKey) as? String {
-      bannerView.adUnitID = apiKey
-      bannerView.rootViewController = self
-      bannerView.load(GADRequest())
-    }
+    bannerView.adUnitID = ApiConstants.admobUnitID
+    bannerView.rootViewController = self
+    bannerView.load(GADRequest())
     
   }
   
@@ -104,6 +107,8 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
+  // MARK: - Public Method -
   
   // when go to color picker screen
   override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
@@ -146,6 +151,9 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
   }
   
   func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+      AnalyticsParameterContentType: "type select"
+      ])
     #if DEBUG
     print("textFieldShouldReturn")
     #endif
@@ -202,6 +210,10 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
   }
   
   func setTypeTextFieldAndDefault(_ type: Type) {
+    Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+      AnalyticsParameterContentType: "type selected",
+      "type": type.description
+      ])
     self.typeTextField.endEditing(true)
     self.typeTextField.text = type.description
     
@@ -222,7 +234,7 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
                                                     self.typeTextField.endEditing(true)
     })
     
-    for type in Type.cases {
+    for type in Type.allCases {
       let action:UIAlertAction = UIAlertAction(title: type.description,
                                                style: UIAlertActionStyle.default,
                                                handler:{
@@ -239,11 +251,18 @@ class SettingViewController: UIViewController, UITextFieldDelegate, ColorPickerV
   }
   
   // color picker end
-  func pickerDidFinished(){
+  func pickerDidFinished() {
+    Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+      AnalyticsParameterContentType: "color picker didfinished"
+      ])
     #if DEBUG
     print("SettingViewController pickerDidFinished")
     #endif
     initView()
+  }
+  
+  deinit {
+    print("SettingViewController deinit")
   }
   
 }

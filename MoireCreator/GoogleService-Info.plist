@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>576660402443-4g1t1ut1eunnuqgdsf0gvn270l8diilv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.576660402443-4g1t1ut1eunnuqgdsf0gvn270l8diilv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAIyXJfzq5mmG6G3lrM05jIydv2CTQRAi0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>576660402443</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ys.moire</string>
+	<key>PROJECT_ID</key>
+	<string>moire-creator</string>
+	<key>STORAGE_BUCKET</key>
+	<string>moire-creator.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:576660402443:ios:4c2bcdb504739c8c</string>
+	<key>DATABASE_URL</key>
+	<string>https://moire-creator.firebaseio.com</string>
+</dict>
+</plist>

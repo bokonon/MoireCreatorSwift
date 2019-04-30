@@ -16,7 +16,7 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
   @IBOutlet weak var bannerView: GADBannerView!
   
   let categoryArray = ["privacy policy", "license", "version"]
-  let categoryDic: [String : String] = ["privacy policy":"http://bokonon.html.xdomain.jp/etc/privacy_policy.html", "license":"license", "version":"version"]
+  let categoryDic: [String : String] = ["privacy policy":"http://bokonon.html.xdomain.jp/privacy_policy.html", "license":"license", "version":"version"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,12 +25,9 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     tableView.dataSource = self
     
     // AdMob load
-    if let apiKey = KeyManager().getValue(key: ApiConstants.admobApiKey) as? String {
-      bannerView.adUnitID = apiKey
-      bannerView.rootViewController = self
-      bannerView.load(GADRequest())
-    }
-    
+    bannerView.adUnitID = ApiConstants.admobUnitID
+    bannerView.rootViewController = self
+    bannerView.load(GADRequest())
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

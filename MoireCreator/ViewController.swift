@@ -8,12 +8,11 @@
 
 import UIKit
 
-protocol SavePhotosAlbumDelegate {
-  func savePhotosAlbumComplete()
-  func savePhotosAlbumFailed(error: NSError)
-}
+import Firebase
 
-class ViewController: UIViewController, SettingViewControllerDelegate, SavePhotosAlbumDelegate {
+class ViewController: UIViewController {
+  
+  // MARK: - Properties -
   
   // drawing canvas view
   @IBOutlet weak var moireView: UIMoireView!
@@ -36,6 +35,8 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
   var isFirstFlg: Bool = true
   
   let presenter: ViewControllerPresenter = ViewControllerPresenter()
+  
+  // MARK: - Life cycle events -
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -76,9 +77,8 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
     print("ViewController viewDidDisappear")
     #endif
     
-    if timer.isValid == true {
-      timer.invalidate()
-      timer = nil
+    if let workingTimer = timer {
+      workingTimer.invalidate()
     }
   }
   
@@ -87,10 +87,15 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
     // Dispose of any resources that can be recreated.
   }
   
+  // MARK: - Public Method -
+  
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     #if DEBUG
     print("ViewController touchesBegan")
     #endif
+    Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+      AnalyticsParameterContentType: "touch began"
+      ])
     
     let touchEvent = touches.first!
     let firstPoint: CGPoint = touchEvent.previousLocation(in: moireView)
@@ -138,6 +143,9 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
     #if DEBUG
     print("ViewController touchesEnded")
     #endif
+    Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+      AnalyticsParameterContentType: "touch ended"
+      ])
     
     let touch = touches.first!
     let endPoint = touch.location(in: moireView)
@@ -157,17 +165,11 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
     moireView.setNeedsDisplay()
   }
   
-  // setting screen end
-  func settingDidFinished() {
-    #if DEBUG
-    print("ViewController settingDidFinished")
-    #endif
-    
-    updateView()
-  }
-  
   // line a button click
   @IBAction func aButtonClicked(_ sender: AnyObject) {
+    Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+      AnalyticsParameterContentType: "a button"
+      ])
     if(currentLine == lineB) {
       currentLine = lineA
       if let image = UIImage(named: "lineA_on.png") {
@@ -181,6 +183,9 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
   
   // line b button click
   @IBAction func bButtonClicked(_ sender: AnyObject) {
+    Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+      AnalyticsParameterContentType: "b button"
+      ])
     if(currentLine == lineA) {
       currentLine = lineB
       if let image = UIImage(named: "lineB_on.png") {
@@ -194,6 +199,9 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
   
   // play button click
   @IBAction func playButtonClicked(_ sender: AnyObject) {
+    Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+      AnalyticsParameterContentType: "play button"
+      ])
     if(moireView.isOnPause()) {
       if let image = UIImage(named: "stop.png") {
         playButton.setBackgroundImage(image, for: UIControlState())
@@ -211,6 +219,9 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
   
   // capture button click
   @IBAction func captureButtonClicked(_ sender: AnyObject) {
+    Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+      AnalyticsParameterContentType: "capture button"
+      ])
     if(moireView != nil) {
       if let image = UIImage(named: "photo_on.png") {
         captureButton.setBackgroundImage(image, for: UIControlState())
@@ -240,15 +251,6 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
                          lineASlope: lineASlope, lineBSlope: lineBSlope)
   }
   
-  func savePhotosAlbumComplete() {
-    setCaptureButtonDefault()
-  }
-  
-  func savePhotosAlbumFailed(error: NSError) {
-    setCaptureButtonDefault()
-    showAlert(title: "Error", message: "Capture saving failed.")
-  }
-  
   func setCaptureButtonDefault() {
     if let image = UIImage(named: "photo_off.png") {
       captureButton.setBackgroundImage(image, for: UIControlState())
@@ -267,5 +269,8 @@ class ViewController: UIViewController, SettingViewControllerDelegate, SavePhoto
     present(alert, animated: true, completion: nil)
   }
   
+  deinit {
+    print("ViewController deinit")
+  }
+  
 }
-

@@ -11,7 +11,7 @@ import UIKit
 
 class Octagons: BaseTypes {
   
-  var octagon = [Octagon]()
+  var octagon: [Octagon] = []
   
   init(whichLine: Int, frameWidth: Int, frameHeight: Int, number: Int){
     super.init(number: number)
@@ -38,7 +38,7 @@ class Octagons: BaseTypes {
       if(i == 0){
         UIColor.red.setStroke()
       }
-      else if (i == rectangle.count - 1) {
+      else if (i == octagon.count - 1) {
         UIColor.blue.setStroke()
       }
       else {

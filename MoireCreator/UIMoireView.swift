@@ -44,7 +44,7 @@ class UIMoireView: UIView {
   // An empty implementation adversely affects performance during animation.
   override func draw(_ rect: CGRect) {
     
-    if moireType == nil {
+    guard let moireType = moireType else {
       return
     }
     
@@ -169,6 +169,10 @@ class UIMoireView: UIView {
     
     self.backgroundColor = backgroundColor
     
+    guard let moireType = moireType else {
+      return
+    }
+    
     switch moireType {
     case .LINE:
       typesA = Lines(whichLine: lineA, frameWidth: frameWidth, frameHeight: Int(frame.height), number: lineANumber, slope: lineASlope)
@@ -199,18 +203,19 @@ class UIMoireView: UIView {
       print("IllegalArgument on update")
       #endif
     }
-    if (typesA != nil) {
-      typesA.setColor(color: lineAColor)
-      typesA.setThick(thick: lineAThick)
-    }
-    if (typesB != nil) {
-      typesB.setColor(color: lineBColor)
-      typesB.setThick(thick: lineBThick)
-    }
+    
+    typesA.setColor(color: lineAColor)
+    typesA.setThick(thick: lineAThick)
+    typesB.setColor(color: lineBColor)
+    typesB.setThick(thick: lineBThick)
     
   }
   
   func touchMove(_ whichLine: Int, dx: CGFloat, dy: CGFloat) {
+    
+    guard let moireType = moireType else {
+      return
+    }
     switch moireType {
     case .LINE:
       fallthrough
@@ -281,6 +286,10 @@ class UIMoireView: UIView {
   func setTouchingMode(_ touchingLine: Int, isTouching: Bool, firstPoint: CGPoint) {
     self.isTouchingLine = touchingLine
     self.isTouching = isTouching
+    
+    guard let moireType = moireType else {
+      return
+    }
     
     switch moireType {
     case .ORIGINAL:

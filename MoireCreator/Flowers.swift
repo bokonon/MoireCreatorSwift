@@ -11,7 +11,7 @@ import UIKit
 
 class Flowers: BaseTypes {
   
-  var flower = [Flower]()
+  var flower: [Flower] = []
   
   init(whichLine: Int, frameWidth: Int, frameHeight: Int, number: Int){
     super.init(number: number)
@@ -38,7 +38,7 @@ class Flowers: BaseTypes {
       if(i == 0){
         UIColor.red.setStroke()
       }
-      else if (i == rectangle.count - 1) {
+      else if (i == flower.count - 1) {
         UIColor.blue.setStroke()
       }
       else {

@@ -71,7 +71,7 @@ class Octagon: BaseType {
   override func autoMove(dx :CGFloat){
     degrees += 2
     #if DEBUG
-    Log.d("degree : ", degrees)
+    print("degree : ", degrees)
     #endif
     if degrees >= 360 {
       degrees = degrees - 360
