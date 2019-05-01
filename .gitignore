@@ -25,4 +25,8 @@ Pods/*
 !.gitkeep
 .DS_Store
 
-Constants.swift
+# Api Key
+MoireCreator/Constants.swift
+
+# Firebase
+MoireCreator/GoogleService-Info.plist
