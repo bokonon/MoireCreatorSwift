@@ -10,21 +10,22 @@ import Foundation
 import UIKit
 
 class SavePhotosAlbumDao: NSObject {
-    
-    var delegate: SavePhotosAlbumDelegate?
-    
-    func save(image: UIImage, delegate: SavePhotosAlbumDelegate) {
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
-        self.delegate = delegate
+  
+  var delegate: SavePhotosAlbumDelegate?
+  
+  func save(image: UIImage, delegate: SavePhotosAlbumDelegate) {
+    UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+    self.delegate = delegate
+  }
+  
+  @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
+    if error != nil {
+      delegate?.savePhotosAlbumFailed(error: error)
     }
-    
-    @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
-        if error != nil {
-            delegate?.savePhotosAlbumFailed(error: error)
-        }
-        else {
-            delegate?.savePhotosAlbumComplete()
-        }
+    else {
+      delegate?.savePhotosAlbumComplete()
     }
-    
-} 
+  }
+  
+}
+

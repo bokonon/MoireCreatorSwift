@@ -10,69 +10,70 @@ import UIKit
 import CoreMotion
 
 class AboutViewController: UIViewController {
+  
+  @IBOutlet weak var aboutView: UIAboutView!
+  // create instance of MotionManager
+  let motionManager: CMMotionManager = CMMotionManager()
+  
+  // override method
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    @IBOutlet weak var aboutView: UIAboutView!
-    // create instance of MotionManager
-    let motionManager: CMMotionManager = CMMotionManager()
+    motionManager.deviceMotionUpdateInterval = 0.1 // 20Hz
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     
-    // override method
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        motionManager.deviceMotionUpdateInterval = 0.1 // 20Hz
+    // Start motion data acquisition
+    motionManager.startDeviceMotionUpdates( to: OperationQueue.current!, withHandler:{
+      deviceManager, error in
+      
+      // accelerate
+      //            let accel: CMAcceleration = deviceManager!.userAcceleration
+      //            self.update(accel.x, ry: accel.y)
+      //            print("x", accel.x)
+      //            print("y", accel.y)
+      //            print("z", accel.z)
+      
+      // rotate
+      //            let rx: Double = deviceManager!.rotationRate.x
+      //            let ry: Double = deviceManager!.rotationRate.y
+      //            let rz: Double = deviceManager!.rotationRate.z
+      
+      // gravity
+      let rx: Double = deviceManager!.gravity.x
+      let ry: Double = deviceManager!.gravity.y
+      //            let rz: Double = deviceManager!.gravity.z
+      
+      self.update(rx, ry: ry)
+      
+      #if DEBUG
+      print("val x", rx)
+      print("val y", ry)
+      //            print("val z", rz)
+      #endif
+    })
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    
+    if motionManager.isDeviceMotionActive {
+      motionManager.stopDeviceMotionUpdates()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Start motion data acquisition
-        motionManager.startDeviceMotionUpdates( to: OperationQueue.current!, withHandler:{
-            deviceManager, error in
-            
-            // accelerate
-            //            let accel: CMAcceleration = deviceManager!.userAcceleration
-            //            self.update(accel.x, ry: accel.y)
-            //            print("x", accel.x)
-            //            print("y", accel.y)
-            //            print("z", accel.z)
-            
-            // rotate
-            //            let rx: Double = deviceManager!.rotationRate.x
-            //            let ry: Double = deviceManager!.rotationRate.y
-            //            let rz: Double = deviceManager!.rotationRate.z
-            
-            // gravity
-            let rx: Double = deviceManager!.gravity.x
-            let ry: Double = deviceManager!.gravity.y
-            //            let rz: Double = deviceManager!.gravity.z
-            
-            self.update(rx, ry: ry)
-            
-            #if DEBUG
-            print("val x", rx)
-            print("val y", ry)
-//            print("val z", rz)
-            #endif
-        })
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        if motionManager.isDeviceMotionActive {
-            motionManager.stopDeviceMotionUpdates()
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func update(_ rx: Double, ry: Double) {
-        aboutView.move(rx, ry: ry)
-        aboutView.checkInFrame()
-//        aboutView.setNeedsDisplay()
-    }
-
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  func update(_ rx: Double, ry: Double) {
+    aboutView.move(rx, ry: ry)
+    aboutView.checkInFrame()
+    //        aboutView.setNeedsDisplay()
+  }
+  
 }
+

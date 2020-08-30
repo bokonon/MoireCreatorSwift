@@ -10,14 +10,15 @@ import Foundation
 import CoreGraphics
 
 class CircumferencePoint {
-    
-    var point: CGPoint
-    var radius: CGFloat = 0.0
-    var degree: CGFloat = 0.0
-    
-    init(point: CGPoint, radius: CGFloat, degree: CGFloat) {
-        self.point = point
-        self.radius = radius
-        self.degree = degree
-    }
+  
+  var point: CGPoint
+  var radius: CGFloat = 0.0
+  var degree: CGFloat = 0.0
+  
+  init(point: CGPoint, radius: CGFloat, degree: CGFloat) {
+    self.point = point
+    self.radius = radius
+    self.degree = degree
+  }
 }
+

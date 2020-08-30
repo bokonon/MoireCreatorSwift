@@ -18,11 +18,15 @@ DerivedData
 
 # CocoaPod
 Pods/*
-Podfile.lock
+# Podfile.lock
 
 # others
 *.swp
 !.gitkeep
 .DS_Store
 
-keys.plists
+# Api Key
+MoireCreator/AdConstants.swift
+
+# Firebase
+MoireCreator/GoogleService-Info.plist

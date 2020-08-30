@@ -10,29 +10,30 @@ import Foundation
 import CoreGraphics
 
 class BaseType {
+  
+  init(){
     
-    init(){
-        
-    }
+  }
+  
+  func autoMove(dx :CGFloat){
     
-    func autoMove(dx :CGFloat){
-        
-    }
+  }
+  
+  func touchMove(dx :CGFloat, dy: CGFloat){
     
-    func touchMove(dx :CGFloat, dy: CGFloat){
-        
-    }
+  }
+  
+  func checkOutOfRange(frameWidth :Int, slope :Int){
     
-    func checkOutOfRange(frameWidth :Int, slope :Int){
-        
-    }
+  }
+  
+  func checkOutOfRange(frameWidth :Int){
     
-    func checkOutOfRange(frameWidth :Int){
-        
-    }
+  }
+  
+  func addTouchVal(touchDx :Int, touchDy :Int){
     
-    func addTouchVal(touchDx :Int, touchDy :Int){
-        
-    }
-    
+  }
+  
 }
+

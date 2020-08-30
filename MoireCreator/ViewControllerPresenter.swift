@@ -10,55 +10,56 @@ import Foundation
 import UIKit
 
 class ViewControllerPresenter {
-    
-    let userDefaultsUseCase: UserDefaultsUseCase = UserDefaultsUseCase()
-    let savePhotosAlbumUseCase: SavePhotosAlbumUseCase = SavePhotosAlbumUseCase()
-    
-    func initUserDefaults() {
-        userDefaultsUseCase.initUserDefaults()
-    }
-    
-    func getType() -> Type {
-        return userDefaultsUseCase.getType()
-    }
-    
-    func getLineAColor() -> UIColor {
-        return userDefaultsUseCase.getLineAColor()
-    }
-    
-    func getLineBColor() -> UIColor {
-        return userDefaultsUseCase.getLineBColor()
-    }
-    
-    func getBackgroundColor() -> UIColor {
-        return userDefaultsUseCase.getBackgroundColor()
-    }
-    
-    func getLineANumber() -> Int {
-        return userDefaultsUseCase.getLineANumber()
-    }
-    
-    func getLineBNumber() -> Int {
-        return userDefaultsUseCase.getLineBNumber()
-    }
-    
-    func getLineAThick() -> Int {
-        return userDefaultsUseCase.getLineAThick()
-    }
-    
-    func getLineBThick() -> Int {
-        return userDefaultsUseCase.getLineBThick()
-    }
-    
-    func getLineASlope() -> Int {
-        return userDefaultsUseCase.getLineASlope()
-    }
-    
-    func getLineBSlope() -> Int {
-        return userDefaultsUseCase.getLineBSlope()
-    }
-    
-    func savePhotosAlbum(image: UIImage, delegate: SavePhotosAlbumDelegate) {
-        savePhotosAlbumUseCase.save(image: image, delegate: delegate)
-    }
+  
+  let userDefaultsUseCase: UserDefaultsUseCase = UserDefaultsUseCase()
+  let savePhotosAlbumUseCase: SavePhotosAlbumUseCase = SavePhotosAlbumUseCase()
+  
+  func initUserDefaults() {
+    userDefaultsUseCase.initUserDefaults()
+  }
+  
+  func getType() -> Type {
+    return userDefaultsUseCase.getType()
+  }
+  
+  func getLineAColor() -> UIColor {
+    return userDefaultsUseCase.getLineAColor()
+  }
+  
+  func getLineBColor() -> UIColor {
+    return userDefaultsUseCase.getLineBColor()
+  }
+  
+  func getBackgroundColor() -> UIColor {
+    return userDefaultsUseCase.getBackgroundColor()
+  }
+  
+  func getLineANumber() -> Int {
+    return userDefaultsUseCase.getLineANumber()
+  }
+  
+  func getLineBNumber() -> Int {
+    return userDefaultsUseCase.getLineBNumber()
+  }
+  
+  func getLineAThick() -> Int {
+    return userDefaultsUseCase.getLineAThick()
+  }
+  
+  func getLineBThick() -> Int {
+    return userDefaultsUseCase.getLineBThick()
+  }
+  
+  func getLineASlope() -> Int {
+    return userDefaultsUseCase.getLineASlope()
+  }
+  
+  func getLineBSlope() -> Int {
+    return userDefaultsUseCase.getLineBSlope()
+  }
+  
+  func savePhotosAlbum(image: UIImage, delegate: SavePhotosAlbumDelegate) {
+    savePhotosAlbumUseCase.save(image: image, delegate: delegate)
+  }
 }
+

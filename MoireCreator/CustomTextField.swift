@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 
 class CustomTextField: UITextField {
-    
-    override func caretRect(for position: UITextPosition) -> CGRect {
-        return CGRect.zero
-    }
+  
+  override func caretRect(for position: UITextPosition) -> CGRect {
+    return CGRect.zero
+  }
 }
+

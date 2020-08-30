@@ -10,31 +10,32 @@ import Foundation
 import UIKit
 
 class ColorPickUseCase {
-    
-    let dao: UserDefaultsDao = UserDefaultsDao()
-    
-    func getLineAColor() -> UIColor {
-        return dao.getLineAColor()
-    }
-    
-    func getLineBColor() -> UIColor {
-        return dao.getLineBColor()
-    }
-    
-    func getBackgroundColor() -> UIColor {
-        return dao.getBackgroundColor()
-    }
-    
-    func setLineAColor(colorData: Data) {
-        return dao.setLineAColor(colorData: colorData)
-    }
-    
-    func setLineBColor(colorData: Data) {
-        return dao.setLineBColor(colorData: colorData)
-    }
-    
-    func setBackgroundColor(colorData: Data) {
-        return dao.setBackgroundColor(colorData: colorData)
-    }
-    
+  
+  let dao: UserDefaultsDao = UserDefaultsDao()
+  
+  func getLineAColor() -> UIColor {
+    return dao.getLineAColor()
+  }
+  
+  func getLineBColor() -> UIColor {
+    return dao.getLineBColor()
+  }
+  
+  func getBackgroundColor() -> UIColor {
+    return dao.getBackgroundColor()
+  }
+  
+  func setLineAColor(colorData: Data) {
+    return dao.setLineAColor(colorData: colorData)
+  }
+  
+  func setLineBColor(colorData: Data) {
+    return dao.setLineBColor(colorData: colorData)
+  }
+  
+  func setBackgroundColor(colorData: Data) {
+    return dao.setBackgroundColor(colorData: colorData)
+  }
+  
 }
+
