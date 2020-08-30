@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0687AC553CAF70838D543221 /* libPods-MoireCreator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 399071634CAD385931097148 /* libPods-MoireCreator.a */; };
-		9728C6D42278291700ECB49F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9728C6D32278291600ECB49F /* GoogleService-Info.plist */; };
-		9728C6D52278291700ECB49F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9728C6D32278291600ECB49F /* GoogleService-Info.plist */; };
-		9728C6D62278291700ECB49F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9728C6D32278291600ECB49F /* GoogleService-Info.plist */; };
 		9728C6D822785BA700ECB49F /* ViewController+SettingViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9728C6D722785BA700ECB49F /* ViewController+SettingViewControllerDelegate.swift */; };
 		9728C6DA22785CE700ECB49F /* ViewController+SavePhotosAlbumDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9728C6D922785CE700ECB49F /* ViewController+SavePhotosAlbumDelegate.swift */; };
+		97A6796824F9CC0B00C91112 /* AdConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6796724F9CC0B00C91112 /* AdConstants.swift */; };
+		97A6796C24F9D7AA00C91112 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97A6796B24F9D7AA00C91112 /* GoogleService-Info.plist */; };
 		B759D9680F58697BFC9BFDD7 /* libPods-MoireCreatorUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF227340E1CD5F5B260B21AF /* libPods-MoireCreatorUITests.a */; };
 		BA0959991ED07AAA00749D74 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = BA0959971ED07AAA00749D74 /* license.html */; };
 		BA09599A1ED07AAA00749D74 /* version.html in Resources */ = {isa = PBXBuildFile; fileRef = BA0959981ED07AAA00749D74 /* version.html */; };
@@ -91,9 +90,10 @@
 		5B082AB6C39D6AC8212AEDD1 /* Pods-MoireCreator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreator.release.xcconfig"; path = "Target Support Files/Pods-MoireCreator/Pods-MoireCreator.release.xcconfig"; sourceTree = "<group>"; };
 		797B463470719AAA58A61CF4 /* Pods-MoireCreatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreatorTests.debug.xcconfig"; path = "Target Support Files/Pods-MoireCreatorTests/Pods-MoireCreatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7ABF1078EB08D405D2FE1B77 /* Pods-MoireCreatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreatorUITests.release.xcconfig"; path = "Target Support Files/Pods-MoireCreatorUITests/Pods-MoireCreatorUITests.release.xcconfig"; sourceTree = "<group>"; };
-		9728C6D32278291600ECB49F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9728C6D722785BA700ECB49F /* ViewController+SettingViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+SettingViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		9728C6D922785CE700ECB49F /* ViewController+SavePhotosAlbumDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+SavePhotosAlbumDelegate.swift"; sourceTree = "<group>"; };
+		97A6796724F9CC0B00C91112 /* AdConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdConstants.swift; sourceTree = "<group>"; };
+		97A6796B24F9D7AA00C91112 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA0959971ED07AAA00749D74 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		BA0959981ED07AAA00749D74 /* version.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = version.html; sourceTree = "<group>"; };
 		BA0DC0E81BE6063A00670C67 /* MoireCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoireCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +233,7 @@
 				BA326EA41FADC3270090262C /* Domain */,
 				BA326EA51FADC3350090262C /* Infra */,
 				BA5948D31EFE066F008BE2B9 /* Constants.swift */,
+				97A6796724F9CC0B00C91112 /* AdConstants.swift */,
 				BAE2FCED1FAD5057009F6C3E /* KeyManager.swift */,
 				BA0DC0EB1BE6063A00670C67 /* AppDelegate.swift */,
 				BA0DC0EF1BE6063A00670C67 /* Main.storyboard */,
@@ -241,7 +242,7 @@
 				BA0959981ED07AAA00749D74 /* version.html */,
 				BA0DC0F41BE6063A00670C67 /* LaunchScreen.storyboard */,
 				BA0DC0F71BE6063A00670C67 /* Info.plist */,
-				9728C6D32278291600ECB49F /* GoogleService-Info.plist */,
+				97A6796B24F9D7AA00C91112 /* GoogleService-Info.plist */,
 			);
 			path = MoireCreator;
 			sourceTree = "<group>";
@@ -583,7 +584,7 @@
 				BA0959991ED07AAA00749D74 /* license.html in Resources */,
 				BA0DC0F11BE6063A00670C67 /* Main.storyboard in Resources */,
 				BA09599A1ED07AAA00749D74 /* version.html in Resources */,
-				9728C6D42278291700ECB49F /* GoogleService-Info.plist in Resources */,
+				97A6796C24F9D7AA00C91112 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +592,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9728C6D52278291700ECB49F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,7 +599,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9728C6D62278291700ECB49F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +699,7 @@
 				BA326EAD1FADCAA30090262C /* SavePhotosAlbumUseCase.swift in Sources */,
 				BA0DC0EC1BE6063A00670C67 /* AppDelegate.swift in Sources */,
 				BA326EAB1FADC58C0090262C /* ViewControllerPresenter.swift in Sources */,
+				97A6796824F9CC0B00C91112 /* AdConstants.swift in Sources */,
 				BAE1F90D1FB7DBC5005B8902 /* Octagons.swift in Sources */,
 				BAA8E8831FAE0609005607A7 /* SettingViewControllerPresenter.swift in Sources */,
 				BAB8D9D91C033075001AB48B /* Original.swift in Sources */,
@@ -887,16 +887,18 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.3.3.1;
 				DEVELOPMENT_TEAM = YVYVV5ZB3C;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MoireCreator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.3.3;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = ys.moire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "YS Wildcard Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "ys wildcard Provisioning Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -908,18 +910,20 @@
 			baseConfigurationReference = 5B082AB6C39D6AC8212AEDD1 /* Pods-MoireCreator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: yuji shimada (YVYVV5ZB3C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: yuji shimada (YVYVV5ZB3C)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.3.3.1;
 				DEVELOPMENT_TEAM = YVYVV5ZB3C;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MoireCreator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = ys.moire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = moire_distribution;
+				PROVISIONING_PROFILE_SPECIFIER = "Moire Creator Distribution";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

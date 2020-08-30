@@ -26,7 +26,7 @@ Pods/*
 .DS_Store
 
 # Api Key
-MoireCreator/Constants.swift
+MoireCreator/AdConstants.swift
 
 # Firebase
 MoireCreator/GoogleService-Info.plist

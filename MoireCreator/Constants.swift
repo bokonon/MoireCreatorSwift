@@ -38,11 +38,6 @@ enum Type: Int, CaseIterable {
   }
 }
 
-struct ApiConstants {
-  static let admobAppID = ""
-  static let admobUnitID = ""
-}
-
 struct UserDefaultsConstants {
   static let type = "type"
   static let lineAColor = "lineAColor"

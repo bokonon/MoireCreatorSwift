@@ -16,7 +16,7 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
   @IBOutlet weak var bannerView: GADBannerView!
   
   let categoryArray = ["privacy policy", "license", "version"]
-  let categoryDic: [String : String] = ["privacy policy":"http://bokonon.html.xdomain.jp/privacy_policy.html", "license":"license", "version":"version"]
+  let categoryDic: [String : String] = ["privacy policy":"https://things-around.netlify.app/privacy", "license":"license", "version":"version"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
