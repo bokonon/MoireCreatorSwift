@@ -10,6 +10,10 @@ import UIKit
 
 import Firebase
 
+import AppTrackingTransparency
+import AdSupport
+import GoogleMobileAds
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
@@ -21,7 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Use Firebase library to configure APIs
     FirebaseApp.configure()
-    GADMobileAds.configure(withApplicationID: ApiConstants.admobAppID)
+//    GADMobileAds.configure(withApplicationID: ApiConstants.admobAppID)
+    if #available(iOS 14, *) {
+        ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+            GADMobileAds.sharedInstance().start(completionHandler: nil)
+        })
+    } else {
+        // Fallback on earlier versions
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+    }
     return true
   }
   

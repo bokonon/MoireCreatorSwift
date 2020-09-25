@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0687AC553CAF70838D543221 /* libPods-MoireCreator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 399071634CAD385931097148 /* libPods-MoireCreator.a */; };
+		5958E55C4D7083FB8F39DFE0 /* libPods-MoireCreatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AED0D358F48EF17CE2F52F /* libPods-MoireCreatorTests.a */; };
+		768688C20A9D05783FE89F71 /* libPods-MoireCreatorUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F0A1475CC696CC1796E7E8 /* libPods-MoireCreatorUITests.a */; };
 		9728C6D822785BA700ECB49F /* ViewController+SettingViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9728C6D722785BA700ECB49F /* ViewController+SettingViewControllerDelegate.swift */; };
 		9728C6DA22785CE700ECB49F /* ViewController+SavePhotosAlbumDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9728C6D922785CE700ECB49F /* ViewController+SavePhotosAlbumDelegate.swift */; };
 		97A6796824F9CC0B00C91112 /* AdConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6796724F9CC0B00C91112 /* AdConstants.swift */; };
 		97A6796C24F9D7AA00C91112 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97A6796B24F9D7AA00C91112 /* GoogleService-Info.plist */; };
-		B759D9680F58697BFC9BFDD7 /* libPods-MoireCreatorUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF227340E1CD5F5B260B21AF /* libPods-MoireCreatorUITests.a */; };
 		BA0959991ED07AAA00749D74 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = BA0959971ED07AAA00749D74 /* license.html */; };
 		BA09599A1ED07AAA00749D74 /* version.html in Resources */ = {isa = PBXBuildFile; fileRef = BA0959981ED07AAA00749D74 /* version.html */; };
 		BA0DC0EC1BE6063A00670C67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0DC0EB1BE6063A00670C67 /* AppDelegate.swift */; };
@@ -62,7 +62,7 @@
 		BAEA43F91ECF447400EBAF5A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA43F81ECF447400EBAF5A /* InfoViewController.swift */; };
 		BAEA43FB1ECFE50F00EBAF5A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEA43FA1ECFE50F00EBAF5A /* WebViewController.swift */; };
 		BAFEA5281C02E0C800EEBDD8 /* UIAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFEA5271C02E0C800EEBDD8 /* UIAboutView.swift */; };
-		EAE7254B0134C3A04F1D7A7A /* libPods-MoireCreatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 542DDEB339ABAF488BB62184 /* libPods-MoireCreatorTests.a */; };
+		D3DB4CE250F776C222F61915 /* libPods-MoireCreator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD2AF998CBE745A6B14B7AB /* libPods-MoireCreator.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,17 +83,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		35E317C6EB143BD33D6AFA62 /* Pods-MoireCreator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreator.debug.xcconfig"; path = "Target Support Files/Pods-MoireCreator/Pods-MoireCreator.debug.xcconfig"; sourceTree = "<group>"; };
-		399071634CAD385931097148 /* libPods-MoireCreator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoireCreator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4398CBB4247D0B0529DAA74E /* Pods-MoireCreatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreatorTests.release.xcconfig"; path = "Target Support Files/Pods-MoireCreatorTests/Pods-MoireCreatorTests.release.xcconfig"; sourceTree = "<group>"; };
-		542DDEB339ABAF488BB62184 /* libPods-MoireCreatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoireCreatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B082AB6C39D6AC8212AEDD1 /* Pods-MoireCreator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreator.release.xcconfig"; path = "Target Support Files/Pods-MoireCreator/Pods-MoireCreator.release.xcconfig"; sourceTree = "<group>"; };
-		797B463470719AAA58A61CF4 /* Pods-MoireCreatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreatorTests.debug.xcconfig"; path = "Target Support Files/Pods-MoireCreatorTests/Pods-MoireCreatorTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7ABF1078EB08D405D2FE1B77 /* Pods-MoireCreatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreatorUITests.release.xcconfig"; path = "Target Support Files/Pods-MoireCreatorUITests/Pods-MoireCreatorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2182E1B24A91D23659210C11 /* Pods-MoireCreatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreatorTests.debug.xcconfig"; path = "Target Support Files/Pods-MoireCreatorTests/Pods-MoireCreatorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2EE6CF4F6C2BE596A4881765 /* Pods-MoireCreatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreatorUITests.release.xcconfig"; path = "Target Support Files/Pods-MoireCreatorUITests/Pods-MoireCreatorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4DD2AF998CBE745A6B14B7AB /* libPods-MoireCreator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoireCreator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51C8486A9D0C3BAE18B3A110 /* Pods-MoireCreator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreator.release.xcconfig"; path = "Target Support Files/Pods-MoireCreator/Pods-MoireCreator.release.xcconfig"; sourceTree = "<group>"; };
 		9728C6D722785BA700ECB49F /* ViewController+SettingViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+SettingViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		9728C6D922785CE700ECB49F /* ViewController+SavePhotosAlbumDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+SavePhotosAlbumDelegate.swift"; sourceTree = "<group>"; };
 		97A6796724F9CC0B00C91112 /* AdConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdConstants.swift; sourceTree = "<group>"; };
 		97A6796B24F9D7AA00C91112 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A4F0A1475CC696CC1796E7E8 /* libPods-MoireCreatorUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoireCreatorUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0959971ED07AAA00749D74 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		BA0959981ED07AAA00749D74 /* version.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = version.html; sourceTree = "<group>"; };
 		BA0DC0E81BE6063A00670C67 /* MoireCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoireCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,8 +147,10 @@
 		BAEA43F81ECF447400EBAF5A /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		BAEA43FA1ECFE50F00EBAF5A /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		BAFEA5271C02E0C800EEBDD8 /* UIAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAboutView.swift; sourceTree = "<group>"; };
-		E14830C36CC61AD3021259D3 /* Pods-MoireCreatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreatorUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoireCreatorUITests/Pods-MoireCreatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		FF227340E1CD5F5B260B21AF /* libPods-MoireCreatorUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoireCreatorUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF1419B763ACECC0AA688D3 /* Pods-MoireCreator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreator.debug.xcconfig"; path = "Target Support Files/Pods-MoireCreator/Pods-MoireCreator.debug.xcconfig"; sourceTree = "<group>"; };
+		CA108F3A20ED65747D38C2EE /* Pods-MoireCreatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreatorUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoireCreatorUITests/Pods-MoireCreatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DF08557DC4D611460315B80B /* Pods-MoireCreatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoireCreatorTests.release.xcconfig"; path = "Target Support Files/Pods-MoireCreatorTests/Pods-MoireCreatorTests.release.xcconfig"; sourceTree = "<group>"; };
+		E3AED0D358F48EF17CE2F52F /* libPods-MoireCreatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoireCreatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0687AC553CAF70838D543221 /* libPods-MoireCreator.a in Frameworks */,
+				D3DB4CE250F776C222F61915 /* libPods-MoireCreator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAE7254B0134C3A04F1D7A7A /* libPods-MoireCreatorTests.a in Frameworks */,
+				5958E55C4D7083FB8F39DFE0 /* libPods-MoireCreatorTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,19 +174,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B759D9680F58697BFC9BFDD7 /* libPods-MoireCreatorUITests.a in Frameworks */,
+				768688C20A9D05783FE89F71 /* libPods-MoireCreatorUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0BFF6DAF49C10B52EABE3759 /* Frameworks */ = {
+		446558DBD02395497B139CA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				399071634CAD385931097148 /* libPods-MoireCreator.a */,
-				542DDEB339ABAF488BB62184 /* libPods-MoireCreatorTests.a */,
-				FF227340E1CD5F5B260B21AF /* libPods-MoireCreatorUITests.a */,
+				4DD2AF998CBE745A6B14B7AB /* libPods-MoireCreator.a */,
+				E3AED0D358F48EF17CE2F52F /* libPods-MoireCreatorTests.a */,
+				A4F0A1475CC696CC1796E7E8 /* libPods-MoireCreatorUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,12 +194,12 @@
 		6113E9EF965E50119039BCD1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				35E317C6EB143BD33D6AFA62 /* Pods-MoireCreator.debug.xcconfig */,
-				5B082AB6C39D6AC8212AEDD1 /* Pods-MoireCreator.release.xcconfig */,
-				797B463470719AAA58A61CF4 /* Pods-MoireCreatorTests.debug.xcconfig */,
-				4398CBB4247D0B0529DAA74E /* Pods-MoireCreatorTests.release.xcconfig */,
-				E14830C36CC61AD3021259D3 /* Pods-MoireCreatorUITests.debug.xcconfig */,
-				7ABF1078EB08D405D2FE1B77 /* Pods-MoireCreatorUITests.release.xcconfig */,
+				BBF1419B763ACECC0AA688D3 /* Pods-MoireCreator.debug.xcconfig */,
+				51C8486A9D0C3BAE18B3A110 /* Pods-MoireCreator.release.xcconfig */,
+				2182E1B24A91D23659210C11 /* Pods-MoireCreatorTests.debug.xcconfig */,
+				DF08557DC4D611460315B80B /* Pods-MoireCreatorTests.release.xcconfig */,
+				CA108F3A20ED65747D38C2EE /* Pods-MoireCreatorUITests.debug.xcconfig */,
+				2EE6CF4F6C2BE596A4881765 /* Pods-MoireCreatorUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -212,7 +212,7 @@
 				BA0DC10A1BE6063A00670C67 /* MoireCreatorUITests */,
 				BA0DC0E91BE6063A00670C67 /* Products */,
 				6113E9EF965E50119039BCD1 /* Pods */,
-				0BFF6DAF49C10B52EABE3759 /* Frameworks */,
+				446558DBD02395497B139CA3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -470,7 +470,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA0DC1101BE6063A00670C67 /* Build configuration list for PBXNativeTarget "MoireCreator" */;
 			buildPhases = (
-				7E09E825728A29A3764F2B85 /* [CP] Check Pods Manifest.lock */,
+				5ECEB41A80E662089FDBB09E /* [CP] Check Pods Manifest.lock */,
 				BA0DC0E41BE6063A00670C67 /* Sources */,
 				BA0DC0E51BE6063A00670C67 /* Frameworks */,
 				BA0DC0E61BE6063A00670C67 /* Resources */,
@@ -488,7 +488,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA0DC1131BE6063A00670C67 /* Build configuration list for PBXNativeTarget "MoireCreatorTests" */;
 			buildPhases = (
-				1E0BE708958EFA3F76A4AA86 /* [CP] Check Pods Manifest.lock */,
+				3C1C6722C5DEA0DFFE5D7118 /* [CP] Check Pods Manifest.lock */,
 				BA0DC0F81BE6063A00670C67 /* Sources */,
 				BA0DC0F91BE6063A00670C67 /* Frameworks */,
 				BA0DC0FA1BE6063A00670C67 /* Resources */,
@@ -507,7 +507,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA0DC1161BE6063A00670C67 /* Build configuration list for PBXNativeTarget "MoireCreatorUITests" */;
 			buildPhases = (
-				129E646613E6F89E0A2B21DA /* [CP] Check Pods Manifest.lock */,
+				443B25884232762EF3431F46 /* [CP] Check Pods Manifest.lock */,
 				BA0DC1031BE6063A00670C67 /* Sources */,
 				BA0DC1041BE6063A00670C67 /* Frameworks */,
 				BA0DC1051BE6063A00670C67 /* Resources */,
@@ -605,29 +605,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		129E646613E6F89E0A2B21DA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MoireCreatorUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1E0BE708958EFA3F76A4AA86 /* [CP] Check Pods Manifest.lock */ = {
+		3C1C6722C5DEA0DFFE5D7118 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -649,7 +627,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7E09E825728A29A3764F2B85 /* [CP] Check Pods Manifest.lock */ = {
+		443B25884232762EF3431F46 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoireCreatorUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5ECEB41A80E662089FDBB09E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -822,7 +822,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "20294a45-6d85-4d86-a3f0-ff3722e1672b";
@@ -870,7 +870,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "20294a45-6d85-4d86-a3f0-ff3722e1672b";
 				SDKROOT = iphoneos;
@@ -881,24 +881,25 @@
 		};
 		BA0DC1111BE6063A00670C67 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35E317C6EB143BD33D6AFA62 /* Pods-MoireCreator.debug.xcconfig */;
+			baseConfigurationReference = BBF1419B763ACECC0AA688D3 /* Pods-MoireCreator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.3.3.1;
+				CURRENT_PROJECT_VERSION = 1.3.4.0;
 				DEVELOPMENT_TEAM = YVYVV5ZB3C;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MoireCreator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = ys.moire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "ys wildcard Provisioning Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "ys wildcard";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -907,19 +908,20 @@
 		};
 		BA0DC1121BE6063A00670C67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B082AB6C39D6AC8212AEDD1 /* Pods-MoireCreator.release.xcconfig */;
+			baseConfigurationReference = 51C8486A9D0C3BAE18B3A110 /* Pods-MoireCreator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.3.3.1;
+				CURRENT_PROJECT_VERSION = 1.3.4.0;
 				DEVELOPMENT_TEAM = YVYVV5ZB3C;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MoireCreator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.3.3;
+				MARKETING_VERSION = 1.3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ys.moire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -932,7 +934,7 @@
 		};
 		BA0DC1141BE6063A00670C67 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 797B463470719AAA58A61CF4 /* Pods-MoireCreatorTests.debug.xcconfig */;
+			baseConfigurationReference = 2182E1B24A91D23659210C11 /* Pods-MoireCreatorTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -951,7 +953,7 @@
 		};
 		BA0DC1151BE6063A00670C67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4398CBB4247D0B0529DAA74E /* Pods-MoireCreatorTests.release.xcconfig */;
+			baseConfigurationReference = DF08557DC4D611460315B80B /* Pods-MoireCreatorTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -970,7 +972,7 @@
 		};
 		BA0DC1171BE6063A00670C67 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E14830C36CC61AD3021259D3 /* Pods-MoireCreatorUITests.debug.xcconfig */;
+			baseConfigurationReference = CA108F3A20ED65747D38C2EE /* Pods-MoireCreatorUITests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
@@ -989,7 +991,7 @@
 		};
 		BA0DC1181BE6063A00670C67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7ABF1078EB08D405D2FE1B77 /* Pods-MoireCreatorUITests.release.xcconfig */;
+			baseConfigurationReference = 2EE6CF4F6C2BE596A4881765 /* Pods-MoireCreatorUITests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
