@@ -3,10 +3,11 @@
 # Uncomment this line if you're using Swift
 # use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '7.0'
+platform :ios, '10.0'
 target 'MoireCreator' do
 pod 'Firebase/Core'
 pod 'Firebase/AdMob'
+pod 'Google-Mobile-Ads-SDK'
 end
 
 target 'MoireCreatorTests' do
